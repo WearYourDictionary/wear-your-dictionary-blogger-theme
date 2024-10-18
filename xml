@@ -104,14 +104,33 @@ a:hover {
     margin-bottom: 20px; /* Reduce this value to move the header closer to the body */
 }
 .header-container {
-    background: linear-gradient(to bottom, #0e0e0e, #131314);
-    padding: 15px; /* Reduce padding if needed */
+    position: relative; /* Ensure the header is positioned correctly */
+    background: 
+        url('https://i.imgur.com/7oZfSgP.jpeg') no-repeat center top; /* Non-tiling background image, positioned at the top */
+    background-size: auto 100%; /* Stretch image to fit the height of the container */
+    padding: 15px; /* Adjust padding as needed */
     display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 8px;
-    opacity: 0.95;
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    border-radius: 8px; /* Rounded corners */
+    z-index: 1; /* Keep it above other content */
+    height: 200px; /* Set a specific height for the header */
 }
+
+/* Add a darker overlay */
+.header-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.3); /* Black overlay with 30% opacity */
+    border-radius: 8px; /* Match the border-radius */
+    z-index: -1; /* Keep the overlay behind the content */
+}
+
+
 .logo-container {
     display: flex;
     align-items: center; /* Center the logo vertically */
@@ -138,39 +157,43 @@ a:hover {
     transform: translate(-50%, -50%) scale(1.05); /* Scale on hover, keeping the centering */
 }
 
+/* Navigation Menu */
 .nav-menu {
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
+/* Updated Navigation List */
 .nav-list {
     list-style: none;
     padding: 0;
     margin: 0;
     display: flex;
-    gap: 20px;
+    gap: 10px; /* Reduced gap for smaller spacing */
 }
-.nav-list li {
-    margin: 0;
-}
+
+/* Navigation Buttons */
 .nav-button {
-    background-color: #ECECEB;
-    color: #131314;
+    background-color: #080808; /* Black background */
+    color: #ffffff; /* White text */
     text-decoration: none;
-    padding: 12px 24px;
-    border-radius: 30px;
-    border: none;
+    padding: 8px 16px; /* Reduced padding */
+    border: none; /* Removed border */
     font-family: 'IM Fell English', serif;
-    font-size: 17px;
-    transition: background-color 0.3s, color 0.3s, text-shadow 0.3s, transform 0.3s ease;
+    font-size: 14px; /* Reduced font size */
+    border-radius: 4px; /* Slight rounding of corners */
+    transition: color 0.3s, background-color 0.3s, text-shadow 0.3s, transform 0.3s ease;
     cursor: pointer;
 }
+
 .nav-button:hover {
-    background-color: var(--color-link-hover);
-    color: #ECECEB;
-    text-shadow: 0 0 8px #ffffff;
-    transform: scale(1.05);
+    background-color: #000000; /* Darker black on hover */
+    color: #ffffff; /* White text stays on hover */
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.7), 0 0 16px rgba(255, 255, 255, 0.5), 0 0 24px rgba(255, 255, 255, 0.3); /* White glow effect */
+    transform: scale(1.05); /* Slight scale on hover */
 }
+
 /* Main Content Styles */
 .main-container {
     display: flex;
@@ -461,10 +484,44 @@ a:hover {
 /* Footer Styles */
 .footer-container {
     width: 100%;
-    background: linear-gradient(to top, #0e0e0f, #131314);
+    position: relative; /* Make it relative for the overlay */
+    background: 
+        url('https://i.imgur.com/V2Ogh1g.jpeg') no-repeat center center; /* Background image */
+    background-size: cover; /* Ensure the image covers the entire container */
     color: #ECECEB;
     padding: 30px 0;
     margin-top: 20px;
+    z-index: 1; /* Ensure it's above other content */
+}
+
+/* Dark overlay for footer */
+.footer-container {
+    width: 100%;
+    position: relative; /* Ensure it's positioned correctly */
+    background: 
+        url('https://i.imgur.com/V2Ogh1g.jpeg') no-repeat center center; /* Background image */
+    background-size: cover; /* Ensure the image covers the entire container */
+    color: #ECECEB;
+    padding: 30px 0;
+    margin-top: 20px;
+    border-radius: 12px 12px 0 0; /* Rounded top corners */
+    overflow: hidden; /* Prevent any overflow issues */
+    z-index: 1; /* Ensure it's above other content */
+}
+
+/* Dark overlay for footer */
+.footer-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.3); /* Black overlay with 30% opacity */
+    z-index: -1; /* Keep the overlay behind the content */
+    pointer-events: none; /* Prevent the overlay from interfering with content interaction */
+}
+
 #socket {
     width: 100%;
     max-width: var(--max-width-wrapper);
@@ -832,18 +889,17 @@ a:hover {
 <div class='header-container'>
   <header class='header'>
     <div class='logo-container'>
-      <a href='#' id='random-page-link'>
+      <a href='https://wearyourdictionary.blogspot.com/' id='home-page-link'>
         <img alt='WearYourDictionary Logo' class='header-logo' src='https://i.imgur.com/J4myCbU.png' srcset='https://i.imgur.com/J4myCbU.png 2x'>
         </img>
           </a>
     </div>
    <nav class='nav-menu'>
   <ul class='nav-list'>
-    <li><a class='nav-button' href='/p/youtube-channels.html'>YouTube Channels</a></li>
-    <li><a class='nav-button' href='/p/news.html'>News</a></li>
-   <li><a class='nav-button' href='/p/sports.html'>Sports</a></li>
-    <li><a class='nav-button' href='/p/youtube-playlists.html'>YouTube Playlists</a></li>
-     <li><a class='nav-button' href='https://harrisfamswatchistory.tumblr.com/'>Our Watch History</a></li>
+    <li><a class='nav-button' href='https://www.redbubble.com/people/wearyourwords/shop'>Redbubble</a></li>
+    <li><a class='nav-button' href='https://wear-your-dictionary.creator-spring.com/'>Teespring</a></li>
+   <li><a class='nav-button' href='https://www.teepublic.com/user/wearyourdictionary'>TeePublic</a></li>
+    <li><a class='nav-button' href='https://wear-your-dictionary.myspreadshop.com/'>Spreadshirt</a></li>
   </ul>
 </nav>
   </header>
@@ -2393,37 +2449,6 @@ document.addEventListener('DOMContentLoaded', function() {
       backToTopButton.style.display = 'none';
     }
   });
-});
-//]]>
-</script>
- <script type='text/javascript'>
-//<![CDATA[
-document.addEventListener('DOMContentLoaded', function() {
-  var cyclePageLink = document.getElementById('random-page-link');
-  var navButtons = document.querySelectorAll('.nav-button');
-  var currentIndex = 0;
-
-  cyclePageLink.addEventListener('click', function(e) {
-    e.preventDefault();
-    
-    // Get the next page in the cycle
-    var nextPage = navButtons[currentIndex].href;
-    
-    // Update the index for the next click
-    currentIndex = (currentIndex + 1) % navButtons.length;
-    
-    // Navigate to the next page
-    window.location.href = nextPage;
-  });
-
-  // Set the initial index based on the current page
-  var currentPath = window.location.pathname;
-  for (var i = 0; i < navButtons.length; i++) {
-    if (navButtons[i].pathname === currentPath) {
-      currentIndex = (i + 1) % navButtons.length;
-      break;
-    }
-  }
 });
 //]]>
 </script>
