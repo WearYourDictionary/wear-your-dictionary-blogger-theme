@@ -69,7 +69,6 @@ body {
     color: var(--color-text-main);
     line-height: 1.6em;
 }
-
 /* Pseudo-element for the background image */
 body::before {
     content: '';
@@ -84,8 +83,6 @@ body::before {
     opacity: 0.5; /* Adjust opacity (0 to 1) */
     z-index: -1; /* Send the pseudo-element behind the content */
 }
-
-
 /* Link Styles */
 a {
     color: var(--color-link);
@@ -116,7 +113,6 @@ a:hover {
     z-index: 1; /* Keep it above other content */
     height: 200px; /* Set a specific height for the header */
 }
-
 /* Add a darker overlay */
 .header-container::before {
     content: '';
@@ -125,12 +121,10 @@ a:hover {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.3); /* Black overlay with 30% opacity */
+    background-color: rgba(0, 0, 0, 0.5); /* Darker black overlay with 50% opacity */
     border-radius: 8px; /* Match the border-radius */
     z-index: -1; /* Keep the overlay behind the content */
 }
-
-
 .logo-container {
     display: flex;
     align-items: center; /* Center the logo vertically */
@@ -141,7 +135,6 @@ a:hover {
     margin: 0 auto 15px; /* Center the container and add margin */
     position: relative; /* Ensure relative positioning */
 }
-
 .header-logo {
     width: auto; /* Allow the width to adjust based on the aspect ratio */
     height: 100%; /* Keep the logo height to fill the container */
@@ -152,7 +145,6 @@ a:hover {
     left: 50%; /* Center horizontally */
     transform: translate(-50%, -50%); /* Adjust for centering */
 }
-
 .header-logo:hover {
     transform: translate(-50%, -50%) scale(1.05); /* Scale on hover, keeping the centering */
 }
@@ -163,7 +155,6 @@ a:hover {
     justify-content: center;
     align-items: center;
 }
-
 /* Updated Navigation List */
 .nav-list {
     list-style: none;
@@ -172,7 +163,6 @@ a:hover {
     display: flex;
     gap: 10px; /* Reduced gap for smaller spacing */
 }
-
 /* Navigation Buttons */
 .nav-button {
     background-color: #080808; /* Black background */
@@ -186,14 +176,12 @@ a:hover {
     transition: color 0.3s, background-color 0.3s, text-shadow 0.3s, transform 0.3s ease;
     cursor: pointer;
 }
-
 .nav-button:hover {
     background-color: #000000; /* Darker black on hover */
     color: #ffffff; /* White text stays on hover */
     text-shadow: 0 0 8px rgba(255, 255, 255, 0.7), 0 0 16px rgba(255, 255, 255, 0.5), 0 0 24px rgba(255, 255, 255, 0.3); /* White glow effect */
     transform: scale(1.05); /* Slight scale on hover */
 }
-
 /* Main Content Styles */
 .main-container {
     display: flex;
@@ -204,7 +192,6 @@ a:hover {
     padding-bottom: 100px; /* Increased from 20px to 100px */
     background-color: #131314; /* Apply the dark background color here */
 }
-
 .content-wrapper {
     display: flex;
     flex-direction: row;
@@ -215,7 +202,6 @@ a:hover {
     box-sizing: border-box;
     position: relative;
 }
-
 .main-content {
     flex-grow: 1;
     width: calc(100% - var(--sidebar-width) + 50px); /* Increased width by 50px */
@@ -232,14 +218,12 @@ a:hover {
     transition: box-shadow 0.3s ease-in-out;
     box-sizing: border-box;
 }
-
 /* Glow effect on hover */
 .main-content:hover {
     box-shadow: 
         0 0 10px 2px rgba(236, 236, 235, 0.8), /* Soft outer glow */
         0 0 20px 4px rgba(236, 236, 235, 0.5); /* Stronger outer glow */
 }
-
 /* Sidebar Styles */
 .sidebar {
     position: sticky;
@@ -259,9 +243,18 @@ a:hover {
     flex-shrink: 0;
     margin-left: calc(-1 * var(--sidebar-width) - var(--padding-general) + 110px);
     margin-right: var(--padding-general);
+    
+    /* Add border image properties */
+    border-width: 20px; /* Adjust thickness as needed */
+    border-style: solid; /* Required for border-image to work */
+    border-image-source: url('https://i.imgur.com/WWCGIdJ.png'); /* Your border image */
+    border-image-slice: 40%; /* Adjust slice value to fit your image design */
+    border-image-repeat: stretch; /* Adjust how the image is repeated */
+
     transition: box-shadow 0.3s ease, font-size 0.3s ease; /* Added font-size transition */
     box-shadow: 0 0 0 rgba(236, 236, 235, 0); /* Initial state with no glow */
 }
+
 .sidebar h2 {
     font-size: 26px;
     font-weight: bold;
@@ -270,6 +263,7 @@ a:hover {
     text-align: center;
     transition: font-size 0.3s ease; /* Smooth font-size transition */
 }
+
 .sidebar a {
     font-size: 17px; /* Slight increase from default 16px */
     color: #ececeb;
@@ -277,14 +271,17 @@ a:hover {
     font-weight: 500;
     transition: color 0.3s, text-shadow 0.3s, font-size 0.3s ease; /* Smooth font-size transition */
 }
+
 .sidebar:hover {
     box-shadow: 0 0 15px rgba(236, 236, 235, 0.5); /* Glow effect on hover */
 }
+
 .sidebar a:hover {
     color: #ffffff;
     text-shadow: 0 0 5px #ececeb;
     font-size: 18px; /* Slight increase on hover */
 }
+
 /* Random Post Styles */
 .random-post {
     background-color: #131314; /* Dark background color */
@@ -495,21 +492,6 @@ a:hover {
 }
 
 /* Dark overlay for footer */
-.footer-container {
-    width: 100%;
-    position: relative; /* Ensure it's positioned correctly */
-    background: 
-        url('https://i.imgur.com/V2Ogh1g.jpeg') no-repeat center center; /* Background image */
-    background-size: cover; /* Ensure the image covers the entire container */
-    color: #ECECEB;
-    padding: 30px 0;
-    margin-top: 20px;
-    border-radius: 12px 12px 0 0; /* Rounded top corners */
-    overflow: hidden; /* Prevent any overflow issues */
-    z-index: 1; /* Ensure it's above other content */
-}
-
-/* Dark overlay for footer */
 .footer-container::before {
     content: '';
     position: absolute;
@@ -528,68 +510,96 @@ a:hover {
     margin: 0 auto;
     padding: 0 var(--padding-general);
 }
+
 .footer-content {
     display: flex;
     justify-content: flex-end;
     gap: 40px;
 }
+
 .footer-column {
     flex: 0 1 auto;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
 }
+
 .footer-column h3 {
     margin-bottom: 15px;
     font-size: 1.2em;
-    color: #ffffff;
+    color: #080808; /* Change header color to #080808 */
+    text-shadow: 0 0 5px #ececeb, 0 0 10px #ececeb; /* Glow effect */
 }
+
+/* Footer Links */
 .footer-links {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
+
 .footer-links a {
-    color: #ECECEB;
+    color: #080808; /* Change link color to #080808 */
     text-decoration: none;
     font-size: 0.9em;
     transition: color 0.3s ease;
+    padding: 10px 15px; /* Add padding for button appearance */
+    background-color: #ECECEB; /* Set background to #ECECEB */
+    border-radius: 5px; /* Slightly rounded corners */
+    /* Removed border: border: 1px solid #080808; */
 }
+
 .footer-links a:hover {
-    color: #ffffff;
+    color: #ffffff; /* Change text color on hover */
+    background-color: #080808; /* Dark background on hover */
     text-shadow: 0 0 5px #ececeb;
 }
+
 .copyright {
     font-size: 0.9em;
     text-align: right;
     margin-bottom: 15px;
+    color: #080808; /* Change copyright text color to #080808 */
+    text-shadow: 0 0 5px #ececeb, 0 0 10px #ececeb; /* Glow effect */
 }
+
 .copyright a {
-    color: #ECECEB;
+    color: #080808; /* Change copyright link color to #080808 */
     text-decoration: none;
     transition: color 0.3s ease;
+    padding: 10px 15px; /* Add padding for button appearance */
+    background-color: #ECECEB; /* Set background to #ECECEB */
+    border-radius: 5px; /* Slightly rounded corners */
+    /* Removed border: border: 1px solid #080808; */
 }
+
 .copyright a:hover {
-    color: #ffffff;
+    color: #ffffff; /* Change text color on hover */
+    background-color: #080808; /* Dark background on hover */
     text-shadow: 0 0 5px #ececeb;
 }
+
+/* Back to Top Button */
 #back-to-top {
-    background-color: #ECECEB;
+    background-color: #ECECEB; /* Set background to #ECECEB */
     color: #131314;
     text-decoration: none;
-    padding: 20px 40px;
-    border-radius: 60px;
-    border: none;
+    padding: 10px 20px; /* Normal button size */
+    border-radius: 5px; /* Slightly rounded corners */
+    border: none; /* Remove border */
     font-family: 'IM Fell English', serif;
-    font-size: 28px;
+    font-size: 16px; /* Normal font size */
     transition: background-color 0.3s, color 0.3s, text-shadow 0.3s;
     cursor: pointer;
 }
+
 #back-to-top:hover {
     background-color: var(--color-link-hover);
     color: #ECECEB;
     text-shadow: 0 0 16px #ffffff;
 }
+
+
 /* Responsive Styling */
 @media (max-width: 1810px) {
     .content-wrapper {
@@ -897,15 +907,224 @@ a:hover {
    <nav class='nav-menu'>
   <ul class='nav-list'>
     <li><a class='nav-button' href='https://www.redbubble.com/people/wearyourwords/shop'>Redbubble</a></li>
-    <li><a class='nav-button' href='https://wear-your-dictionary.creator-spring.com/'>Teespring</a></li>
-   <li><a class='nav-button' href='https://www.teepublic.com/user/wearyourdictionary'>TeePublic</a></li>
-    <li><a class='nav-button' href='https://wear-your-dictionary.myspreadshop.com/'>Spreadshirt</a></li>
   </ul>
 </nav>
   </header>
 </div>
 
-
+  <div class='content-wrapper'>
+          <div class='sidebar'>
+                <b:section id='post-sidebar-main'>
+                  <b:widget id='BlogArchive1' locked='false' title='Blog Archive' type='BlogArchive' version='2' visible='true'>
+                    <b:widget-settings>
+                      <b:widget-setting name='showStyle'>HIERARCHY</b:widget-setting>
+                      <b:widget-setting name='yearPattern'>yyyy</b:widget-setting>
+                      <b:widget-setting name='showWeekEnd'>true</b:widget-setting>
+                      <b:widget-setting name='monthPattern'>MMMM</b:widget-setting>
+                      <b:widget-setting name='dayPattern'>MMM dd</b:widget-setting>
+                      <b:widget-setting name='weekPattern'>MM/dd</b:widget-setting>
+                      <b:widget-setting name='chronological'>false</b:widget-setting>
+                      <b:widget-setting name='showPosts'>true</b:widget-setting>
+                      <b:widget-setting name='frequency'>MONTHLY</b:widget-setting>
+                    </b:widget-settings>
+                    <b:includable id='main'>
+  <b:if cond='data:title != &quot;&quot;'>
+    <h2><data:title/></h2>
+  </b:if>
+  <div class='widget-content'>
+  <div id='ArchiveList'>
+  <div expr:id='data:widget.instanceId + &quot;_ArchiveList&quot;'>
+    <b:include cond='data:style == &quot;HIERARCHY&quot;' data='data' name='interval'/>
+    <b:include cond='data:style == &quot;FLAT&quot;' data='data' name='flat'/>
+    <b:include cond='data:style == &quot;MENU&quot;' data='data' name='menu'/>
+  </div>
+  </div>
+  <b:include name='quickedit'/>
+  </div>
+</b:includable>
+                    <b:includable id='content'>
+  <div class='widget-content'>
+    <div id='ArchiveList'>
+      <div expr:id='data:widget.instanceId + &quot;_ArchiveList&quot;'>
+        <b:include cond='data:this.style == &quot;HIERARCHY&quot;' name='hierarchy'/>
+        <b:include cond='data:this.style in {&quot;FLAT&quot;, &quot;MENU&quot;}' name='flat'/>
+      </div>
+    </div>
+  </div>
+</b:includable>
+                    <b:includable id='flat' var='data'>
+  <ul class='flat'>
+    <b:loop values='data:data' var='i'>
+      <li class='archivedate'>
+        <a expr:href='data:i.url'><data:i.name/></a> (<data:i.post-count/>)
+      </li>
+    </b:loop>
+  </ul>
+</b:includable>
+                    <b:includable id='hierarchy'>
+  <b:include data='data' name='interval'/>
+</b:includable>
+                    <b:includable id='interval' var='intervalData'>
+  <b:loop values='data:intervalData' var='interval'>
+    <ul class='hierarchy'>
+      <li expr:class='&quot;archivedate &quot; + data:interval.expclass'>
+        <b:include cond='data:interval.toggleId' data='interval' name='toggle'/>
+        <a class='post-count-link' expr:href='data:interval.url'>
+          <data:interval.name/>
+        </a>
+        <span class='post-count' dir='ltr'>(<data:interval.post-count/>)</span>
+        <b:include cond='data:interval.data' data='interval.data' name='interval'/>
+        <b:include cond='data:interval.posts' data='interval.posts' name='posts'/>
+      </li>
+    </ul>
+  </b:loop>
+</b:includable>
+                    <b:includable id='menu' var='data'>
+  <select expr:id='data:widget.instanceId + &quot;_ArchiveMenu&quot;'>
+    <option value=''><data:title/></option>
+    <b:loop values='data:data' var='i'>
+      <option expr:value='data:i.url'><data:i.name/> (<data:i.post-count/>)</option>
+    </b:loop>
+  </select>
+</b:includable>
+                    <b:includable id='posts' var='posts'>
+  <ul class='posts'>
+    <b:loop values='data:posts' var='post'>
+      <li><a expr:href='data:post.url'><data:post.title/></a></li>
+    </b:loop>
+  </ul>
+</b:includable>
+                    <b:includable id='toggle' var='interval'>
+  <a class='toggle' href='javascript:void(0)'>
+    <span expr:class='&quot;zippy&quot; + (data:interval.expclass == &quot;expanded&quot; ? &quot; toggle-open&quot; : &quot;&quot;)'>
+      <b:if cond='data:interval.expclass == &quot;expanded&quot;'>
+        &#9660;&#160;
+      <b:elseif cond='data:blog.languageDirection == &quot;rtl&quot;'/>
+        &#9668;&#160;
+      <b:else/>
+        &#9658;&#160;
+      </b:if>
+    </span>
+  </a>
+</b:includable>
+                  </b:widget>
+                  <b:widget id='Label1' locked='false' title='Labels' type='Label' version='2' visible='true'>
+                    <b:widget-settings>
+                      <b:widget-setting name='sorting'>FREQUENCY</b:widget-setting>
+                      <b:widget-setting name='display'>LIST</b:widget-setting>
+                      <b:widget-setting name='selectedLabelsList'/>
+                      <b:widget-setting name='showType'>ALL</b:widget-setting>
+                      <b:widget-setting name='showFreqNumbers'>true</b:widget-setting>
+                    </b:widget-settings>
+                    <b:includable id='main'>
+  <b:if cond='data:title != &quot;&quot;'>
+    <h2><data:title/></h2>
+  </b:if>
+  <div expr:class='&quot;widget-content &quot; + data:display + &quot;-label-widget-content&quot;'>
+    <b:if cond='data:display == &quot;list&quot;'>
+      <ul>
+        <b:loop values='data:labels' var='label'>
+          <li>
+            <b:if cond='data:blog.url == data:label.url'>
+              <span expr:dir='data:blog.languageDirection'><data:label.name/></span>
+            <b:else/>
+              <a expr:dir='data:blog.languageDirection' expr:href='data:label.url'><data:label.name/></a>
+            </b:if>
+            <b:if cond='data:showFreqNumbers'>
+              <span dir='ltr'>(<data:label.count/>)</span>
+            </b:if>
+          </li>
+        </b:loop>
+      </ul>
+    <b:else/>
+      <b:loop values='data:labels' var='label'>
+        <span expr:class='&quot;label-size label-size-&quot; + data:label.cssSize'>
+          <b:if cond='data:blog.url == data:label.url'>
+            <span expr:dir='data:blog.languageDirection'><data:label.name/></span>
+          <b:else/>
+            <a expr:dir='data:blog.languageDirection' expr:href='data:label.url'><data:label.name/></a>
+          </b:if>
+          <b:if cond='data:showFreqNumbers'>
+            <span class='label-count' dir='ltr'>(<data:label.count/>)</span>
+          </b:if>
+        </span>
+      </b:loop>
+    </b:if>
+    <b:include name='quickedit'/>
+  </div>
+</b:includable>
+                    <b:includable id='cloud'>
+  <b:loop values='data:labels' var='label'>
+    <span class='label-size'>
+      <b:class expr:name='&quot;label-size-&quot; + data:label.cssSize'/>
+      <a class='label-name' expr:href='data:label.url'>
+        <data:label.name/>
+        <b:if cond='data:this.showFreqNumbers'>
+          <span class='label-count'><data:label.count/></span>
+        </b:if>
+      </a>
+    </span>
+  </b:loop>
+</b:includable>
+                    <b:includable id='content'>
+  <div class='widget-content'>
+    <b:class expr:name='data:this.display + &quot;-label-widget-content&quot;'/>
+    <b:include cond='data:this.display == &quot;list&quot;' name='list'/>
+    <b:include cond='data:this.display == &quot;cloud&quot;' name='cloud'/>
+  </div>
+</b:includable>
+                    <b:includable id='list'>
+  <ul>
+    <b:loop values='data:labels' var='label'>
+      <li>
+        <a class='label-name' expr:href='data:label.url'>
+          <data:label.name/>
+          <b:if cond='data:this.showFreqNumbers'>
+            <span class='label-count'><data:label.count/></span>
+          </b:if>
+        </a>
+      </li>
+    </b:loop>
+  </ul>
+</b:includable>
+                  </b:widget>
+                  <b:widget id='Translate1' locked='false' title='Translate' type='Translate' version='2' visible='true'>
+                    <b:widget-settings>
+                      <b:widget-setting name='displayMode'>VERTICAL</b:widget-setting>
+                    </b:widget-settings>
+                    <b:includable id='main'>
+  <b:if cond='data:title != &quot;&quot;'>
+    <h2 class='title'><data:title/></h2>
+  </b:if>
+  <div id='google_translate_element'/>
+  <script>
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: &#39;<data:pageLanguage/>&#39;,
+        autoDisplay: &#39;true&#39;,
+        layout: google.translate.TranslateElement.InlineLayout.<data:layout/>
+      }, &#39;google_translate_element&#39;);
+    }
+  </script>
+  <script src='//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit'/>
+  <b:include name='quickedit'/>
+</b:includable>
+                    <b:includable id='content'>
+  <div id='google_translate_element'/>
+  <script>
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: &#39;<b:eval expr='data:blog.locale.language ?: &quot;auto&quot;'/>&#39;,
+        autoDisplay: &#39;true&#39;,
+        layout: google.translate.TranslateElement.InlineLayout.<data:layout/>
+      }, &#39;google_translate_element&#39;);
+    }
+  </script>
+  <script src='//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit'/>
+</b:includable>
+                  </b:widget>
+                </b:section>
+      </div>
   <div class='content-wrapper'>
     <div class='main-content'>
  <b:if cond='data:blog.pageType == &quot;index&quot;'>
@@ -2327,7 +2546,8 @@ if (data:blog.pageType == 'index') {
       </b:if>
    </div>
        </div>
-     
+     </div>
+
 
 <footer class='footer-container'>
   <div id='socket'>
@@ -2336,48 +2556,37 @@ if (data:blog.pageType == 'index') {
          <div class='footer-column'>
           <h3>Socials</h3>
           <div class='footer-links'>
-             <a href='https://www.youtube.com/@harrisfamilyregister' rel='noopener noreferrer' target='_blank'>YouTube</a>
-            <a href='https://x.com/FamilyRegister' rel='noopener noreferrer' target='_blank'>Twitter</a>
-            <a href='https://www.reddit.com/user/HarrisFamilyRegister/' rel='noopener noreferrer' target='_blank'>Reddit</a>
-            <a href='https://www.tumblr.com/harrisfamilyregister' rel='noopener noreferrer' target='_blank'>Tumblr</a>
+             <a href='https://www.youtube.com/@wearyourdictionary' rel='noopener noreferrer' target='_blank'>YouTube</a>
+            <a href='https://x.com/DictionaryWear' rel='noopener noreferrer' target='_blank'>X</a>
+            <a href='https://www.reddit.com/user/DictionaryWear/' rel='noopener noreferrer' target='_blank'>Reddit</a>
+            <a href='https://www.tumblr.com/wearyourdictionary' rel='noopener noreferrer' target='_blank'>Tumblr</a>
           </div>
         </div>
         <div class='footer-column'>
           <h3>Quick Links</h3>
           <div class='footer-links'>
-             <a href='https://harrisfamilyregist.wixsite.com/harrisfamilyregister' rel='noopener noreferrer' target='_blank'>Wix Site</a>
-            <a href='https://sites.google.com/view/harrisfamilyrecommends/comedy' rel='noopener noreferrer' target='_blank'>Google Site</a>
-            <a href='https://forms.gle/hwUJJP69eRqcciRw6' rel='noopener noreferrer' target='_blank'>Suggestion Box</a>
-            <a href='https://about.me/harrisfamilyregister' rel='noopener noreferrer' target='_blank'>About Us</a>
+            <a href='https://forms.gle/wtgmaPDdSn6V1gS46' rel='noopener noreferrer' target='_blank'>Suggestion Box</a>
+            <a href='https://forms.gle/MHjtYaoRqGXk6DkY7' rel='noopener noreferrer' target='_blank'>Request to Post</a>
+            <a href='https://about.me/wearyourdictionary' rel='noopener noreferrer' target='_blank'>About Us</a>
+             <a href='https://wearyourdictionary.wixsite.com/' rel='noopener noreferrer' target='_blank'>Wix Site</a>
+            <a href='https://sites.google.com/view/wearyourdictionary/where-are-we' rel='noopener noreferrer' target='_blank'>Google Site</a>
           </div>
         </div>
         
         <div class='footer-column'>
-          <h3>Wiki Resources</h3>
+          <h3>Print on Demand</h3>
           <div class='footer-links'>
-            <a href='https://commons.wikimedia.org' rel='noopener noreferrer' target='_blank'>Wikimedia Commons</a>
-            <a href='https://www.wikiversity.org' rel='noopener noreferrer' target='_blank'>Wikiversity</a>
-            <a href='https://www.wiktionary.org' rel='noopener noreferrer' target='_blank'>Wiktionary</a>
-            <a href='https://www.wikibooks.org' rel='noopener noreferrer' target='_blank'>WikiBooks</a>
-            <a href='https://www.wikipedia.org' rel='noopener noreferrer' target='_blank'>Wikipedia</a>
-          </div>
-        </div>
-        
-        <div class='footer-column'>
-          <h3>AI Tools</h3>
-          <div class='footer-links'>
-            <a href='https://chatgpt.com/' rel='noopener noreferrer' target='_blank'>ChatGPT</a>
-            <a href='https://bard.google.com/' rel='noopener noreferrer' target='_blank'>Google Bard</a>
-            <a href='https://openai.com/dall-e-2' rel='noopener noreferrer' target='_blank'>DALL-E</a>
-            <a href='https://www.midjourney.com/' rel='noopener noreferrer' target='_blank'>Midjourney</a>
+            <a href='https://wear-your-dictionary.creator-spring.com/' rel='noopener noreferrer' target='_blank'>Teespring</a>
+            <a href='https://www.teepublic.com/user/wearyourdictionary' rel='noopener noreferrer' target='_blank'>Teepublic</a>
+            <a href='https://wear-your-dictionary.myspreadshop.com/' rel='noopener noreferrer' target='_blank'>Spreadshirt</a>
           </div>
         </div>   
         <div class='footer-column'>
   <div class='copyright'>
-    &#169; <script>document.write(new Date().getFullYear())</script> Harris Family Register 
+    &#169; <script>document.write(new Date().getFullYear())</script> WearYourDictionary 
     Licensed under the <a href='https://opensource.org/licenses/MIT' rel='noopener noreferrer' target='_blank'>MIT License</a>.
     <br>
-    <a href='https://github.com/HarrisFamilyRegister/harris-family-register-blogger-theme' rel='noopener noreferrer' target='_blank'>GitHub Repository</a>
+    <a href='https://github.com/WearYourDictionary/wear-your-dictionary-blogger-theme' rel='noopener noreferrer' target='_blank'>GitHub Repository</a>
   <div class='back-to-top'>
     <button id='back-to-top'>Back to Top</button>
   </div>
