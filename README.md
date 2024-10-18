@@ -2,8 +2,7 @@
 
 **WearYourDictionary Blogger Theme** is a customizable, modern, and responsive Blogger theme...
 
-![Theme Preview](Images WearYourDictionary Blogger Theme/Screenshot 2024-10-18 194634.png)
-
+![Theme Preview](Images%20WearYourDictionary%20Blogger%20Theme/Screenshot%202024-10-18%20194634.png)
 
 ## Features
 - **Fully Responsive**: Adjusts smoothly to different screen sizes (desktops, tablets, smartphones).
