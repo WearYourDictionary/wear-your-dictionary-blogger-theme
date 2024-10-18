@@ -5,7 +5,7 @@
 ![Theme Preview](Images%20WearYourDictionary%20Blogger%20Theme/Screenshot%202024-10-18%20194634.png)
 
 ## Features
-- **Fully Responsive**: Adjusts smoothly to different screen sizes (desktops, tablets, smartphones).
+- **Fully Responsive**: Adjusts smoothly to different screen sizes (desktops, tablets, smartphones) -- not yet, lol.
 - **Customizable**: Easily change colors, fonts, and layouts via Blogger’s Theme Designer.
 - **SEO Friendly**: Built with best practices for search engine optimization.
 - **Minimal Design**: Clean and distraction-free interface focused on content.
