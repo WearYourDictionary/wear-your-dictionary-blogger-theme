@@ -5,7 +5,8 @@
 <link href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet'/>
 
   <link href='https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200' rel='stylesheet'/>
-<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js'/>
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'/>
+
 
   <b:if cond='!data:view.isLayoutMode'>
     <link href='https://fonts.googleapis.com/css2?family=IM+Fell+English&amp;display=swap' rel='stylesheet'/>
@@ -114,6 +115,7 @@ a:hover {
         url('https://i.imgur.com/7oZfSgP.jpeg') no-repeat center top; /* Non-tiling background image, positioned at the top */
     background-size: auto 100%; /* Stretch image to fit the height of the container */
     padding: 15px; /* Adjust padding as needed */
+	margin-bottom: 20px;
     display: flex;
     justify-content: center; /* Center content horizontally */
     align-items: center; /* Center content vertically */
@@ -160,7 +162,6 @@ a:hover {
 .header-logo:hover {
     transform: translate(-50%, -50%) scale(1.05); /* Scale on hover, keeping the centering */
 }
-
 
 /* Navigation Menu */
 .nav-menu {
@@ -475,6 +476,25 @@ a:hover {
         0 0 10px 2px rgba(236, 236, 235, 0.8), /* Soft outer glow */
         0 0 20px 4px rgba(236, 236, 235, 0.5); /* Stronger outer glow */
 }
+.main-content h2 {
+    background: repeating-linear-gradient(135deg, #131314, #2a2a2b 40%, #131314 80%);
+    margin-top: 20px;
+    opacity: 0.9;
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+    color: #ececeb;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.main-content h2:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+}
+
 /* Sidebar Styles */
 .sidebar {
     position: sticky;
@@ -582,6 +602,88 @@ a:hover {
     color: var(--color-link-hover); /* Change color on hover */
     text-decoration: underline; /* Underline on hover for links */
 }
+.popular-posts-container {
+    width: 100%; /* Ensure it uses the available space or set a specific width */
+    max-width: 1180px; /* Limit the max width */
+    margin: 0px 0px 0px -20px; /* Shift it to the left */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+/* Popular Posts Grid */
+.popular-posts-grid {
+    display: flex; /* Use flexbox for layout */
+    flex-wrap: wrap; /* Allow items to wrap */
+    gap: 20px; /* Space between items */
+    box-sizing: border-box; /* Include padding and border in width/height */
+}
+
+/* Individual Post Styling */
+.popular-posts-grid li {
+    flex: 0 0 50%; /* 50% width for 2 columns */
+    box-sizing: border-box;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    height: 150px;
+    margin: 0;
+    display: flex;
+}
+/* Image Styling */
+.item-thumbnail {
+    flex: 0 0 50%; /* Takes half of the container */
+    height: 100%; /* Full height of the post */
+}
+.item-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cover the area */
+    border-radius: 0;
+}
+
+/* Content Area */
+.item-content {
+    flex: 0 0 50%; /* Takes the other half */
+    padding: 10px; /* Padding for content */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centers the content vertically */
+}
+.item-title {
+    font-size: 1.2rem;
+    color: #ececeb;
+    text-align: left;
+    margin-bottom: 10px;
+}
+.item-snippet {
+    font-size: 1rem;
+    color: #ececeb;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Truncate overflow text */
+}
+
+/* Popular Posts Heading */
+.popular-posts-container h2 {
+    background: repeating-linear-gradient(135deg, #131314, #2a2a2b 40%, #131314 80%);
+    margin-top: 20px;
+    opacity: 0.9;
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+    color: #ececeb;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+.popular-posts-container h2:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+}
+
 /* Blog Post Styles */
 .post-outer-container {
     background: var(--color-background);
@@ -646,6 +748,66 @@ a:hover {
 .post-labels a:hover,
 .post-location a:hover {
     text-decoration: underline;
+}
+.post-title.entry-title {
+    background: repeating-linear-gradient(135deg, #131314, #2a2a2b 40%, #131314 80%);
+    margin-top: 20px;
+    opacity: 0.9;
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+    color: #ececeb;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.post-title.entry-title:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+}
+/* Blog Pager Container */
+.blog-pager {
+    display: flex;
+    justify-content: space-between; /* Ensures Previous, Home, and Next Post links are spaced apart */
+    align-items: center; /* Vertically centers the text */
+    padding: 20px 0;
+    max-width: 100%;
+    margin: 0 auto; /* Center container within its parent */
+}
+
+/* Previous and Next Post Links */
+.blog-pager-older-link, .blog-pager-newer-link {
+    font-size: 1.5rem; /* Increase the font size */
+    font-weight: bold;
+    text-decoration: none;
+    color: #ececeb;
+    padding: 10px 20px;
+    border-radius: 8px;
+    background-color: #131314; /* Background color */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.blog-pager-older-link:hover, .blog-pager-newer-link:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+}
+/* Home Link */
+.home-link {
+    font-size: 1.8rem; /* Larger font for Home link */
+    font-weight: bold;
+    text-decoration: none;
+    color: #ececeb;
+    padding: 10px 30px;
+    border-radius: 8px;
+    background-color: #1c1c1e;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.home-link:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
 }
 /* Comment Styles */
 .comments {
@@ -736,6 +898,19 @@ a:hover {
     padding-bottom: 15px;
     border-bottom: 1px solid #444444;
 }
+/* Add "Comments" before the comment section */
+.comments::before {
+    content: "Comments";
+    display: block;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ececeb; /* Adjust color to your design */
+    margin-bottom: 10px;
+    text-align: left; /* Adjust text alignment if needed */
+}
+.comments h4 {
+    display: none;
+}
 /* Titles For Pages */
 .page-title {
   display: none;
@@ -744,6 +919,7 @@ a:hover {
 .footer-container {
     width: 100%;
     position: relative; /* Make it relative for the overlay */
+	margin-top: 10px;
     background: 
         url('https://i.imgur.com/V2Ogh1g.jpeg') no-repeat center center; /* Background image */
     background-size: cover; /* Ensure the image covers the entire container */
@@ -752,7 +928,6 @@ a:hover {
     margin-top: 20px;
     z-index: 1; /* Ensure it's above other content */
 }
-
 /* Dark overlay for footer */
 .footer-container::before {
     content: '';
@@ -761,31 +936,27 @@ a:hover {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.3); /* Black overlay with 30% opacity */
+    background-color: rgba(0, 0, 0, 0.5); /* Black overlay with 80% opacity */
     z-index: -1; /* Keep the overlay behind the content */
     pointer-events: none; /* Prevent the overlay from interfering with content interaction */
 }
-
 #socket {
     width: 100%;
     max-width: var(--max-width-wrapper);
     margin: 0 auto;
     padding: 0 var(--padding-general);
 }
-
 .footer-content {
     display: flex;
     justify-content: flex-end;
     gap: 40px;
 }
-
 .footer-column {
     flex: 0 1 auto;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
 }
-
 .footer-column h3 {
     margin-bottom: 15px;
     font-size: 1.2em;
@@ -809,13 +980,11 @@ a:hover {
     border-radius: 5px; /* Slightly rounded corners */
     /* Removed border: border: 1px solid #080808; */
 }
-
 .footer-links a:hover {
     color: #ffffff; /* Change text color on hover */
     background-color: #080808; /* Dark background on hover */
     text-shadow: 0 0 5px #ececeb;
 }
-
 .copyright {
     font-size: 0.9em;
     text-align: right;
@@ -823,7 +992,6 @@ a:hover {
     color: #080808; /* Change copyright text color to #080808 */
     text-shadow: 0 0 5px #ececeb, 0 0 10px #ececeb; /* Glow effect */
 }
-
 .copyright a {
     color: #080808; /* Change copyright link color to #080808 */
     text-decoration: none;
@@ -856,6 +1024,103 @@ a:hover {
     color: #ECECEB;
     text-shadow: 0 0 16px #ffffff;
 }
+/* Responsive Styling */
+/* Hide navigation menu when viewport width is 1457px or smaller */
+@media (max-width: 1457px) {
+    .nav-menu {
+        display: none; /* Hide the navigation menu */
+    }
+}
+@media (max-width: 1360px) {
+    .bell-container {
+        display: none; /* Hides the entire bell container */
+    }
+}
+@media (max-width: 621px) {
+  .glowing-title {
+    font-size: 2rem; /* Reduce the font size to half */
+  }
+}
+@media (max-width: 639px) {
+  .search-container {
+    width: 75%; /* Reduce the width to 75% of its original size */
+  }
+
+  .search-bar {
+    width: 100%; /* Make the search bar responsive to the container */
+  }
+}
+@media (max-width: 1437px) {
+  .logo-container {
+    display: none; /* Hide the logo container */
+  }
+}
+/* Default layout for screens above 1709px */
+.sidebar {
+  margin-left: initial; /* Your default layout for sidebar */
+}
+
+.main-content {
+  margin-left: initial; /* Your default layout for main content */
+}
+/* For screens 1709px and below */
+@media (max-width: 1709px) {
+  .sidebar {
+    margin-left: 20px; /* Adjust this value to move the sidebar to the right */
+  }
+
+  .main-content {
+    margin-left: 40px; /* Adjust this value to move the main content to the right */
+  }
+}
+/* For screens 1156px and below */
+@media (max-width: 1156px) {
+  /* Hide the sidebar but keep an icon visible */
+  .sidebar {
+    display: none; /* Initially hide the sidebar */
+  }
+
+  /* Show the icon to toggle sidebar */
+  .sidebar-icon {
+    display: block; /* Show the icon */
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1001; /* Ensure it's on top */
+    font-size: 24px;
+    color: #ececeb;
+    cursor: pointer;
+    background-color: #131314;
+    padding: 10px;
+    border-radius: 50%;
+  }
+
+  /* When sidebar is open, display it on top of everything */
+  .sidebar.open {
+    display: block; /* Show the sidebar */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background-color: #1c1c1e;
+    z-index: 1000; /* Above the content */
+    overflow-y: auto; /* Allow scrolling for the sidebar */
+  }
+
+  /* Adjust main content to full width when sidebar is closed */
+  .main-content {
+    width: 100%; /* Make the main content take the full width */
+    margin: 0; /* Remove the margin */
+  }
+}
+/* Media Query for screens 657px and below */
+@media (max-width: 657px) {
+    .blog-pager-older-link, .blog-pager-newer-link, .home-link {
+        font-size: 0.75rem; /* Half the font size */
+        padding: 5px 10px; /* Half the padding */
+    }
+}
 ]]></b:skin>
 </head>
 
@@ -874,9 +1139,9 @@ a:hover {
   </ul>
 </nav>
 
-  <div class='title-container'>
-    <a class='glowing-title' href='#'>Wear Your Dictionary</a>
-  </div>
+<div class='title-container'>
+    <a class='glowing-title' href='https://wearyourdictionary.blogspot.com/'>Wear Your Dictionary</a>
+</div>
   <div class='search-container'>
     <div class='search-bar'>
       <form action='/search' autocomplete='off' method='get' role='search'>
@@ -1195,6 +1460,8 @@ a:hover {
 </div>
 
   <div class='content-wrapper'>
+    <!-- Sidebar Toggle Icon -->
+<div class='sidebar-icon'>&#9776;</div>
           <div class='sidebar'>
                 <b:section id='post-sidebar-main'>
                   <b:widget id='BlogArchive1' locked='false' title='Blog Archive' type='BlogArchive' version='2' visible='true'>
@@ -1407,14 +1674,303 @@ a:hover {
                   </b:widget>
                 </b:section>
       </div>
-  <div class='content-wrapper'>
+<div class='content-wrapper'>
     <div class='main-content'>
- <b:if cond='data:blog.pageType == &quot;index&quot;'>
-        <!-- Random post container for the homepage -->
-        <div class='random-post'>
-          <!-- Random post content will be injected here by JavaScript -->
-        </div>
+        <b:if cond='data:blog.pageType == &quot;index&quot;'>
+            <!-- Random post container for the homepage -->
+            <div class='random-post'>
+              <!-- Random post content will be injected here by JavaScript -->
+            </div>
+        </b:if>
 
+      <b:if cond='data:view.isHomepage or data:view.isArchive'>
+  <b:section class='popular-posts-container' id='PopularPostsSection'>
+    <b:widget id='PopularPosts1' locked='true' title='Popular Posts' type='PopularPosts' version='1'>
+      <b:widget-settings>
+        <b:widget-setting name='numItemsToShow'>4</b:widget-setting>
+        <b:widget-setting name='showThumbnails'>true</b:widget-setting>
+        <b:widget-setting name='showSnippets'>true</b:widget-setting>
+        <b:widget-setting name='timeRange'>LAST_YEAR</b:widget-setting>
+      </b:widget-settings>
+      <b:includable id='main'>
+        <b:if cond='data:title != &quot;&quot;'>
+          <h2><data:title/></h2>
+        </b:if>
+        <section class='widget-content popular-posts-grid'>
+          <ul class='popular-posts-list'>
+            <b:loop values='data:posts' var='post'>
+              <li class='grid-item'>
+                <div class='item-thumbnail'>
+                  <a expr:href='data:post.href' target='_blank'>
+                    <b:with value='data:post.featuredImage.isResizable ? resizeImage(data:post.featuredImage, 72, &quot;1:1&quot;) : data:post.thumbnail' var='image'>
+                      <img alt='Popular post thumbnail' border='0' expr:src='data:image'/>
+                    </b:with>
+                  </a>
+                </div>
+                <div class='item-content'>
+                  <div class='item-title'><a expr:href='data:post.href'><data:post.title/></a></div>
+                  <div class='item-snippet'><data:post.snippet/></div>
+                </div>
+              </li>
+            </b:loop>
+          </ul>
+          <b:include name='quickedit'/>
+        </section>
+      </b:includable>
+      <b:includable id='blogThisShare'>
+  <b:with value='&quot;window.open(this.href, \&quot;_blank\&quot;, \&quot;height=270,width=475\&quot;); return false;&quot;' var='onclick'>
+    <b:include name='platformShare'/>
+  </b:with>
+</b:includable>
+      <b:includable id='bylineByName' var='byline'>
+  <b:switch var='data:byline.name'>
+  <b:case value='share'/>
+    <b:include cond='data:post.shareUrl' name='postShareButtons'/>
+  <b:case value='comments'/>
+    <b:include cond='data:post.allowComments' name='postCommentsLink'/>
+  <b:case value='location'/>
+    <b:include cond='data:post.location' name='postLocation'/>
+  <b:case value='timestamp'/>
+    <b:include cond='not data:view.isPage' name='postTimestamp'/>
+  <b:case value='author'/>
+    <b:include name='postAuthor'/>
+  <b:case value='labels'/>
+    <b:include cond='data:post.labels' name='postLabels'/>
+  <b:case value='icons'/>
+    <b:include cond='data:post.emailPostUrl' name='emailPostIcon'/>
+  </b:switch>
+</b:includable>
+      <b:includable id='bylineRegion' var='regionItems'>
+  <b:loop values='data:regionItems' var='byline'>
+    <b:include data='byline' name='bylineByName'/>
+  </b:loop>
+</b:includable>
+      <b:includable id='commentsLink'>
+  <a class='comment-link' expr:href='data:post.commentsUrl' expr:onclick='data:post.commentsUrlOnclick'>
+    <b:if cond='data:post.numberOfComments &gt; 0'>
+      <b:message name='messages.numberOfComments'>
+        <b:param expr:value='data:post.numberOfComments' name='numComments'/>
+      </b:message>
+    <b:else/>
+      <data:messages.postAComment/>
+    </b:if>
+  </a>
+</b:includable>
+      <b:includable id='commentsLinkIframe'>
+  <!-- G+ comments, no longer available. The includable is retained for backwards-compatibility. -->
+</b:includable>
+      <b:includable id='emailPostIcon'>
+  <span class='byline post-icons'>
+    <!-- email post links -->
+    <span class='item-action'>
+      <a expr:href='data:post.emailPostUrl' expr:title='data:messages.emailPost'>
+        <b:include data='{ iconClass: &quot;touch-icon sharing-icon&quot; }' name='emailIcon'/>
+      </a>
+    </span>
+  </span>
+</b:includable>
+      <b:includable id='facebookShare'>
+  <b:with value='&quot;window.open(this.href, \&quot;_blank\&quot;, \&quot;height=430,width=640\&quot;); return false;&quot;' var='onclick'>
+    <b:include name='platformShare'/>
+  </b:with>
+</b:includable>
+      <b:includable id='footerBylines'>
+  <b:if cond='data:widgets.Blog.first.footerBylines'>
+    <b:loop index='i' values='data:widgets.Blog.first.footerBylines' var='region'>
+      <b:if cond='not data:region.items.empty'>
+        <div expr:class='&quot;post-footer-line post-footer-line-&quot; + (data:i + 1)'>
+          <b:with value='&quot;footer-&quot; + (data:i + 1)' var='regionName'>
+            <b:include data='region.items' name='bylineRegion'/>
+          </b:with>
+        </div>
+      </b:if>
+    </b:loop>
+  </b:if>
+</b:includable>
+      <b:includable id='googlePlusShare'>
+</b:includable>
+      <b:includable id='headerByline'>
+  <b:if cond='data:widgets.Blog.first.headerByline'>
+    <div class='post-header'>
+      <div class='post-header-line-1'>
+        <b:with value='&quot;header-1&quot;' var='regionName'>
+          <b:include data='data:widgets.Blog.first.headerByline.items' name='bylineRegion'/>
+        </b:with>
+      </div>
+    </div>
+  </b:if>
+</b:includable>
+      <b:includable id='linkShare'>
+  <b:with value='&quot;window.prompt(\&quot;Copy to clipboard: Ctrl+C, Enter\&quot;, \&quot;&quot; + data:originalUrl + &quot;\&quot;); return false;&quot;' var='onclick'>
+    <b:include name='platformShare'/>
+  </b:with>
+</b:includable>
+      <b:includable id='otherSharingButton'>
+  <span class='sharing-platform-button sharing-element-other' expr:aria-label='data:messages.shareToOtherApps.escaped' expr:data-url='data:originalUrl' expr:title='data:messages.shareToOtherApps.escaped' role='menuitem' tabindex='-1'>
+    <b:with value='{key: &quot;sharingOther&quot;}' var='platform'>
+      <b:include name='sharingPlatformIcon'/>
+    </b:with>
+    <span class='platform-sharing-text'><data:messages.shareOtherApps.escaped/></span>
+  </span>
+</b:includable>
+      <b:includable id='platformShare'>
+  <a expr:class='&quot;goog-inline-block sharing-&quot; + data:platform.key' expr:data-url='data:originalUrl' expr:href='data:shareUrl + &quot;&amp;target=&quot; + data:platform.target' expr:onclick='data:onclick ? data:onclick : &quot;&quot;' expr:title='data:platform.shareMessage' target='_blank'>
+    <span class='share-button-link-text'>
+      <data:platform.shareMessage/>
+    </span>
+  </a>
+</b:includable>
+      <b:includable id='postAuthor'>
+  <span class='byline post-author vcard'>
+    <span class='post-author-label'>
+      <data:byline.label/>
+    </span>
+    <span class='fn'>
+      <b:if cond='data:post.author.profileUrl'>
+        <meta expr:content='data:post.author.profileUrl'/>
+        <a class='g-profile' expr:href='data:post.author.profileUrl' rel='author' title='author profile'>
+          <span><data:post.author.name/></span>
+        </a>
+      <b:else/>
+        <span><data:post.author.name/></span>
+      </b:if>
+    </span>
+  </span>
+</b:includable>
+      <b:includable id='postCommentsLink'>
+  <span class='byline post-comment-link container'>
+    <b:include cond='data:post.commentSource != 1' name='commentsLink'/>
+  </span>
+</b:includable>
+      <b:includable id='postJumpLink' var='post'>
+  <div class='jump-link flat-button'>
+    <a expr:href='data:post.url fragment &quot;more&quot;' expr:title='data:post.title'>
+      <b:eval expr='data:blog.jumpLinkMessage'/>
+    </a>
+  </div>
+</b:includable>
+      <b:includable id='postLabels'>
+  <span class='byline post-labels'>
+    <span class='byline-label'><data:byline.label/></span>
+    <b:loop index='i' values='data:post.labels' var='label'>
+      <a expr:href='data:label.url' rel='tag'>
+        <data:label.name/>
+      </a>
+    </b:loop>
+  </span>
+</b:includable>
+      <b:includable id='postLocation'>
+  <span class='byline post-location'>
+    <data:byline.label/>
+    <a expr:href='data:post.location.mapsUrl' target='_blank'><data:post.location.name/></a>
+  </span>
+</b:includable>
+      <b:includable id='postReactions'>
+  <!-- Reaction feature no longer available. The includable is retained for backwards-compatibility. -->
+</b:includable>
+      <b:includable id='postShareButtons'>
+  <div class='byline post-share-buttons goog-inline-block'>
+    <b:with value='data:sharingId ?: ((data:widget.instanceId ?: &quot;sharing&quot;) + &quot;-&quot; + (data:regionName ?: &quot;byline&quot;) + &quot;-&quot; + data:post.id)' var='sharingId'>
+      <!-- Note: 'sharingButtons' includable is from the default Sharing widget markup. -->
+      <b:include data='{                                                sharingId: data:sharingId,                                                originalUrl: data:post.url,                                                platforms: data:this.sharing.platforms,                                                shareUrl: data:post.shareUrl,                                                shareTitle: data:post.title,                                              }' name='sharingButtons'/>
+    </b:with>
+  </div>
+</b:includable>
+      <b:includable id='postTimestamp'>
+  <span class='byline post-timestamp'>
+    <data:byline.label/>
+    <b:if cond='data:post.url'>
+      <meta expr:content='data:post.url.canonical'/>
+      <a class='timestamp-link' expr:href='data:post.url' rel='bookmark' title='permanent link'>
+        <time class='published' expr:datetime='data:post.date.iso8601' expr:title='data:post.date.iso8601'>
+          <data:post.date/>
+        </time>
+      </a>
+    </b:if>
+  </span>
+</b:includable>
+      <b:includable id='sharingButton'>
+  <span expr:aria-label='data:platform.shareMessage' expr:class='&quot;sharing-platform-button sharing-element-&quot; + data:platform.key' expr:data-href='data:shareUrl + &quot;&amp;target=&quot; + data:platform.target' expr:data-url='data:originalUrl' expr:title='data:platform.shareMessage' role='menuitem' tabindex='-1'>
+    <b:include name='sharingPlatformIcon'/>
+    <span class='platform-sharing-text'><data:platform.name/></span>
+  </span>
+</b:includable>
+      <b:includable id='sharingButtonContent'>
+  <div class='flat-icon-button ripple'>
+    <b:include name='shareIcon'/>
+  </div>
+</b:includable>
+      <b:includable id='sharingButtons'>
+  <div class='sharing' expr:aria-owns='&quot;sharing-popup-&quot; + data:sharingId' expr:data-title='data:shareTitle'>
+    <button class='sharing-button touch-icon-button' expr:aria-controls='&quot;sharing-popup-&quot; + data:sharingId' expr:aria-label='data:messages.share.escaped' expr:id='&quot;sharing-button-&quot; + data:sharingId' role='button'>
+      <b:include name='sharingButtonContent'/>
+    </button>
+    <b:include name='sharingButtonsMenu'/>
+  </div>
+</b:includable>
+      <b:includable id='sharingButtonsMenu'>
+  <div class='share-buttons-container'>
+    <ul aria-hidden='true' class='share-buttons hidden' expr:aria-label='data:messages.share.escaped' expr:id='&quot;sharing-popup-&quot; + data:sharingId' role='menu'>
+      <b:loop values='(data:platforms ?: data:blog.sharing.platforms) filter (p =&gt; p.key not in {&quot;blogThis&quot;})' var='platform'>
+        <li>
+          <b:include name='sharingButton'/>
+        </li>
+      </b:loop>
+      <li aria-hidden='true' class='hidden'>
+        <b:include name='otherSharingButton'/>
+      </li>
+    </ul>
+  </div>
+</b:includable>
+      <b:includable id='sharingPlatformIcon'>
+  <b:include data='{ iconClass: (&quot;touch-icon sharing-&quot; + data:platform.key) }' expr:name='data:platform.key + &quot;Icon&quot;'/>
+</b:includable>
+      <b:includable id='snippetedPostByline'>
+  <b:with value='(data:widgets first (w =&gt; w.type == &quot;Blog&quot;)).allBylineItems' var='blogBylines'>
+    <div class='item-byline'>
+      <b:with value='data:blogBylines first (i =&gt; i.name == &quot;author&quot;)' var='byline'>
+        <b:include cond='data:byline and data:this.postDisplay.showAuthor' data='post' name='postAuthor'/>
+      </b:with>
+      <b:with value='data:blogBylines first (i =&gt; i.name == &quot;timestamp&quot;)' var='byline'>
+        <b:include cond='data:byline and data:this.postDisplay.showDate' data='post' name='postTimestamp'/>
+      </b:with>
+    </div>
+  </b:with>
+</b:includable>
+      <b:includable id='snippetedPostContent'>
+  <div class='post-content'>
+    <b:include cond='data:this.postDisplay.showTitle' name='snippetedPostTitle'/>
+    <b:include cond='data:this.postDisplay.showDate or data:this.postDisplay.showAuthor' name='snippetedPostByline'/>
+    <b:include cond='data:this.postDisplay.showSnippet' data='post' name='postSnippet'/>
+    <b:include cond='data:this.postDisplay.showFeaturedImage and data:post.featuredImage' name='snippetedPostThumbnail'/>
+  </div>
+</b:includable>
+      <b:includable id='snippetedPostThumbnail'>
+  <div class='item-thumbnail'>
+    <a expr:href='data:post.url'>
+      <b:include data='{                         image: data:post.featuredImage,                         imageSizes: [72, 144],                         imageRatio: &quot;1:1&quot;,                         sourceSizes: &quot;72px&quot;                        }' name='responsiveImage'/>
+    </a>
+  </div>
+</b:includable>
+      <b:includable id='snippetedPostTitle'>
+  <b:if cond='data:post.title != &quot;&quot;'>
+    <h3 class='post-title'><a expr:href='data:post.url'><data:post.title/></a></h3>
+  </b:if>
+</b:includable>
+      <b:includable id='snippetedPosts'>
+  <div role='feed'>
+    <!-- Don't render the post that we're currently already looking at. -->
+    <b:loop values='data:posts filter (p =&gt; p.id != data:view.postId)' var='post'>
+      <article class='post' role='article'>
+        <b:include name='snippetedPostContent'/>
+      </article>
+    </b:loop>
+  </div>
+</b:includable>
+    </b:widget>
+  </b:section>
+</b:if>
+      
       <b:section class='content-area' id='contentSection' showaddelement='yes'>
         <b:widget id='Blog1' locked='false' title='Blog Posts' type='Blog' version='2' visible='true'>
           <b:widget-settings>
@@ -2062,31 +2618,25 @@ a:hover {
     Previous Post: <data:olderPageTitle/>
   </a>
 </b:includable>
-          <b:includable id='nextprev'>
-  <div class='blog-pager' id='blog-pager'>
-    
-    <!-- Newer Post (Next Post) Link -->
-    <b:if cond='data:newerPageUrl'>
-      <span id='blog-pager-newer-link'>
-        <a class='blog-pager-newer-link' expr:href='data:newerPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-newer-link&quot;' expr:title='data:newerPageTitle'>
-          Next Post: <data:newerPageTitle/>
+          <b:includable id='nextprev'>   
+<div class='blog-pager' id='blog-pager'>
+    <!-- Previous Post Link -->
+    <span id='blog-pager-older-link'>
+        <a class='blog-pager-older-link' href='https://wearyourdictionary.blogspot.com/'>
+            Previous Post: <!--Can't find substitution for tag [olderPageTitle]-->
         </a>
-      </span>
-    </b:if>
-
-    <!-- Older Post (Previous Post) Link -->
-    <b:if cond='data:olderPageUrl'>
-      <span id='blog-pager-older-link'>
-        <a class='blog-pager-older-link' expr:href='data:olderPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-older-link&quot;' expr:title='data:olderPageTitle'>
-          Previous Post: <data:olderPageTitle/>
-        </a>
-      </span>
-    </b:if>
+    </span>
 
     <!-- Home Link -->
-    <a class='home-link' expr:href='data:blog.homepageUrl'>
-      Home
-    </a>
+    <a class='home-link' href='https://wearyourdictionary.blogspot.com/'>Home</a>
+
+    <!-- Next Post Link -->
+    <span id='blog-pager-newer-link'>
+        <a class='blog-pager-newer-link' href='https://wearyourdictionary.blogspot.com/' id='Blog1_blog-pager-newer-link' title=''>
+            Next Post: <!--Can't find substitution for tag [newerPageTitle]-->
+        </a>
+    </span>
+</div>
 
     <!-- Mobile Link -->
     <b:if cond='data:mobileLinkUrl'>
@@ -2095,7 +2645,6 @@ a:hover {
       </div>
     </b:if>
 
-  </div>
   <div class='clear'/>
 </b:includable>
           <b:includable id='otherSharingButton'>
@@ -2774,7 +3323,7 @@ a:hover {
 </b:includable>
         </b:widget>
       </b:section>
-   <script type='text/javascript'>
+<script type='text/javascript'>
 //<![CDATA[
 function fetchRandomPost() {
     const feedUrl = "/feeds/posts/default?alt=json-in-script&max-results=100";  // Fetch up to 100 posts
@@ -2791,14 +3340,22 @@ function fetchRandomPost() {
 
                 // Extract title, link, and content
                 const postTitle = randomPost.title.$t;
-                const postUrl = randomPost.link.find(link => link.rel === 'alternate').href;
-                const postContent = randomPost.content ? randomPost.content.$t : "No content available";
 
-                // Display the random post on the homepage
-                document.querySelector('.random-post').innerHTML = `
-                    <h2><a href="${postUrl}" target="_blank">${postTitle}</a></h2>
-                    <div>${postContent}</div>
-                `;
+                // Extract the post URL
+                const postUrl = randomPost.link.find(link => link.rel === 'alternate').href;
+                console.log("Random Post URL:", postUrl);  // Debug URL to ensure it's correct
+
+                const postContent = randomPost.content ? randomPost.content.$t : (randomPost.summary ? randomPost.summary.$t : "No content available");
+
+                // Ensure .random-post container exists
+                const randomPostContainer = document.querySelector('.random-post');
+                if (randomPostContainer) {
+                    // Display the random post on the homepage
+                    randomPostContainer.innerHTML = `
+                        <h2><a href="${postUrl}" target="_blank" rel="noopener noreferrer">${postTitle}</a></h2>
+                        <div>${postContent}</div>
+                    `;
+                }
             } else {
                 document.querySelector('.random-post').innerHTML = "<p>No posts available.</p>";
             }
@@ -2811,26 +3368,26 @@ function fetchRandomPost() {
 }
 
 // Fetch a random post if the page is the homepage
-if (data:blog.pageType == 'index') {
-    fetchRandomPost();
-}
+window.addEventListener('DOMContentLoaded', function() {
+    if (window.location.pathname === '/' || window.location.pathname.endsWith('/index.html')) {
+        fetchRandomPost();
+    }
+});
 //]]>
 </script>
 
-      </b:if>  
-       <b:if cond='data:blog.pageType != &quot;index&quot;'>
-        <!-- Regular post feed for non-homepage pages -->
-        <b:loop values='data:posts' var='post'>
-          <div class='post-outer'>
-            <b:include data='post' name='post'/>
-          </div>
-        </b:loop>
-      </b:if>
-   </div>
-       </div>
-     </div>
-
-
+<!-- Regular post feed for non-homepage pages -->
+<b:if cond='data:blog.pageType != &quot;index&quot;'>
+    <b:loop values='data:posts' var='post'>
+      <div class='post-outer'>
+        <b:include data='post' name='post'/>
+      </div>
+    </b:loop>
+</b:if>
+    </div>
+    </div>
+  </div>
+  
 <footer class='footer-container'>
   <div id='socket'>
     <div class='container'>
@@ -3070,5 +3627,35 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 // ]]>
 </script>
+  <script type='text/javascript'>
+// <![CDATA[
+    document.addEventListener("DOMContentLoaded", function() {
+        const postsList = document.querySelector('.popular-posts-list');
+        const posts = postsList.querySelectorAll('.grid-item');
+
+        // Set the display style to flex for the list
+        postsList.style.display = 'flex';
+        postsList.style.flexWrap = 'wrap'; // Allow wrapping
+
+        // Set each post to take up 50% of the width
+        posts.forEach(post => {
+            post.style.flex = '0 0 50%'; // 50% width for 2 columns
+            post.style.boxSizing = 'border-box'; // Ensure padding and border are included in the width
+        });
+    });
+// ]]>
+</script>
+  <script>
+  document.addEventListener(&quot;DOMContentLoaded&quot;, function() {
+    const sidebar = document.querySelector(&quot;.sidebar&quot;);
+    const sidebarIcon = document.querySelector(&quot;.sidebar-icon&quot;);
+
+    // Add event listener to toggle sidebar visibility
+    sidebarIcon.addEventListener(&quot;click&quot;, function() {
+      sidebar.classList.toggle(&quot;open&quot;);
+    });
+  });
+</script>
+
   </body>
 </html>
