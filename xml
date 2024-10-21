@@ -2,7 +2,9 @@
 <!DOCTYPE html>
 <html b:css='false' b:defaultwidgetversion='2' b:layoutsVersion='3' b:responsive='true' b:templateUrl='strm.xml' b:templateVersion='1.0.1' expr:dir='data:blog.languageDirection' expr:lang='data:blog.locale' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
 <head>
+<link href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet'/>
 
+  <link href='https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200' rel='stylesheet'/>
 <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js'/>
 
   <b:if cond='!data:view.isLayoutMode'>
@@ -58,6 +60,12 @@
     --main-container-max-width: 95%; /* Increased from 90% */
     --border-width: 2px;
     --sidebar-width: 250px;
+	/* Search Bar */
+ --color-search-default: #131314;
+  --color-search-hover: #050505;
+  --color-search-glow: rgba(236, 236, 235, 0.6);
+  --color-on-background: #ececeb; /* Placeholder text and input text color */
+  --color-on-surface: #ffffff; /* Button icon color */
 }
 /* Global Styles */
 body {
@@ -125,16 +133,19 @@ a:hover {
     border-radius: 8px; /* Match the border-radius */
     z-index: -1; /* Keep the overlay behind the content */
 }
+/* Logo Container */
 .logo-container {
     display: flex;
     align-items: center; /* Center the logo vertically */
-    justify-content: center; /* Center the logo horizontally */
-    width: 100px; /* Set a fixed width for the container */
+    justify-content: center; /* Center the logo horizontally within the smaller container */
+    width: 60px; /* Reduced width for the container */
     height: 100px; /* Set a fixed height for the container */
-    overflow: hidden; /* Hide any overflow from the logo */
-    margin: 0 auto 15px; /* Center the container and add margin */
-    position: relative; /* Ensure relative positioning */
+    position: absolute; /* Keep absolute positioning */
+    overflow: visible; /* Allow the logo to overflow the container if necessary */
+    margin: 80px 0 0 150px; /* Adjust the margins as needed */
 }
+
+/* Header Logo */
 .header-logo {
     width: auto; /* Allow the width to adjust based on the aspect ratio */
     height: 100%; /* Keep the logo height to fill the container */
@@ -145,22 +156,27 @@ a:hover {
     left: 50%; /* Center horizontally */
     transform: translate(-50%, -50%); /* Adjust for centering */
 }
+
 .header-logo:hover {
     transform: translate(-50%, -50%) scale(1.05); /* Scale on hover, keeping the centering */
 }
 
+
 /* Navigation Menu */
 .nav-menu {
-    display: flex;
-    justify-content: center;
+    display: inline-flex; /* Change from 'flex' to 'inline-flex' to make the container shrink to the content */
+    justify-content: flex-start; /* Keep it aligned to the left within the container */
     align-items: center;
+	margin-right: 1040px;
+    margin-top: 50px; /* Adjust vertical positioning */
+    margin-bottom: -80px;
 }
 /* Updated Navigation List */
 .nav-list {
     list-style: none;
     padding: 0;
     margin: 0;
-    display: flex;
+    display: inline-flex; /* Ensure the list shrinks to the size of the content */
     gap: 10px; /* Reduced gap for smaller spacing */
 }
 /* Navigation Buttons */
@@ -168,10 +184,10 @@ a:hover {
     background-color: #080808; /* Black background */
     color: #ffffff; /* White text */
     text-decoration: none;
-    padding: 8px 16px; /* Reduced padding */
+    padding: 8px 16px; /* Padding inside the button */
     border: none; /* Removed border */
     font-family: 'IM Fell English', serif;
-    font-size: 14px; /* Reduced font size */
+    font-size: 14px; /* Font size */
     border-radius: 4px; /* Slight rounding of corners */
     transition: color 0.3s, background-color 0.3s, text-shadow 0.3s, transform 0.3s ease;
     cursor: pointer;
@@ -181,6 +197,241 @@ a:hover {
     color: #ffffff; /* White text stays on hover */
     text-shadow: 0 0 8px rgba(255, 255, 255, 0.7), 0 0 16px rgba(255, 255, 255, 0.5), 0 0 24px rgba(255, 255, 255, 0.3); /* White glow effect */
     transform: scale(1.05); /* Slight scale on hover */
+}
+/* Container for the bell icon */
+.bell-container {
+    position: relative; /* Ensure that the container is relatively positioned */
+    width: 100%; /* Take up the full width of the page */
+    height: 100%; /* Adjust the height if necessary */
+}
+/* Bell Icon */
+.bell-icon {
+    font-size: 24px;
+    cursor: pointer;
+    position: absolute; /* Position the bell icon absolutely */
+    left: 510px; /* Position the bell icon 510px from the left */
+    top: -100px; /* Adjust the top position to move the bell icon upwards by 20px */
+    color: #ececeb; /* Default color for the icon */
+    transition: color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for color and glow */
+}
+/* Glow effect on hover for the bell icon */
+.bell-icon:hover {
+    color: #ffffff; /* Change icon color on hover */
+    box-shadow: 0 0 8px rgba(236, 236, 235, 0.8); /* Glow effect with hover color */
+}
+/* Notification container */
+.notification-container {
+    position: relative; /* Ensure positioning is relative to the bell icon container */
+    display: inline-block;
+}
+/* Dropdown menu */
+.dropdown-menu {
+    display: none; /* Initially hidden */
+    position: absolute;
+    top: -70px; /* Adjust the distance below the bell icon */
+    left: 390px; /* Move the dropdown 150px to the right from its original position */
+    background-color: #1c1c1e; /* Dark background for dropdown */
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    min-width: 250px; /* Adjust width to fit the featured post */
+    max-width: 350px; /* Adjust maximum width for larger content */
+    z-index: 9999; /* Ensure dropdown stays above other content */
+    overflow: auto; /* Allows scrolling if content exceeds available space */
+    transition: box-shadow 0.3s ease; /* Add transition for glow effect */
+}
+/* Display dropdown when .active class is applied */
+.notification-container .dropdown-menu.active {
+    display: block; /* Shows the dropdown when active */
+}
+/* Add a glow effect on hover for the dropdown container */
+.notification-container:hover .dropdown-menu {
+    box-shadow: 0 0 12px rgba(236, 236, 235, 0.8); /* Soft glow effect */
+}
+/* Title styling for the featured post */
+#FeaturedPost1 .title {
+    font-size: 20px; /* Adjust the font size */
+    font-weight: bold; /* Make the title bold */
+    color: #ececeb; /* Set title color to match the theme */
+    margin-bottom: 1px; /* Reduce space below the title */
+    text-align: center; /* Center the text horizontally */
+    display: block;
+    padding: 10px;
+}
+/* Remove underline and add glow effect on hover for the title */
+#FeaturedPost1 .title a {
+    text-decoration: none; /* Ensure no underline by default */
+    color: #ececeb;
+    transition: text-shadow 0.3s ease; /* Smooth transition for glow */
+}
+/* Glow effect on hover for the title */
+#FeaturedPost1 .title a:hover {
+    color: #ffffff; /* Change color slightly on hover */
+    text-shadow: 0 0 8px rgba(236, 236, 235, 0.8); /* Add a soft glow effect */
+    text-decoration: none; /* Ensure underline is removed */
+}
+/* Post summary styling */
+.post-summary {
+    padding: 5px 10px; /* Reduced padding to bring elements closer */
+    color: #ececeb;
+    overflow: hidden; /* Prevents content overflow */
+    margin-top: 1px; /* Reduce spacing between post-summary and title */
+}
+/* Remove underline and add glow effect on hover for post titles */
+.post-summary h3 a {
+    color: #ececeb; /* Featured post title color */
+    text-decoration: none; /* Remove underline */
+    font-weight: bold; /* Make the post title bold */
+    font-size: 18px; /* Adjust the font size */
+    transition: text-shadow 0.3s ease; /* Smooth transition for glow */
+}
+/* Glow effect on hover for post titles */
+.post-summary h3 a:hover {
+    color: #ffffff; /* Change color slightly on hover */
+    text-shadow: 0 0 8px rgba(236, 236, 235, 0.8); /* Add a soft glow effect */
+    text-decoration: none; /* Ensure underline is removed */
+}
+/* Paragraph styling in post summary */
+.post-summary p {
+    color: #ececeb;
+    margin-top: 3px; /* Reduced margin to bring text closer to the title */
+    font-size: 14px; /* Adjust font size for better readability */
+    line-height: 1.4; /* Improve text spacing for readability */
+}
+/* Image styling in post summary */
+.post-summary img {
+    max-width: 100%; /* Ensures image fits within dropdown */
+    height: auto;
+    border-radius: 8px;
+    margin-top: 8px; /* Reduced margin to bring image closer */
+    transition: box-shadow 0.3s ease; /* Smooth transition for glow */
+}
+/* Glow effect on hover for images */
+.post-summary img:hover {
+    box-shadow: 0 0 12px rgba(236, 236, 235, 0.8); /* Soft glow effect for image */
+}
+/* Title Container */
+.title-container {
+  display: inline-flex; /* Use inline-flex to make the container shrink to fit the title */
+  justify-content: center; /* Center the title horizontally within the container */
+  margin-top: 20px; /* Reduce the top margin to move the title up */
+  margin-bottom: 20px; /* Reduce the bottom margin to bring elements closer */
+}
+
+/* Glowing Title */
+.glowing-title {
+  font-family: 'IM Fell English', serif; /* Use your desired font */
+  font-size: 4rem; /* Keep the original title size */
+  color: #ffffff; /* Title text color */
+  text-decoration: none; /* Remove underline */
+  text-align: center;
+  transition: text-shadow 0.3s ease, color 0.3s ease; /* Smooth glow transition */
+  text-shadow: 0 0 1rem rgba(255, 255, 255, 0.7), 
+               0 0 2rem rgba(255, 255, 255, 0.5), 
+               0 0 3rem rgba(255, 255, 255, 0.3); /* Adjusted to rems */
+}
+
+.glowing-title:hover {
+  color: #ffffff; /* Keep the text white */
+  text-shadow: 0 0 1.5rem rgba(255, 255, 255, 0.9), 
+               0 0 3rem rgba(255, 255, 255, 0.7), 
+               0 0 4.5rem rgba(255, 255, 255, 0.5); /* Stronger glow effect on hover, adjusted to rems */
+}
+
+/* Search Container */
+.search-container {
+  display: flex; /* Use flex to adjust to the content size */
+  justify-content: center; /* Center the content */
+  align-items: center;
+  width: 600px; /* Match the width of the search bar */
+  margin: 20px auto 0 auto; /* Center the container and add space above */
+}
+
+/* Search Bar */
+.search-bar {
+  width: 600px;
+  height: 40px;
+  margin: 0px 0px 20px 0px; /* Remove any extra margins around the search bar */
+  position: relative;
+  border-radius: 20px;
+  transition: box-shadow 0.3s ease; /* Glow effect transition */
+  max-width: 100%; /* Ensure the bar remains responsive */
+}
+
+/* Add Glow on Hover */
+.search-bar:hover,
+.search-bar:focus-within {
+  box-shadow: 0 0 4px 4px var(--color-search-glow);
+}
+
+/* Search Form */
+.search-bar form {
+  display: flex;
+  background-color: var(--color-search-default);
+  border-radius: 20px;
+  overflow: hidden;
+  height: 100%;
+  transition: background-color 0.3s ease;
+}
+
+/* Search Input */
+.search-bar input {
+  flex: 1;
+  padding: 0 15px;
+  border: none;
+  background: transparent;
+  color: var(--color-on-background);
+  outline: none;
+  font-size: 16px;
+}
+
+.search-bar input::placeholder {
+  color: var(--color-on-background);
+}
+
+/* Search Button */
+.search-bar button {
+  background-color: transparent;
+  border: none;
+  padding: 0 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-on-surface);
+}
+
+.search-bar:hover form,
+.search-bar:focus-within form {
+  background-color: var(--color-search-hover);
+}
+
+/* Autocomplete dropdown styling */
+.autocomplete-items {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  max-height: 150px;
+  overflow-y: auto;
+  background-color: var(--color-search-default);
+  z-index: 99;
+}
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: var(--color-search-default);
+  border-bottom: 1px solid #ccc;
+  color: var(--color-on-background);
+}
+.autocomplete-items div:hover {
+  background-color: var(--color-search-hover);
+}
+/* Highlight the active autocomplete suggestion */
+.autocomplete-active {
+  background-color: var(--color-search-hover) !important;
 }
 /* Main Content Styles */
 .main-container {
@@ -254,7 +505,6 @@ a:hover {
     transition: box-shadow 0.3s ease, font-size 0.3s ease; /* Added font-size transition */
     box-shadow: 0 0 0 rgba(236, 236, 235, 0); /* Initial state with no glow */
 }
-
 .sidebar h2 {
     font-size: 26px;
     font-weight: bold;
@@ -263,7 +513,6 @@ a:hover {
     text-align: center;
     transition: font-size 0.3s ease; /* Smooth font-size transition */
 }
-
 .sidebar a {
     font-size: 17px; /* Slight increase from default 16px */
     color: #ececeb;
@@ -271,7 +520,6 @@ a:hover {
     font-weight: 500;
     transition: color 0.3s, text-shadow 0.3s, font-size 0.3s ease; /* Smooth font-size transition */
 }
-
 .sidebar:hover {
     box-shadow: 0 0 15px rgba(236, 236, 235, 0.5); /* Glow effect on hover */
 }
@@ -281,7 +529,27 @@ a:hover {
     text-shadow: 0 0 5px #ececeb;
     font-size: 18px; /* Slight increase on hover */
 }
-
+/* Blog Archive icon */
+#BlogArchive1 h2:before {
+  font-family: 'Material Icons';
+  content: 'archive';
+  margin-right: 8px;
+  vertical-align: middle;
+}
+/* Labels icon */
+#Label1 h2:before {
+  font-family: 'Material Icons';
+  content: 'label';
+  margin-right: 8px;
+  vertical-align: middle;
+}
+/* Google Translate icon */
+#Translate1 h2:before {
+  font-family: 'Material Icons';
+  content: 'translate'; /* Google Translate icon */
+  margin-right: 8px;
+  vertical-align: middle;
+}
 /* Random Post Styles */
 .random-post {
     background-color: #131314; /* Dark background color */
@@ -290,36 +558,30 @@ a:hover {
     border-radius: 8px; /* Rounded corners */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Keep the box shadow */
 }
-
 .random-post:hover {
     transform: translateY(-3px); /* Lift effect on hover */
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
 }
-
 .random-post h2 {
     font-size: 24px; /* Title size */
     font-weight: bold; /* Bold title */
     color: var(--color-text-main); /* Use main text color variable */
     margin-bottom: 10px; /* Spacing below title */
 }
-
 .random-post div {
     font-size: 16px; /* Body text size */
     line-height: 1.6; /* Improved readability */
     color: var(--color-text-main); /* Consistent text color */
 }
-
 .random-post a {
     color: var(--color-link); /* Link color */
     text-decoration: none; /* Remove underline */
     transition: color 0.3s ease; /* Smooth color transition */
 }
-
 .random-post a:hover {
     color: var(--color-link-hover); /* Change color on hover */
     text-decoration: underline; /* Underline on hover for links */
 }
-
 /* Blog Post Styles */
 .post-outer-container {
     background: var(--color-background);
@@ -537,7 +799,6 @@ a:hover {
     flex-direction: column;
     gap: 10px;
 }
-
 .footer-links a {
     color: #080808; /* Change link color to #080808 */
     text-decoration: none;
@@ -572,13 +833,11 @@ a:hover {
     border-radius: 5px; /* Slightly rounded corners */
     /* Removed border: border: 1px solid #080808; */
 }
-
 .copyright a:hover {
     color: #ffffff; /* Change text color on hover */
     background-color: #080808; /* Dark background on hover */
     text-shadow: 0 0 5px #ececeb;
 }
-
 /* Back to Top Button */
 #back-to-top {
     background-color: #ECECEB; /* Set background to #ECECEB */
@@ -592,306 +851,11 @@ a:hover {
     transition: background-color 0.3s, color 0.3s, text-shadow 0.3s;
     cursor: pointer;
 }
-
 #back-to-top:hover {
     background-color: var(--color-link-hover);
     color: #ECECEB;
     text-shadow: 0 0 16px #ffffff;
 }
-
-
-/* Responsive Styling */
-@media (max-width: 1810px) {
-    .content-wrapper {
-        max-width: 90%;
-        margin: 0 auto;
-    }
-
-    .main-content {
-        width: calc(70% - 10px);
-        margin-right: 10px;
-    }
-
-    .sidebar {
-        width: 30%;
-    }
-@media (max-width: 1454px) {
-    /* Footer adjustments */
-    .footer-content {
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-    .footer-column {
-        flex: 0 1 calc(33.333% - 20px);
-        align-items: center;
-        text-align: center;
-    }
-    .copyright {
-        text-align: center;
-        width: 100%;
-        order: 1;
-    }
-    #back-to-top {
-        order: 2;
-        margin-top: 20px;
-    }
-@media (max-width: 958px) {
-    .content-wrapper {
-        position: relative;
-        display: flex;
-        flex-direction: row-reverse;
-        justify-content: space-between;
-        align-items: flex-start;
-    }
-    .main-content {
-        flex-grow: 1;
-        width: calc(65% - 10px);
-        margin-right: 10px;
-        margin-left: 0;
-    }
-    .sidebar {
-        width: 35%;
-        flex-shrink: 0;
-        position: sticky;
-        top: 20px;
-        padding: 10px;
-        background: linear-gradient(
-            135deg, 
-            #1c1c1e,
-            #232324 15%,
-            #202023 30%,
-            #1c1c1e 70%
-        );
-        border-radius: 6px;
-        color: #ececeb;
-        height: fit-content;
-        margin-left: 0;
-        margin-right: 0;
-        transition: box-shadow 0.3s ease, font-size 0.3s ease;
-        box-shadow: 0 0 0 rgba(236, 236, 235, 0);
-    }
-    .sidebar h2 {
-        font-size: 18px;
-        font-weight: bold;
-        margin-bottom: 8px;
-        text-align: center;
-    }
-    .sidebar ul {
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
-    }
-    .sidebar li {
-        margin-bottom: 5px;
-    }
-    .sidebar a {
-        font-size: 13px;
-        color: #ececeb;
-        text-decoration: none;
-        font-weight: 500;
-        transition: color 0.3s, text-shadow 0.3s, font-size 0.3s ease;
-    }
-    .sidebar:hover {
-        box-shadow: 0 0 8px rgba(236, 236, 235, 0.2);
-    }
-    .sidebar a:hover {
-        color: #ffffff;
-        text-shadow: 0 0 2px #ececeb;
-        font-size: 14px;
-    }
-    /* Grid Layout Adjustments */
-    .grid-container {
-        width: 100%;
-    }
-    .grid-list {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
-        gap: 6px;
-        list-style-type: none;
-        padding: 0;
-        width: 100%;
-        box-sizing: border-box;
-        opacity: 0.94;
-    }
-    .grid-item {
-        background-color: #1c1c1d;
-        padding: 6px;
-        text-align: center;
-        border-radius: 6px;
-        color: #ececeb;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        cursor: pointer;
-        position: relative;
-    }
-    .grid-item-icon {
-        width: 30px;
-        height: 30px;
-        border-radius: 50%;
-        object-fit: cover;
-        margin-bottom: 3px;
-    }
-    .grid-item h3, .grid-item p {
-        margin: 0;
-        padding-bottom: 3px;
-        font-size: 0.75em;
-    }
-    .grid-item.category-header h1 {
-        padding: 6px;
-        font-size: 14px;
-    }
-@media (max-width: 768px) {
-    .content-wrapper {
-        flex-direction: column;
-    }
-    .main-content, .sidebar {
-        width: 100%;
-        margin-right: 0;
-        margin-left: 0;
-    }
-    .sidebar {
-        position: static;
-        margin-bottom: 20px;
-        order: -1;
-    }
-    .grid-list {
-        grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
-    }
-    /* Footer adjustments */
-    .footer-content {
-        flex-direction: column;
-        align-items: center;
-    }
-    .footer-column, .copyright {
-        display: none;
-    }
-    #back-to-top {
-        display: block;
-        margin: 0 auto;
-    }
-@media (max-width: 686px) {
-    .nav-list {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 25px 5px; /* 10px for column gap, 20px for row gap */
-        width: 100%;
-        max-width: 400px;
-        margin: 0 auto;
-    }
-    .nav-button {
-        padding: 10px 18px;
-        font-size: 16px;
-        width: 100%;
-        text-align: center;
-    }
-    .nav-button:hover {
-        transform: scale(1.02);
-    }
-  /* Sidebar styles */
-    .sidebar {
-        width: 100%;
-        padding: 20px;
-        margin-bottom: 30px;
-    }
-
-    .sidebar h2 {
-        font-size: 26px;
-        margin-bottom: 15px;
-    }
-
-    .sidebar ul {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 15px;
-    }
-    .sidebar li {
-        margin-bottom: 0;
-    }
-    .sidebar a {
-        font-size: 18px;
-        padding: 10px 15px;
-        background-color: rgba(236, 236, 235, 0.1);
-        border-radius: 5px;
-        transition: background-color 0.3s, color 0.3s;
-    }
-    .sidebar a:hover {
-        background-color: rgba(236, 236, 235, 0.2);
-        color: #ffffff;
-        font-size: 18px; /* Keep the same size on hover to prevent layout shifts */
-    }
-    .grid-list {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-    .grid-item {
-        display: flex;
-        align-items: center;
-        padding: 15px;
-        text-align: left;
-    }
-    .grid-item-icon {
-        width: 50px;
-        height: 50px;
-        margin-right: 20px;
-        margin-bottom: 0;
-    }
-    .grid-item-content {
-        flex-grow: 1;
-    }
-    .grid-item h3 {
-        font-size: 1.2em;
-        margin-bottom: 6px;
-    }
-    .grid-item p {
-        font-size: 1em;
-    }
-    .grid-item.category-header h1 {
-        font-size: 1.5em;
-        padding: 15px;
-        text-align: center;
-    }
-@media (max-width: 576px) {
-    .grid-item-icon {
-        width: 45px;
-        height: 45px;
-        margin-right: 15px;
-    }
-    .grid-item h3 {
-        font-size: 1.1em;
-    }
-    .grid-item p {
-        font-size: 0.95em;
-    }
-    .grid-item.category-header h1 {
-        font-size: 1.4em;
-    }
-@media (max-width: 400px) {
-    .nav-list {
-        grid-template-columns: 1fr;
-        max-width: 200px;
-    }
-    .nav-button {
-        padding: 8px 14px;
-        font-size: 14px;
-    }
-    .grid-item {
-        padding: 12px;
-    }
-    .grid-item-icon {
-        width: 40px;
-        height: 40px;
-        margin-right: 12px;
-    }
-    .grid-item h3 {
-        font-size: 1em;
-    }
-    .grid-item p {
-        font-size: 0.9em;
-    }
-    .grid-item.category-header h1 {
-        font-size: 1.3em;
-        padding: 12px;
-    }
 ]]></b:skin>
 </head>
 
@@ -909,6 +873,324 @@ a:hover {
     <li><a class='nav-button' href='https://www.redbubble.com/people/wearyourwords/shop'>Redbubble</a></li>
   </ul>
 </nav>
+
+  <div class='title-container'>
+    <a class='glowing-title' href='#'>Wear Your Dictionary</a>
+  </div>
+  <div class='search-container'>
+    <div class='search-bar'>
+      <form action='/search' autocomplete='off' method='get' role='search'>
+        <input id='search-input' name='q' placeholder='Search' type='search'/>
+        <button class='search-bar-submit'>
+          <span class='material-icons'>search</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+   <!-- Notification Bell Section -->
+<nav class='bell-container'>
+    <div class='notification-container'>
+        <span class='material-symbols-rounded bell-icon' onclick='toggleDropdown()'>notifications</span>
+
+        <div class='dropdown-menu'>
+            <!-- Featured Post (Moved inside the dropdown) -->
+            <div class='widget-container'>
+                <!-- Make the entire section clickable by linking to the most recent post -->
+                <a expr:href='data:postUrl'>
+                    <!-- Define a section for dynamic widgets -->
+                <b:section class='widget NotificationWidget' id='notification-section' showaddelement='yes'>
+                  <b:widget id='FeaturedPost1' locked='false' title='Newest Post' type='FeaturedPost' version='1'>
+                    <b:widget-settings>
+                      <b:widget-setting name='showSnippet'>true</b:widget-setting>
+                      <b:widget-setting name='showPostTitle'>true</b:widget-setting>
+                      <b:widget-setting name='postId'>0</b:widget-setting>
+                      <b:widget-setting name='showFirstImage'>true</b:widget-setting>
+                      <b:widget-setting name='useMostRecentPost'>true</b:widget-setting>
+                    </b:widget-settings>
+                    <b:includable id='main'>
+                            <!-- Display title if non-empty -->
+                            <b:if cond='data:title != &quot;&quot;'>
+                                <h2 class='title'><data:title/></h2>
+                            </b:if>
+                            <b:include name='content'/>
+                            <b:include name='quickedit'/>
+                        </b:includable>
+                    <b:includable id='blogThisShare'>
+  <b:with value='&quot;window.open(this.href, \&quot;_blank\&quot;, \&quot;height=270,width=475\&quot;); return false;&quot;' var='onclick'>
+    <b:include name='platformShare'/>
+  </b:with>
+</b:includable>
+                    <b:includable id='bylineByName' var='byline'>
+  <b:switch var='data:byline.name'>
+  <b:case value='share'/>
+    <b:include cond='data:post.shareUrl' name='postShareButtons'/>
+  <b:case value='comments'/>
+    <b:include cond='data:post.allowComments' name='postCommentsLink'/>
+  <b:case value='location'/>
+    <b:include cond='data:post.location' name='postLocation'/>
+  <b:case value='timestamp'/>
+    <b:include cond='not data:view.isPage' name='postTimestamp'/>
+  <b:case value='author'/>
+    <b:include name='postAuthor'/>
+  <b:case value='labels'/>
+    <b:include cond='data:post.labels' name='postLabels'/>
+  <b:case value='icons'/>
+    <b:include cond='data:post.emailPostUrl' name='emailPostIcon'/>
+  </b:switch>
+</b:includable>
+                    <b:includable id='bylineRegion' var='regionItems'>
+  <b:loop values='data:regionItems' var='byline'>
+    <b:include data='byline' name='bylineByName'/>
+  </b:loop>
+</b:includable>
+                    <b:includable id='commentsLink'>
+  <a class='comment-link' expr:href='data:post.commentsUrl' expr:onclick='data:post.commentsUrlOnclick'>
+    <b:if cond='data:post.numberOfComments &gt; 0'>
+      <b:message name='messages.numberOfComments'>
+        <b:param expr:value='data:post.numberOfComments' name='numComments'/>
+      </b:message>
+    <b:else/>
+      <data:messages.postAComment/>
+    </b:if>
+  </a>
+</b:includable>
+                    <b:includable id='commentsLinkIframe'>
+  <!-- G+ comments, no longer available. The includable is retained for backwards-compatibility. -->
+</b:includable>
+                    <b:includable id='content'>
+                            <div class='post-summary'>
+                                <!-- Display post title if available -->
+                                <b:if cond='data:showPostTitle and data:postTitle != &quot;&quot;'>
+                                    <h3><data:postTitle/></h3>
+                                </b:if>
+                                
+                                <!-- Display post snippet if available -->
+                                <b:if cond='data:showSnippet and data:postSummary != &quot;&quot;'>
+                                    <p><data:postSummary/></p>
+                                </b:if>
+                                
+                                <!-- Display first image if available -->
+                                <b:if cond='data:showFirstImage and data:postFirstImage != &quot;&quot;'>
+                                    <img class='image' expr:src='data:postFirstImage'/>
+                                </b:if>
+                            </div>
+                        </b:includable>
+                    <b:includable id='emailPostIcon'>
+  <span class='byline post-icons'>
+    <!-- email post links -->
+    <span class='item-action'>
+      <a expr:href='data:post.emailPostUrl' expr:title='data:messages.emailPost'>
+        <b:include data='{ iconClass: &quot;touch-icon sharing-icon&quot; }' name='emailIcon'/>
+      </a>
+    </span>
+  </span>
+</b:includable>
+                    <b:includable id='facebookShare'>
+  <b:with value='&quot;window.open(this.href, \&quot;_blank\&quot;, \&quot;height=430,width=640\&quot;); return false;&quot;' var='onclick'>
+    <b:include name='platformShare'/>
+  </b:with>
+</b:includable>
+                    <b:includable id='footerBylines'>
+  <b:if cond='data:widgets.Blog.first.footerBylines'>
+    <b:loop index='i' values='data:widgets.Blog.first.footerBylines' var='region'>
+      <b:if cond='not data:region.items.empty'>
+        <div expr:class='&quot;post-footer-line post-footer-line-&quot; + (data:i + 1)'>
+          <b:with value='&quot;footer-&quot; + (data:i + 1)' var='regionName'>
+            <b:include data='region.items' name='bylineRegion'/>
+          </b:with>
+        </div>
+      </b:if>
+    </b:loop>
+  </b:if>
+</b:includable>
+                    <b:includable id='googlePlusShare'>
+</b:includable>
+                    <b:includable id='headerByline'>
+  <b:if cond='data:widgets.Blog.first.headerByline'>
+    <div class='post-header'>
+      <div class='post-header-line-1'>
+        <b:with value='&quot;header-1&quot;' var='regionName'>
+          <b:include data='data:widgets.Blog.first.headerByline.items' name='bylineRegion'/>
+        </b:with>
+      </div>
+    </div>
+  </b:if>
+</b:includable>
+                    <b:includable id='linkShare'>
+  <b:with value='&quot;window.prompt(\&quot;Copy to clipboard: Ctrl+C, Enter\&quot;, \&quot;&quot; + data:originalUrl + &quot;\&quot;); return false;&quot;' var='onclick'>
+    <b:include name='platformShare'/>
+  </b:with>
+</b:includable>
+                    <b:includable id='otherSharingButton'>
+  <span class='sharing-platform-button sharing-element-other' expr:aria-label='data:messages.shareToOtherApps.escaped' expr:data-url='data:originalUrl' expr:title='data:messages.shareToOtherApps.escaped' role='menuitem' tabindex='-1'>
+    <b:with value='{key: &quot;sharingOther&quot;}' var='platform'>
+      <b:include name='sharingPlatformIcon'/>
+    </b:with>
+    <span class='platform-sharing-text'><data:messages.shareOtherApps.escaped/></span>
+  </span>
+</b:includable>
+                    <b:includable id='platformShare'>
+  <a expr:class='&quot;goog-inline-block sharing-&quot; + data:platform.key' expr:data-url='data:originalUrl' expr:href='data:shareUrl + &quot;&amp;target=&quot; + data:platform.target' expr:onclick='data:onclick ? data:onclick : &quot;&quot;' expr:title='data:platform.shareMessage' target='_blank'>
+    <span class='share-button-link-text'>
+      <data:platform.shareMessage/>
+    </span>
+  </a>
+</b:includable>
+                    <b:includable id='postAuthor'>
+  <span class='byline post-author vcard'>
+    <span class='post-author-label'>
+      <data:byline.label/>
+    </span>
+    <span class='fn'>
+      <b:if cond='data:post.author.profileUrl'>
+        <meta expr:content='data:post.author.profileUrl'/>
+        <a class='g-profile' expr:href='data:post.author.profileUrl' rel='author' title='author profile'>
+          <span><data:post.author.name/></span>
+        </a>
+      <b:else/>
+        <span><data:post.author.name/></span>
+      </b:if>
+    </span>
+  </span>
+</b:includable>
+                    <b:includable id='postCommentsLink'>
+  <span class='byline post-comment-link container'>
+    <b:include cond='data:post.commentSource != 1' name='commentsLink'/>
+  </span>
+</b:includable>
+                    <b:includable id='postJumpLink' var='post'>
+  <div class='jump-link flat-button'>
+    <a expr:href='data:post.url fragment &quot;more&quot;' expr:title='data:post.title'>
+      <b:eval expr='data:blog.jumpLinkMessage'/>
+    </a>
+  </div>
+</b:includable>
+                    <b:includable id='postLabels'>
+  <span class='byline post-labels'>
+    <span class='byline-label'><data:byline.label/></span>
+    <b:loop index='i' values='data:post.labels' var='label'>
+      <a expr:href='data:label.url' rel='tag'>
+        <data:label.name/>
+      </a>
+    </b:loop>
+  </span>
+</b:includable>
+                    <b:includable id='postLocation'>
+  <span class='byline post-location'>
+    <data:byline.label/>
+    <a expr:href='data:post.location.mapsUrl' target='_blank'><data:post.location.name/></a>
+  </span>
+</b:includable>
+                    <b:includable id='postReactions'>
+  <!-- Reaction feature no longer available. The includable is retained for backwards-compatibility. -->
+</b:includable>
+                    <b:includable id='postShareButtons'>
+  <div class='byline post-share-buttons goog-inline-block'>
+    <b:with value='data:sharingId ?: ((data:widget.instanceId ?: &quot;sharing&quot;) + &quot;-&quot; + (data:regionName ?: &quot;byline&quot;) + &quot;-&quot; + data:post.id)' var='sharingId'>
+      <!-- Note: 'sharingButtons' includable is from the default Sharing widget markup. -->
+      <b:include data='{                                                sharingId: data:sharingId,                                                originalUrl: data:post.url,                                                platforms: data:this.sharing.platforms,                                                shareUrl: data:post.shareUrl,                                                shareTitle: data:post.title,                                              }' name='sharingButtons'/>
+    </b:with>
+  </div>
+</b:includable>
+                    <b:includable id='postTimestamp'>
+  <span class='byline post-timestamp'>
+    <data:byline.label/>
+    <b:if cond='data:post.url'>
+      <meta expr:content='data:post.url.canonical'/>
+      <a class='timestamp-link' expr:href='data:post.url' rel='bookmark' title='permanent link'>
+        <time class='published' expr:datetime='data:post.date.iso8601' expr:title='data:post.date.iso8601'>
+          <data:post.date/>
+        </time>
+      </a>
+    </b:if>
+  </span>
+</b:includable>
+                    <b:includable id='sharingButton'>
+  <span expr:aria-label='data:platform.shareMessage' expr:class='&quot;sharing-platform-button sharing-element-&quot; + data:platform.key' expr:data-href='data:shareUrl + &quot;&amp;target=&quot; + data:platform.target' expr:data-url='data:originalUrl' expr:title='data:platform.shareMessage' role='menuitem' tabindex='-1'>
+    <b:include name='sharingPlatformIcon'/>
+    <span class='platform-sharing-text'><data:platform.name/></span>
+  </span>
+</b:includable>
+                    <b:includable id='sharingButtonContent'>
+  <div class='flat-icon-button ripple'>
+    <b:include name='shareIcon'/>
+  </div>
+</b:includable>
+                    <b:includable id='sharingButtons'>
+  <div class='sharing' expr:aria-owns='&quot;sharing-popup-&quot; + data:sharingId' expr:data-title='data:shareTitle'>
+    <button class='sharing-button touch-icon-button' expr:aria-controls='&quot;sharing-popup-&quot; + data:sharingId' expr:aria-label='data:messages.share.escaped' expr:id='&quot;sharing-button-&quot; + data:sharingId' role='button'>
+      <b:include name='sharingButtonContent'/>
+    </button>
+    <b:include name='sharingButtonsMenu'/>
+  </div>
+</b:includable>
+                    <b:includable id='sharingButtonsMenu'>
+  <div class='share-buttons-container'>
+    <ul aria-hidden='true' class='share-buttons hidden' expr:aria-label='data:messages.share.escaped' expr:id='&quot;sharing-popup-&quot; + data:sharingId' role='menu'>
+      <b:loop values='(data:platforms ?: data:blog.sharing.platforms) filter (p =&gt; p.key not in {&quot;blogThis&quot;})' var='platform'>
+        <li>
+          <b:include name='sharingButton'/>
+        </li>
+      </b:loop>
+      <li aria-hidden='true' class='hidden'>
+        <b:include name='otherSharingButton'/>
+      </li>
+    </ul>
+  </div>
+</b:includable>
+                    <b:includable id='sharingPlatformIcon'>
+  <b:include data='{ iconClass: (&quot;touch-icon sharing-&quot; + data:platform.key) }' expr:name='data:platform.key + &quot;Icon&quot;'/>
+</b:includable>
+                    <b:includable id='snippetedPostByline'>
+  <b:with value='(data:widgets first (w =&gt; w.type == &quot;Blog&quot;)).allBylineItems' var='blogBylines'>
+    <div class='item-byline'>
+      <b:with value='data:blogBylines first (i =&gt; i.name == &quot;author&quot;)' var='byline'>
+        <b:include cond='data:byline and data:this.postDisplay.showAuthor' data='post' name='postAuthor'/>
+      </b:with>
+      <b:with value='data:blogBylines first (i =&gt; i.name == &quot;timestamp&quot;)' var='byline'>
+        <b:include cond='data:byline and data:this.postDisplay.showDate' data='post' name='postTimestamp'/>
+      </b:with>
+    </div>
+  </b:with>
+</b:includable>
+                    <b:includable id='snippetedPostContent'>
+  <div class='post-content'>
+    <b:include cond='data:this.postDisplay.showTitle' name='snippetedPostTitle'/>
+    <b:include cond='data:this.postDisplay.showDate or data:this.postDisplay.showAuthor' name='snippetedPostByline'/>
+    <b:include cond='data:this.postDisplay.showSnippet' data='post' name='postSnippet'/>
+    <b:include cond='data:this.postDisplay.showFeaturedImage and data:post.featuredImage' name='snippetedPostThumbnail'/>
+  </div>
+</b:includable>
+                    <b:includable id='snippetedPostThumbnail'>
+  <div class='item-thumbnail'>
+    <a expr:href='data:post.url'>
+      <b:include data='{                         image: data:post.featuredImage,                         imageSizes: [72, 144],                         imageRatio: &quot;1:1&quot;,                         sourceSizes: &quot;72px&quot;                        }' name='responsiveImage'/>
+    </a>
+  </div>
+</b:includable>
+                    <b:includable id='snippetedPostTitle'>
+  <b:if cond='data:post.title != &quot;&quot;'>
+    <h3 class='post-title'><a expr:href='data:post.url'><data:post.title/></a></h3>
+  </b:if>
+</b:includable>
+                    <b:includable id='snippetedPosts'>
+  <div role='feed'>
+    <!-- Don't render the post that we're currently already looking at. -->
+    <b:loop values='data:posts filter (p =&gt; p.id != data:view.postId)' var='post'>
+      <article class='post' role='article'>
+        <b:include name='snippetedPostContent'/>
+      </article>
+    </b:loop>
+  </div>
+</b:includable>
+                  </b:widget>
+                </b:section>
+            </a>
+        </div> <!-- End of widget-container -->
+    </div> <!-- End of dropdown-menu -->
+  </div>
+      </nav>
   </header>
 </div>
 
@@ -1090,7 +1372,7 @@ a:hover {
                   </b:widget>
                   <b:widget id='Translate1' locked='false' title='Translate' type='Translate' version='2' visible='true'>
                     <b:widget-settings>
-                      <b:widget-setting name='displayMode'>VERTICAL</b:widget-setting>
+                      <b:widget-setting name='displayMode'>HORIZONTAL</b:widget-setting>
                     </b:widget-settings>
                     <b:includable id='main'>
   <b:if cond='data:title != &quot;&quot;'>
@@ -2662,32 +2944,131 @@ document.addEventListener('DOMContentLoaded', function() {
 //]]>
 </script>
 <script type='text/javascript'>
-//<![CDATA[
-document.addEventListener('DOMContentLoaded', function() {
-    const gridList = document.querySelector('.grid-list');
+// <![CDATA[
+document.addEventListener("DOMContentLoaded", function () {
+  const searchInput = document.getElementById("search-input");
+  const autocompleteList = document.getElementById("autocomplete-list");
 
-    gridList.addEventListener('click', function(event) {
-        const target = event.target.closest('.grid-item, .category-header');
-        if (!target) return;
+  // Fetch blog post titles when the user types
+  searchInput.addEventListener("input", function () {
+    const val = this.value.trim();
+    if (!val) {
+      closeAllLists();
+      return false;
+    }
 
-        let link;
-        if (target.classList.contains('category-header')) {
-            link = target.querySelector('a.category-link');
-        } else {
-            link = target.querySelector('a.full-link');
-        }
+    fetchBlogPostTitles(val);
+  });
 
-        if (link && link.href) {
-            if (event.ctrlKey || event.metaKey) {
-                window.open(link.href, '_blank');
-            } else {
-                window.location.href = link.href;
-            }
-            event.preventDefault();
+  // Function to fetch blog post titles from Blogger's JSON feed
+  function fetchBlogPostTitles(query) {
+    const blogUrl = "https://wearyourdictionary.blogspot.com/feeds/posts/default?alt=json";
+
+    fetch(blogUrl)
+      .then(response => response.json())
+      .then(data => {
+        const titles = data.feed.entry.map(entry => entry.title.$t);
+        displaySuggestions(titles.filter(title => title.toLowerCase().includes(query.toLowerCase())));
+      })
+      .catch(error => console.error('Error fetching blog post titles:', error));
+  }
+
+  // Function to display autocomplete suggestions
+  function displaySuggestions(suggestions) {
+    closeAllLists();
+    if (!suggestions.length) return;
+
+    const listDiv = document.createElement("div");
+    listDiv.setAttribute("id", searchInput.id + "-autocomplete-list");
+    listDiv.setAttribute("class", "autocomplete-items");
+    searchInput.parentNode.appendChild(listDiv);
+
+    suggestions.forEach(function (suggestion) {
+      const suggestionDiv = document.createElement("div");
+      suggestionDiv.innerHTML = suggestion;
+      suggestionDiv.innerHTML += `<input type='hidden' value='${suggestion}'>`;
+
+      suggestionDiv.addEventListener("click", function () {
+        searchInput.value = this.getElementsByTagName("input")[0].value;
+        closeAllLists();
+      });
+
+      listDiv.appendChild(suggestionDiv);
+    });
+  }
+
+  // Function to close all autocomplete lists
+  function closeAllLists() {
+    const items = document.getElementsByClassName("autocomplete-items");
+    for (let i = 0; i < items.length; i++) {
+      items[i].parentNode.removeChild(items[i]);
+    }
+  }
+
+  document.addEventListener("click", function (e) {
+    closeAllLists(e.target);
+  });
+});
+// ]]>
+</script>
+<script type='text/javascript'>
+  // <![CDATA[
+   document.addEventListener('DOMContentLoaded', function () {
+    // Dropdown toggle functionality
+    function toggleDropdown() {
+        const dropdown = document.querySelector('.dropdown-menu');
+        dropdown.classList.toggle('active');
+    }
+
+    // Function to close dropdown
+    function closeDropdown() {
+        const dropdown = document.querySelector('.dropdown-menu');
+        dropdown.classList.remove('active');
+    }
+
+    // Event listener for the notification bell
+    const bellIcon = document.querySelector('.bell-icon');
+    if (bellIcon) {
+        bellIcon.addEventListener('click', function(event) {
+            event.stopPropagation();
+            toggleDropdown();
+        });
+    }
+
+    // Event listener for clicking outside the dropdown
+    document.addEventListener('click', function(event) {
+        const dropdown = document.querySelector('.dropdown-menu');
+        const bellIcon = document.querySelector('.bell-icon');
+        if (dropdown && !dropdown.contains(event.target) && event.target !== bellIcon) {
+            closeDropdown();
         }
     });
+
+    // Make the title clickable
+    const titleElement = document.querySelector('#FeaturedPost1 .title');
+    if (titleElement) {
+        titleElement.addEventListener('click', function () {
+            window.location.href = 'https://link-to-newest-post.com'; // Change the URL to your desired link
+        });
+    }
+
+    // Make the entire post-summary clickable
+    const postSummaryElement = document.querySelector('.post-summary');
+    if (postSummaryElement) {
+        postSummaryElement.addEventListener('click', function () {
+            window.location.href = 'https://link-to-post-summary.com'; // Change the URL to your desired link
+        });
+    }
+
+    // Make the image clickable
+    const postImageElement = document.querySelector('.post-summary img');
+    if (postImageElement) {
+        postImageElement.addEventListener('click', function () {
+            window.location.href = 'https://link-to-image.com'; // Change the URL to your desired link
+        });
+    }
 });
-//]]>
+// ]]>
 </script>
   </body>
 </html>
