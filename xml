@@ -21,26 +21,37 @@
     <b:include data='blog' name='all-head-content'/>
 
  <!-- Favicon for all browsers -->
-<link href='https://imgur.com/UqBkEKU' rel='icon' sizes='16x16' type='image/png'/>
-<link href='https://imgur.com/QZ7pbY6' rel='icon' sizes='32x32' type='image/png'/>
-<link href='https://imgur.com/ytQONUp' rel='icon' sizes='48x48' type='image/png'/>
-<link href='https://imgur.com/MUpcjur' rel='icon' sizes='192x192' type='image/png'/>
-<link href='https://imgur.com/GHxOhy1' rel='icon' sizes='512x512' type='image/png'/>
+<link href='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgkzcKDEuHqYjcmGcvZkdsrYWZg6gYsJUS5wygCjCuVd7kflglsd8IGPgKvMkA6zOZJy_icwQByg_RYj9X_x0U1u30ikUdeBfoVCd96fkY9EOxqfs62tJ34crxuRx5UH3J_3f9rrPJ7dIReSWv-4xByZbq8pff9P9D4qkSQTiq-dPEsD9u0Qkyg_YkUEwQ/s1600/WearYourDictionary%2016%20Favicon.png' rel='icon' sizes='16x16' type='image/png'/>
+<link href='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhY7CKkM-pE8kxkiCD2-XH3Je5JQOLTJ9QtPBPeiZneYpMcyJX4-w9H5LUm6xR2ja8CHXxv5yb8i0zKarDU-KmnVnc3zsUpcg34t0LC1jF6SrMyOCxh8A-WKZLQJdO8XS6wRQKSfBWi4AkR-4RZZRLDWs01WgtoJKhCg-1TwxQWDXOa7pHLNXIfD7ZLw30/s1600/WearYourDictionary%2032%20Favicon.png' rel='icon' sizes='32x32' type='image/png'/>
+<link href='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg9-w827fqB6dbhkewUPzAV2Q1haQGV8W1IRKm-3UYOelwktrbn8IWrQoHDaq8cA3qLsjIiEaKcdCyFXkjANpWDi-aTVqW9pBQ8x2MYvQmcvwvXhksLWBbIb1Cr42gafyqNwIDFw7ar58WnX4p2IZyyVdcK2MLSXP-I-A5V7_BlYCOYLIP-xY_m-RlXwcw/s1600/WearYourDictionary%2048%20Favicon.png' rel='icon' sizes='48x48' type='image/png'/>
+<link href='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjFORNtB8jM1mG8RzaomYta1w-7WlUTnjZaxIHxV2JdRmC-5vnIYurYNuvHc-tvoZ3cysC47E4pz6V_sqjFTblLYxtGbmuSZFMBaTWE36cvk6gUkTSVKf10l0bQSOuQXLV0qYjxBFLnepRMCSvfMnfPYafrPVLZwxb9EXHimqUceLYzRokV6XJVM13K4pM/s1600/WearYourDictionary%20192%20Favicon.png' rel='icon' sizes='192x192' type='image/png'/>
+<link href='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiKmKy3yPLWJQluu2Up-xr9_zRO2AjO7QR69bhwSR_HMCsOdDalMhr-9rq1EUD5H8YFq8En1QX3rimQF_QtGwk2WZS9ip-wXK9YXp_7yAQevRLDZqoddfeBA9he73GKgvBBJB2VJK6DVzd5FQRmxatXKbgtSqiXoSC7AfwKQBGrqcWiF6BBYW9GtOIWOcU/s320/WearYourDictionary%20512%20Favicon.png' rel='icon' sizes='512x512' type='image/png'/>
 
 <!-- Apple Touch Icon (for iOS devices) -->
-<link href='https://imgur.com/km2WxUF' rel='apple-touch-icon' sizes='180x180'/>
+<link href='https://github.com/WearYourDictionary/wear-your-dictionary-blogger-theme/blob/36ef9eca13fb30554ce262cef4c6bc0104e0ee74/WearYourDictionary%20Blogspot%20Favicons/WearYourDictionary%20180%20Favicon.png' rel='apple-touch-icon' sizes='180x180'/>
 
 <!-- Android Chrome M39+ with site installed to homescreen -->
-<link href='https://imgur.com/MUpcjur' rel='icon' sizes='192x192' type='image/png'/>
+<link href='https://github.com/WearYourDictionary/wear-your-dictionary-blogger-theme/blob/e2fce9a75cfbcaba745c5cfebac752e55957828f/WearYourDictionary%20Blogspot%20Favicons/WearYourDictionary%20192%20Favicon.png' rel='icon' sizes='192x192' type='image/png'/>
 
 <!-- Microsoft Tile for Windows 8.1 and up -->
 <meta content='https://imgur.com/QZ7pbY6' name='msapplication-TileImage'/>
 <meta content='#ffffff' name='msapplication-TileColor'/>
 
 <!-- Fallback for older browsers -->
-<link href='https://your-hosted-url/favicon.ico' rel='shortcut icon' type='image/x-icon'/>
+<link href='https://github.com/WearYourDictionary/wear-your-dictionary-blogger-theme/blob/f3b1e6ebf3789dea7109ed6400ba60ce317f993b/WearYourDictionary%20Blogspot%20Favicons/WearYourDictionary%2048%20Favicon.ico' rel='shortcut icon' type='image/x-icon'/>
 
     <meta content='#ffffff' name='msapplication-TileColor'/>
+  <meta content='Wear Your Dictionary' property='og:title'/>
+<meta content='A website for the aggregation of wearable dictionary content.' property='og:description'/>
+<meta content='https://github.com/WearYourDictionary/wear-your-dictionary-blogger-theme/blob/f3b1e6ebf3789dea7109ed6400ba60ce317f993b/WearYourDictionary%20Blogspot%20Favicons/WearYourDictionary%20180%20Favicon.png' property='og:image'/>
+<meta content='https://wearyourdictionary.blogspot.com/' property='og:url'/>
+
+  <meta content='summary_large_image' name='twitter:card'/>
+<meta content='@DictionaryWear' name='twitter:site'/>
+<meta content='Wear Your Dictionary' name='twitter:title'/>
+<meta content='A website for the aggregation of wearable dictionary content.' name='twitter:description'/>
+<meta content='https://pbs.twimg.com/profile_images/1326382498008412166/WUcLaLzg_400x400.jpg' name='twitter:image'/>
+
   
 <b:skin><![CDATA[
 :root {
@@ -67,6 +78,17 @@
   --color-search-glow: rgba(236, 236, 235, 0.6);
   --color-on-background: #ececeb; /* Placeholder text and input text color */
   --color-on-surface: #ffffff; /* Button icon color */
+	/* Categories Page */
+	  --category-item-bg: #1c1c1e;
+  --category-item-border: #333;
+  --category-item-color: #ececec;
+  --category-item-hover-bg: #2a2a2b;
+  --link-hover-color: #ffffff;
+  --page-number-bg: #131314;
+  --page-number-border: #333;
+  --page-number-color: #ececec;
+  --page-number-active-bg: #000000;
+  --page-number-active-color: #ffffff;
 }
 /* Global Styles */
 body {
@@ -146,7 +168,6 @@ a:hover {
     overflow: visible; /* Allow the logo to overflow the container if necessary */
     margin: 80px 0 0 150px; /* Adjust the margins as needed */
 }
-
 /* Header Logo */
 .header-logo {
     width: auto; /* Allow the width to adjust based on the aspect ratio */
@@ -158,11 +179,9 @@ a:hover {
     left: 50%; /* Center horizontally */
     transform: translate(-50%, -50%); /* Adjust for centering */
 }
-
 .header-logo:hover {
     transform: translate(-50%, -50%) scale(1.05); /* Scale on hover, keeping the centering */
 }
-
 /* Navigation Menu */
 .nav-menu {
     display: inline-flex; /* Change from 'flex' to 'inline-flex' to make the container shrink to the content */
@@ -318,7 +337,6 @@ a:hover {
   margin-top: 20px; /* Reduce the top margin to move the title up */
   margin-bottom: 20px; /* Reduce the bottom margin to bring elements closer */
 }
-
 /* Glowing Title */
 .glowing-title {
   font-family: 'IM Fell English', serif; /* Use your desired font */
@@ -331,14 +349,12 @@ a:hover {
                0 0 2rem rgba(255, 255, 255, 0.5), 
                0 0 3rem rgba(255, 255, 255, 0.3); /* Adjusted to rems */
 }
-
 .glowing-title:hover {
   color: #ffffff; /* Keep the text white */
   text-shadow: 0 0 1.5rem rgba(255, 255, 255, 0.9), 
                0 0 3rem rgba(255, 255, 255, 0.7), 
                0 0 4.5rem rgba(255, 255, 255, 0.5); /* Stronger glow effect on hover, adjusted to rems */
 }
-
 /* Search Container */
 .search-container {
   display: flex; /* Use flex to adjust to the content size */
@@ -347,7 +363,6 @@ a:hover {
   width: 600px; /* Match the width of the search bar */
   margin: 20px auto 0 auto; /* Center the container and add space above */
 }
-
 /* Search Bar */
 .search-bar {
   width: 600px;
@@ -358,13 +373,11 @@ a:hover {
   transition: box-shadow 0.3s ease; /* Glow effect transition */
   max-width: 100%; /* Ensure the bar remains responsive */
 }
-
 /* Add Glow on Hover */
 .search-bar:hover,
 .search-bar:focus-within {
   box-shadow: 0 0 4px 4px var(--color-search-glow);
 }
-
 /* Search Form */
 .search-bar form {
   display: flex;
@@ -374,7 +387,6 @@ a:hover {
   height: 100%;
   transition: background-color 0.3s ease;
 }
-
 /* Search Input */
 .search-bar input {
   flex: 1;
@@ -385,11 +397,9 @@ a:hover {
   outline: none;
   font-size: 16px;
 }
-
 .search-bar input::placeholder {
   color: var(--color-on-background);
 }
-
 /* Search Button */
 .search-bar button {
   background-color: transparent;
@@ -401,12 +411,10 @@ a:hover {
   justify-content: center;
   color: var(--color-on-surface);
 }
-
 .search-bar:hover form,
 .search-bar:focus-within form {
   background-color: var(--color-search-hover);
 }
-
 /* Autocomplete dropdown styling */
 .autocomplete-items {
   position: absolute;
@@ -489,12 +497,10 @@ a:hover {
     font-size: 1.5rem;
     margin-bottom: 20px;
 }
-
 .main-content h2:hover {
     transform: scale(1.05);
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
 }
-
 /* Sidebar Styles */
 .sidebar {
     position: sticky;
@@ -543,7 +549,6 @@ a:hover {
 .sidebar:hover {
     box-shadow: 0 0 15px rgba(236, 236, 235, 0.5); /* Glow effect on hover */
 }
-
 .sidebar a:hover {
     color: #ffffff;
     text-shadow: 0 0 5px #ececeb;
@@ -611,7 +616,6 @@ a:hover {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     overflow: hidden;
 }
-
 /* Popular Posts Grid */
 .popular-posts-grid {
     display: flex; /* Use flexbox for layout */
@@ -619,7 +623,6 @@ a:hover {
     gap: 20px; /* Space between items */
     box-sizing: border-box; /* Include padding and border in width/height */
 }
-
 /* Individual Post Styling */
 .popular-posts-grid li {
     flex: 0 0 50%; /* 50% width for 2 columns */
@@ -643,7 +646,6 @@ a:hover {
     object-fit: cover; /* Cover the area */
     border-radius: 0;
 }
-
 /* Content Area */
 .item-content {
     flex: 0 0 50%; /* Takes the other half */
@@ -664,7 +666,6 @@ a:hover {
     overflow: hidden;
     text-overflow: ellipsis; /* Truncate overflow text */
 }
-
 /* Popular Posts Heading */
 .popular-posts-container h2 {
     background: repeating-linear-gradient(135deg, #131314, #2a2a2b 40%, #131314 80%);
@@ -683,7 +684,6 @@ a:hover {
     transform: scale(1.05);
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
 }
-
 /* Blog Post Styles */
 .post-outer-container {
     background: var(--color-background);
@@ -762,7 +762,6 @@ a:hover {
     font-size: 1.5rem;
     margin-bottom: 20px;
 }
-
 .post-title.entry-title:hover {
     transform: scale(1.05);
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
@@ -776,7 +775,6 @@ a:hover {
     max-width: 100%;
     margin: 0 auto; /* Center container within its parent */
 }
-
 /* Previous and Next Post Links */
 .blog-pager-older-link, .blog-pager-newer-link {
     font-size: 1.5rem; /* Increase the font size */
@@ -788,7 +786,6 @@ a:hover {
     background-color: #131314; /* Background color */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 .blog-pager-older-link:hover, .blog-pager-newer-link:hover {
     transform: scale(1.05);
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
@@ -804,7 +801,6 @@ a:hover {
     background-color: #1c1c1e;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 .home-link:hover {
     transform: scale(1.1);
     box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
@@ -914,6 +910,15 @@ a:hover {
 /* Titles For Pages */
 .page-title {
   display: none;
+}
+/* Main content adjustments for Categories page */
+.main-content {
+  max-width: 100%; /* Adjust to fit within the main content container */
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #131314; /* Matches the page background */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
 }
 /* Footer Styles */
 .footer-container {
@@ -1676,6 +1681,8 @@ a:hover {
       </div>
 <div class='content-wrapper'>
     <div class='main-content'>
+ 
+
         <b:if cond='data:blog.pageType == &quot;index&quot;'>
             <!-- Random post container for the homepage -->
             <div class='random-post'>
@@ -2805,7 +2812,29 @@ a:hover {
   </span>
 </b:includable>
           <b:includable id='postBody' var='post'>
-  <!-- If metaDescription is empty, use the post body as the schema.org description too, for G+/FB snippeting. -->
+  <!-- Insert the structured data script here -->
+  <script type='application/ld+json'>
+  {
+    &quot;@context&quot;: &quot;https://schema.org&quot;,
+    &quot;@type&quot;: &quot;BlogPosting&quot;,
+    &quot;headline&quot;: &quot;<data:post.title/>&quot;,
+    &quot;image&quot;: &quot;<data:post.featuredImage.url/>&quot;,
+    &quot;author&quot;: {
+      &quot;@type&quot;: &quot;Person&quot;,
+      &quot;name&quot;: &quot;<data:post.author/>&quot;
+    },
+    &quot;publisher&quot;: {
+      &quot;@type&quot;: &quot;Organization&quot;,
+      &quot;name&quot;: &quot;Wear Your Dictionary&quot;,
+      &quot;logo&quot;: {
+        &quot;@type&quot;: &quot;ImageObject&quot;,
+        &quot;url&quot;: &quot;https://github.com/WearYourDictionary/wear-your-dictionary-blogger-theme/blob/f3b1e6ebf3789dea7109ed6400ba60ce317f993b/WearYourDictionary%20Blogspot%20Favicons/WearYourDictionary%20180%20Favicon.png&quot;
+      }
+    },
+    &quot;datePublished&quot;: &quot;<data:post.date.iso/>&quot;,
+    &quot;description&quot;: &quot;<data:post.snippet/>&quot;
+  }
+  </script>
   <div class='post-body entry-content float-container' expr:id='&quot;post-body-&quot; + data:post.id'>
     <data:post.body/>
   </div>
@@ -3656,6 +3685,152 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 </script>
+<script type='text/javascript'>
+<![CDATA[
+(function() {
+    // Function to enhance the category page
+    function enhanceCategoryPage() {
+        // Check if we're on the categories page
+        if (window.location.pathname !== '/p/categories.html') {
+            return;
+        }
+
+        // Adjust layout for the categories page
+        const mainElement = document.querySelector('.main-content');
+        if (mainElement) {
+            mainElement.classList.add('wide-container');
+            const parentCol = mainElement.closest('.content-wrapper');
+            if (parentCol) {
+                parentCol.classList.add('custom-wide-class');
+            }
+        }
+
+        // Hide the sidebar on the categories page
+        const sidebarElement = document.querySelector('.sidebar');
+        if (sidebarElement) {
+            sidebarElement.style.display = 'none';
+        }
+
+        // Fetch categories from Blogger feed
+        fetch('/feeds/posts/summary?max-results=0&alt=json')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (!data || !data.feed || !data.feed.category) {
+                    throw new Error('Categories not found in the fetched data');
+                }
+
+                const categories = [...new Set(data.feed.category
+                    .map(cat => cat.term)
+                    .filter(term => term.length > 1)
+                )].sort();
+
+                const itemsPerPage = 54;
+                let currentPage = 1;
+
+                // List of Dewey categories for the filter buttons
+                const deweyCategories = [
+                    {code: "000", name: "Computer Science, Information And General Works"},
+                    {code: "100", name: "Philosophy And Psychology"},
+                    {code: "200", name: "Religion"},
+                    {code: "300", name: "Social Sciences"},
+                    {code: "400", name: "Language"},
+                    {code: "500", name: "Pure Science"},
+                    {code: "600", name: "Technology"},
+                    {code: "700", name: "Arts And Recreation"},
+                    {code: "800", name: "Literature"},
+                    {code: "900", name: "History And Geography"}
+                ];
+
+                function displayCategories(page, filter = '') {
+                    const start = (page - 1) * itemsPerPage;
+                    const end = start + itemsPerPage;
+                    const filteredCategories = categories.filter(category => 
+                        filter === '' || category.toLowerCase().includes(filter.toLowerCase())
+                    );
+
+                    const categoryList = filteredCategories.slice(start, end).map(category => 
+                        `<div class="category-item">
+                            <a href="/search/label/${encodeURIComponent(category)}?max-results=10">${category}</a>
+                        </div>`
+                    ).join('');
+
+                    const totalPages = Math.ceil(filteredCategories.length / itemsPerPage);
+                    const pagination = Array.from({length: totalPages}, (_, i) => 
+                        `<span class="page-number${i + 1 === page ? ' active' : ''}" data-page="${i + 1}">${i + 1}</span>`
+                    ).join('');
+
+                    return `
+                        <div class="widget-content categories">
+                            <h2 class="category-header">Categories</h2>
+                            <div class="category-grid">${categoryList}</div>
+                            <div class="pagination">${pagination}</div>
+                        </div>
+                    `;
+                }
+
+                function createAlphabetButtons() {
+                    const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+                    const alphabetButtons = alphabet.split('').map(letter => 
+                        `<span class="filter-button alphabet-button" data-letter="${letter}">${letter}</span>`
+                    ).join('');
+
+                    return `<div class="alphabet-container">
+                                <div class="filter-buttons alphabet-buttons">${alphabetButtons}</div>
+                            </div>`;
+                }
+
+                function createDeweyButtons() {
+                    const deweyButtons = deweyCategories.map(category => 
+                        `<span class="filter-button dewey-button" data-filter="${category.name}">${category.code} - ${category.name}</span>`
+                    ).join('');
+
+                    return `<div class="dewey-container">
+                                <div class="filter-buttons dewey-buttons">${deweyButtons}</div>
+                            </div>`;
+                }
+
+                if (mainElement) {
+                    mainElement.innerHTML = displayCategories(currentPage) + createAlphabetButtons() + createDeweyButtons();
+
+                    mainElement.addEventListener('click', function(event) {
+                        const target = event.target;
+
+                        if (target.classList.contains('page-number')) {
+                            const page = parseInt(target.dataset.page);
+                            document.querySelector('.widget-content.categories').innerHTML = displayCategories(page, '');
+                        }
+
+                        if (target.classList.contains('alphabet-button')) {
+                            const letter = target.dataset.letter;
+                            document.querySelector('.widget-content.categories').innerHTML = displayCategories(1, letter);
+                        }
+
+                        if (target.classList.contains('dewey-button')) {
+                            const filter = target.dataset.filter;
+                            document.querySelector('.widget-content.categories').innerHTML = displayCategories(1, filter);
+                        }
+                    });
+                }
+            })
+            .catch(error => console.error('Error fetching categories:', error));
+    }
+
+    // Call the function when the DOM is fully loaded
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', enhanceCategoryPage);
+    } else {
+        enhanceCategoryPage();
+    }
+})();
+]]>
+</script>
+
+
 
   </body>
 </html>
