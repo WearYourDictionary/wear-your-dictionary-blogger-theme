@@ -20,7 +20,7 @@
 1. Copy the xml file into your blogger.
 
 2. **Customize**:
-   - Use the **Blogger Theme Designer** to adjust colors, fonts, and layouts.
+   - It's mostly hard-coded so you'd mostly have to edit the HTML to adjust colors, fonts, and layouts.
    - Add your own logo, background, or modify the code directly for further customization.
 
 ## Usage
