@@ -25,8 +25,7 @@
 
 ## Usage
 
-- The theme is designed for use with Blogger (Blogspot) and can be customized through the Blogger dashboard.
-- For more advanced customization, you can edit the HTML and CSS directly through the "Edit HTML" option in the Blogger theme settings.
+- The theme is designed for use with Blogger (Blogspot) and can be customized through the Blogger dashboard & HTML editor.
 
 ## License
 
