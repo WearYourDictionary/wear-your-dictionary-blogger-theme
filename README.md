@@ -8,7 +8,7 @@
 ## Features
 - **Fully Responsive**: Adjusts smoothly to different screen sizes (desktops, tablets, smartphones) -- not yet, lol.
 - **Customizable**: Easily change colors, fonts, and layouts via Blogger’s Theme Designer.
-- **SEO Friendly**: Built with best practices for search engine optimization.
+- **SEO Friendly**: I'm trying (not well) to build it with best practices for search engine optimization.
 - **Minimal Design**: Clean and distraction-free interface focused on content.
 - **Integrated Social Sharing**: Social media icons and sharing buttons.
 - **Custom Widgets**: Includes widgets for recent posts, popular posts, and social links.
