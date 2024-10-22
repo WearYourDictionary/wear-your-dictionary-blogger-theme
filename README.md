@@ -46,8 +46,7 @@ Created by **WearYourDictionary**. You can follow updates and get more resources
 ## Credits
 
 - **Font**: [IM Fell English](https://fonts.google.com/specimen/IM+Fell+English) by Google Fonts
-- **Icons**: FontAwesome for social and navigation icons
-- **Background Image**: Courtesy of [Unsplash](https://unsplash.com)
+- **Icons**: Mostly Material Icons whatnot.
 
 ---
 
