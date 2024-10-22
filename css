@@ -1,0 +1,1072 @@
+:root {
+    /* Colors */
+    --color-text-main: #ececeb;
+    --color-background: #131314;
+    --color-border: #ececeb;
+    --color-link: #ececeb;
+    --color-link-hover: #ffffff;
+
+    /* Typography */
+    --font-primary: 'IM Fell English', serif;
+    --font-secondary: 'IM Fell French Canon', serif;
+
+   /* Dimensions */
+    --max-width-wrapper: 1400px; /* Increased from 1200px */
+    --padding-general: 20px;
+    --main-container-max-width: 95%; /* Increased from 90% */
+    --border-width: 2px;
+    --sidebar-width: 250px;
+	/* Search Bar */
+ --color-search-default: #131314;
+  --color-search-hover: #050505;
+  --color-search-glow: rgba(236, 236, 235, 0.6);
+  --color-on-background: #ececeb; /* Placeholder text and input text color */
+  --color-on-surface: #ffffff; /* Button icon color */
+	/* Categories Page */
+	  --category-item-bg: #1c1c1e;
+  --category-item-border: #333;
+  --category-item-color: #ececec;
+  --category-item-hover-bg: #2a2a2b;
+  --link-hover-color: #ffffff;
+  --page-number-bg: #131314;
+  --page-number-border: #333;
+  --page-number-color: #ececec;
+  --page-number-active-bg: #000000;
+  --page-number-active-color: #ffffff;
+}
+/* Global Styles */
+body {
+    font-family: var(--font-primary);
+    margin: 0;
+    padding: 0;
+    background-color: #131314; /* Solid background color */
+    position: relative; /* Set position relative for the pseudo-element */
+    color: var(--color-text-main);
+    line-height: 1.6em;
+}
+/* Pseudo-element for the background image */
+body::before {
+    content: '';
+    position: fixed; /* Use fixed to keep it in place during scroll */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('https://i.imgur.com/aEKWNWp.png'); /* Tiling background image */
+    background-repeat: repeat; /* Repeat the background image */
+    background-size: 200px 200px; /* Increased tile size */
+    opacity: 0.5; /* Adjust opacity (0 to 1) */
+    z-index: -1; /* Send the pseudo-element behind the content */
+}
+/* Link Styles */
+a {
+    color: var(--color-link);
+    text-decoration: none;
+}
+a:hover {
+    color: var(--color-link-hover);
+    text-decoration: none;
+}
+.header {
+    width: 100%;
+    max-width: var(--max-width-wrapper);
+    padding: var(--padding-general);
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 20px; /* Reduce this value to move the header closer to the body */
+}
+.header-container {
+    position: relative; /* Ensure the header is positioned correctly */
+    background: 
+        url('https://i.imgur.com/7oZfSgP.jpeg') no-repeat center top; /* Non-tiling background image, positioned at the top */
+    background-size: auto 100%; /* Stretch image to fit the height of the container */
+    padding: 15px; /* Adjust padding as needed */
+	margin-bottom: 20px;
+    display: flex;
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    border-radius: 8px; /* Rounded corners */
+    z-index: 1; /* Keep it above other content */
+    height: 200px; /* Set a specific height for the header */
+}
+/* Add a darker overlay */
+.header-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Darker black overlay with 50% opacity */
+    border-radius: 8px; /* Match the border-radius */
+    z-index: -1; /* Keep the overlay behind the content */
+}
+/* Logo Container */
+.logo-container {
+    display: flex;
+    align-items: center; /* Center the logo vertically */
+    justify-content: center; /* Center the logo horizontally within the smaller container */
+    width: 60px; /* Reduced width for the container */
+    height: 100px; /* Set a fixed height for the container */
+    position: absolute; /* Keep absolute positioning */
+    overflow: visible; /* Allow the logo to overflow the container if necessary */
+    margin: 80px 0 0 150px; /* Adjust the margins as needed */
+}
+/* Header Logo */
+.header-logo {
+    width: auto; /* Allow the width to adjust based on the aspect ratio */
+    height: 100%; /* Keep the logo height to fill the container */
+    object-fit: contain; /* Ensure the logo fits within the container */
+    transition: transform 0.3s ease;
+    position: absolute; /* Position the logo absolutely within the container */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust for centering */
+}
+.header-logo:hover {
+    transform: translate(-50%, -50%) scale(1.05); /* Scale on hover, keeping the centering */
+}
+/* Navigation Menu */
+.nav-menu {
+    display: inline-flex; /* Change from 'flex' to 'inline-flex' to make the container shrink to the content */
+    justify-content: flex-start; /* Keep it aligned to the left within the container */
+    align-items: center;
+	margin-right: 1040px;
+    margin-top: 50px; /* Adjust vertical positioning */
+    margin-bottom: -80px;
+}
+/* Updated Navigation List */
+.nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: inline-flex; /* Ensure the list shrinks to the size of the content */
+    gap: 10px; /* Reduced gap for smaller spacing */
+}
+/* Navigation Buttons */
+.nav-button {
+    background-color: #080808; /* Black background */
+    color: #ffffff; /* White text */
+    text-decoration: none;
+    padding: 8px 16px; /* Padding inside the button */
+    border: none; /* Removed border */
+    font-family: 'IM Fell English', serif;
+    font-size: 14px; /* Font size */
+    border-radius: 4px; /* Slight rounding of corners */
+    transition: color 0.3s, background-color 0.3s, text-shadow 0.3s, transform 0.3s ease;
+    cursor: pointer;
+}
+.nav-button:hover {
+    background-color: #000000; /* Darker black on hover */
+    color: #ffffff; /* White text stays on hover */
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.7), 0 0 16px rgba(255, 255, 255, 0.5), 0 0 24px rgba(255, 255, 255, 0.3); /* White glow effect */
+    transform: scale(1.05); /* Slight scale on hover */
+}
+/* Container for the bell icon */
+.bell-container {
+    position: relative; /* Ensure that the container is relatively positioned */
+    width: 100%; /* Take up the full width of the page */
+    height: 100%; /* Adjust the height if necessary */
+}
+/* Bell Icon */
+.bell-icon {
+    font-size: 24px;
+    cursor: pointer;
+    position: absolute; /* Position the bell icon absolutely */
+    left: 510px; /* Position the bell icon 510px from the left */
+    top: -100px; /* Adjust the top position to move the bell icon upwards by 20px */
+    color: #ececeb; /* Default color for the icon */
+    transition: color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for color and glow */
+}
+/* Glow effect on hover for the bell icon */
+.bell-icon:hover {
+    color: #ffffff; /* Change icon color on hover */
+    box-shadow: 0 0 8px rgba(236, 236, 235, 0.8); /* Glow effect with hover color */
+}
+/* Notification container */
+.notification-container {
+    position: relative; /* Ensure positioning is relative to the bell icon container */
+    display: inline-block;
+}
+/* Dropdown menu */
+.dropdown-menu {
+    display: none; /* Initially hidden */
+    position: absolute;
+    top: -70px; /* Adjust the distance below the bell icon */
+    left: 390px; /* Move the dropdown 150px to the right from its original position */
+    background-color: #1c1c1e; /* Dark background for dropdown */
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    min-width: 250px; /* Adjust width to fit the featured post */
+    max-width: 350px; /* Adjust maximum width for larger content */
+    z-index: 9999; /* Ensure dropdown stays above other content */
+    overflow: auto; /* Allows scrolling if content exceeds available space */
+    transition: box-shadow 0.3s ease; /* Add transition for glow effect */
+}
+/* Display dropdown when .active class is applied */
+.notification-container .dropdown-menu.active {
+    display: block; /* Shows the dropdown when active */
+}
+/* Add a glow effect on hover for the dropdown container */
+.notification-container:hover .dropdown-menu {
+    box-shadow: 0 0 12px rgba(236, 236, 235, 0.8); /* Soft glow effect */
+}
+/* Title styling for the featured post */
+#FeaturedPost1 .title {
+    font-size: 20px; /* Adjust the font size */
+    font-weight: bold; /* Make the title bold */
+    color: #ececeb; /* Set title color to match the theme */
+    margin-bottom: 1px; /* Reduce space below the title */
+    text-align: center; /* Center the text horizontally */
+    display: block;
+    padding: 10px;
+}
+/* Remove underline and add glow effect on hover for the title */
+#FeaturedPost1 .title a {
+    text-decoration: none; /* Ensure no underline by default */
+    color: #ececeb;
+    transition: text-shadow 0.3s ease; /* Smooth transition for glow */
+}
+/* Glow effect on hover for the title */
+#FeaturedPost1 .title a:hover {
+    color: #ffffff; /* Change color slightly on hover */
+    text-shadow: 0 0 8px rgba(236, 236, 235, 0.8); /* Add a soft glow effect */
+    text-decoration: none; /* Ensure underline is removed */
+}
+/* Post summary styling */
+.post-summary {
+    padding: 5px 10px; /* Reduced padding to bring elements closer */
+    color: #ececeb;
+    overflow: hidden; /* Prevents content overflow */
+    margin-top: 1px; /* Reduce spacing between post-summary and title */
+}
+/* Remove underline and add glow effect on hover for post titles */
+.post-summary h3 a {
+    color: #ececeb; /* Featured post title color */
+    text-decoration: none; /* Remove underline */
+    font-weight: bold; /* Make the post title bold */
+    font-size: 18px; /* Adjust the font size */
+    transition: text-shadow 0.3s ease; /* Smooth transition for glow */
+}
+/* Glow effect on hover for post titles */
+.post-summary h3 a:hover {
+    color: #ffffff; /* Change color slightly on hover */
+    text-shadow: 0 0 8px rgba(236, 236, 235, 0.8); /* Add a soft glow effect */
+    text-decoration: none; /* Ensure underline is removed */
+}
+/* Paragraph styling in post summary */
+.post-summary p {
+    color: #ececeb;
+    margin-top: 3px; /* Reduced margin to bring text closer to the title */
+    font-size: 14px; /* Adjust font size for better readability */
+    line-height: 1.4; /* Improve text spacing for readability */
+}
+/* Image styling in post summary */
+.post-summary img {
+    max-width: 100%; /* Ensures image fits within dropdown */
+    height: auto;
+    border-radius: 8px;
+    margin-top: 8px; /* Reduced margin to bring image closer */
+    transition: box-shadow 0.3s ease; /* Smooth transition for glow */
+}
+/* Glow effect on hover for images */
+.post-summary img:hover {
+    box-shadow: 0 0 12px rgba(236, 236, 235, 0.8); /* Soft glow effect for image */
+}
+/* Title Container */
+.title-container {
+  display: inline-flex; /* Use inline-flex to make the container shrink to fit the title */
+  justify-content: center; /* Center the title horizontally within the container */
+  margin-top: 20px; /* Reduce the top margin to move the title up */
+  margin-bottom: 20px; /* Reduce the bottom margin to bring elements closer */
+}
+/* Glowing Title */
+.glowing-title {
+  font-family: 'IM Fell English', serif; /* Use your desired font */
+  font-size: 4rem; /* Keep the original title size */
+  color: #ffffff; /* Title text color */
+  text-decoration: none; /* Remove underline */
+  text-align: center;
+  transition: text-shadow 0.3s ease, color 0.3s ease; /* Smooth glow transition */
+  text-shadow: 0 0 1rem rgba(255, 255, 255, 0.7), 
+               0 0 2rem rgba(255, 255, 255, 0.5), 
+               0 0 3rem rgba(255, 255, 255, 0.3); /* Adjusted to rems */
+}
+.glowing-title:hover {
+  color: #ffffff; /* Keep the text white */
+  text-shadow: 0 0 1.5rem rgba(255, 255, 255, 0.9), 
+               0 0 3rem rgba(255, 255, 255, 0.7), 
+               0 0 4.5rem rgba(255, 255, 255, 0.5); /* Stronger glow effect on hover, adjusted to rems */
+}
+/* Search Container */
+.search-container {
+  display: flex; /* Use flex to adjust to the content size */
+  justify-content: center; /* Center the content */
+  align-items: center;
+  width: 600px; /* Match the width of the search bar */
+  margin: 20px auto 0 auto; /* Center the container and add space above */
+}
+/* Search Bar */
+.search-bar {
+  width: 600px;
+  height: 40px;
+  margin: 0px 0px 20px 0px; /* Remove any extra margins around the search bar */
+  position: relative;
+  border-radius: 20px;
+  transition: box-shadow 0.3s ease; /* Glow effect transition */
+  max-width: 100%; /* Ensure the bar remains responsive */
+}
+/* Add Glow on Hover */
+.search-bar:hover,
+.search-bar:focus-within {
+  box-shadow: 0 0 4px 4px var(--color-search-glow);
+}
+/* Search Form */
+.search-bar form {
+  display: flex;
+  background-color: var(--color-search-default);
+  border-radius: 20px;
+  overflow: hidden;
+  height: 100%;
+  transition: background-color 0.3s ease;
+}
+/* Search Input */
+.search-bar input {
+  flex: 1;
+  padding: 0 15px;
+  border: none;
+  background: transparent;
+  color: var(--color-on-background);
+  outline: none;
+  font-size: 16px;
+}
+.search-bar input::placeholder {
+  color: var(--color-on-background);
+}
+/* Search Button */
+.search-bar button {
+  background-color: transparent;
+  border: none;
+  padding: 0 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-on-surface);
+}
+.search-bar:hover form,
+.search-bar:focus-within form {
+  background-color: var(--color-search-hover);
+}
+/* Autocomplete dropdown styling */
+.autocomplete-items {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  max-height: 150px;
+  overflow-y: auto;
+  background-color: var(--color-search-default);
+  z-index: 99;
+}
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: var(--color-search-default);
+  border-bottom: 1px solid #ccc;
+  color: var(--color-on-background);
+}
+.autocomplete-items div:hover {
+  background-color: var(--color-search-hover);
+}
+/* Highlight the active autocomplete suggestion */
+.autocomplete-active {
+  background-color: var(--color-search-hover) !important;
+}
+/* Main Content Styles */
+.main-container {
+    display: flex;
+    justify-content: center;
+    margin: 10px auto;
+    max-width: var(--max-width-wrapper);
+    width: var(--main-container-max-width);
+    padding-bottom: 100px; /* Increased from 20px to 100px */
+    background-color: #131314; /* Apply the dark background color here */
+}
+.content-wrapper {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    max-width: var(--max-width-wrapper);
+    margin: 0 auto;
+    padding: 0 var(--padding-general);
+    box-sizing: border-box;
+    position: relative;
+}
+.main-content {
+    flex-grow: 1;
+    width: calc(100% - var(--sidebar-width) + 50px); /* Increased width by 50px */
+    padding: 20px;
+    margin-left: calc(var(--sidebar-width) - 50px); /* Move 50px to the right */
+    background-color: var(--color-background); /* Fully opaque background */
+    border-radius: 8px; /* Rounded corners */
+    border-width: 20px; /* Increase the thickness of the border */
+    border-style: solid; /* Required for border-image to work */
+    border-image-source: url('https://i.imgur.com/WWCGIdJ.png'); /* Your border image */
+    border-image-slice: 40%; /* Adjust slice value to fit your image design */
+    border-image-repeat: stretch; /* Adjust how the image is repeated */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: box-shadow 0.3s ease-in-out;
+    box-sizing: border-box;
+}
+/* Glow effect on hover */
+.main-content:hover {
+    box-shadow: 
+        0 0 10px 2px rgba(236, 236, 235, 0.8), /* Soft outer glow */
+        0 0 20px 4px rgba(236, 236, 235, 0.5); /* Stronger outer glow */
+}
+.main-content h2 {
+    background: repeating-linear-gradient(135deg, #131314, #2a2a2b 40%, #131314 80%);
+    margin-top: 20px;
+    opacity: 0.9;
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+    color: #ececeb;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+.main-content h2:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+}
+/* Sidebar Styles */
+.sidebar {
+    position: sticky;
+    top: 40px;
+    padding: 20px;
+    background: linear-gradient(
+        135deg, 
+        #1c1c1e,  /* Main background color */
+        #232324 15%,  /* Slightly lighter shade */
+        #202023 30%,  /* Lighter color for subtle gradient effect */
+        #1c1c1e 70%  /* Returning to the main color */
+    );
+    border-radius: 8px;
+    color: #ececeb;
+    height: fit-content;
+    width: var(--sidebar-width);
+    flex-shrink: 0;
+    margin-left: calc(-1 * var(--sidebar-width) - var(--padding-general) + 110px);
+    margin-right: var(--padding-general);
+    
+    /* Add border image properties */
+    border-width: 20px; /* Adjust thickness as needed */
+    border-style: solid; /* Required for border-image to work */
+    border-image-source: url('https://i.imgur.com/WWCGIdJ.png'); /* Your border image */
+    border-image-slice: 40%; /* Adjust slice value to fit your image design */
+    border-image-repeat: stretch; /* Adjust how the image is repeated */
+
+    transition: box-shadow 0.3s ease, font-size 0.3s ease; /* Added font-size transition */
+    box-shadow: 0 0 0 rgba(236, 236, 235, 0); /* Initial state with no glow */
+}
+.sidebar h2 {
+    font-size: 26px;
+    font-weight: bold;
+    margin-top: 0; /* Removes extra space above the Table of Contents heading */
+    margin-bottom: 15px;
+    text-align: center;
+    transition: font-size 0.3s ease; /* Smooth font-size transition */
+}
+.sidebar a {
+    font-size: 17px; /* Slight increase from default 16px */
+    color: #ececeb;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s, text-shadow 0.3s, font-size 0.3s ease; /* Smooth font-size transition */
+}
+.sidebar:hover {
+    box-shadow: 0 0 15px rgba(236, 236, 235, 0.5); /* Glow effect on hover */
+}
+.sidebar a:hover {
+    color: #ffffff;
+    text-shadow: 0 0 5px #ececeb;
+    font-size: 18px; /* Slight increase on hover */
+}
+/* Blog Archive icon */
+#BlogArchive1 h2:before {
+  font-family: 'Material Icons';
+  content: 'archive';
+  margin-right: 8px;
+  vertical-align: middle;
+}
+/* Labels icon */
+#Label1 h2:before {
+  font-family: 'Material Icons';
+  content: 'label';
+  margin-right: 8px;
+  vertical-align: middle;
+}
+/* Google Translate icon */
+#Translate1 h2:before {
+  font-family: 'Material Icons';
+  content: 'translate'; /* Google Translate icon */
+  margin-right: 8px;
+  vertical-align: middle;
+}
+/* Random Post Styles */
+.random-post {
+    background-color: #131314; /* Dark background color */
+    padding: 20px; /* Space for the content */
+    margin-bottom: 30px;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Keep the box shadow */
+}
+.random-post:hover {
+    transform: translateY(-3px); /* Lift effect on hover */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+}
+.random-post h2 {
+    font-size: 24px; /* Title size */
+    font-weight: bold; /* Bold title */
+    color: var(--color-text-main); /* Use main text color variable */
+    margin-bottom: 10px; /* Spacing below title */
+}
+.random-post div {
+    font-size: 16px; /* Body text size */
+    line-height: 1.6; /* Improved readability */
+    color: var(--color-text-main); /* Consistent text color */
+}
+.random-post a {
+    color: var(--color-link); /* Link color */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s ease; /* Smooth color transition */
+}
+.random-post a:hover {
+    color: var(--color-link-hover); /* Change color on hover */
+    text-decoration: underline; /* Underline on hover for links */
+}
+.popular-posts-container {
+    width: 100%; /* Ensure it uses the available space or set a specific width */
+    max-width: 1180px; /* Limit the max width */
+    margin: 0px 0px 0px -20px; /* Shift it to the left */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+/* Popular Posts Grid */
+.popular-posts-grid {
+    display: flex; /* Use flexbox for layout */
+    flex-wrap: wrap; /* Allow items to wrap */
+    gap: 20px; /* Space between items */
+    box-sizing: border-box; /* Include padding and border in width/height */
+}
+/* Individual Post Styling */
+.popular-posts-grid li {
+    flex: 0 0 50%; /* 50% width for 2 columns */
+    box-sizing: border-box;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    height: 150px;
+    margin: 0;
+    display: flex;
+}
+/* Image Styling */
+.item-thumbnail {
+    flex: 0 0 50%; /* Takes half of the container */
+    height: 100%; /* Full height of the post */
+}
+.item-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cover the area */
+    border-radius: 0;
+}
+/* Content Area */
+.item-content {
+    flex: 0 0 50%; /* Takes the other half */
+    padding: 10px; /* Padding for content */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centers the content vertically */
+}
+.item-title {
+    font-size: 1.2rem;
+    color: #ececeb;
+    text-align: left;
+    margin-bottom: 10px;
+}
+.item-snippet {
+    font-size: 1rem;
+    color: #ececeb;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Truncate overflow text */
+}
+/* Popular Posts Heading */
+.popular-posts-container h2 {
+    background: repeating-linear-gradient(135deg, #131314, #2a2a2b 40%, #131314 80%);
+    margin-top: 20px;
+    opacity: 0.9;
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+    color: #ececeb;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+.popular-posts-container h2:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+}
+/* Blog Post Styles */
+.post-outer-container {
+    background: var(--color-background);
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+.post-outer-container:hover {
+    transform: translateY(-3px);
+}
+.post-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--color-text-main);
+    margin-bottom: 12px;
+}
+.post-title a {
+    color: var(--color-link);
+    text-decoration: none;
+}
+.post-title a:hover {
+    color: var(--color-link-hover);
+    text-decoration: underline;
+}
+.post-body {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--color-text-main);
+    margin-bottom: 20px;
+}
+.post-author {
+    font-size: 14px;
+    color: var(--color-text-main);
+    margin-bottom: 10px;
+}
+.post-author a {
+    color: var(--color-link);
+    text-decoration: none;
+}
+.post-author a:hover {
+    text-decoration: underline;
+}
+.post-footer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-size: 14px;
+    color: var(--color-text-main);
+}
+.post-labels,
+.post-location,
+.post-timestamp {
+    display: inline-block;
+}
+.post-labels a,
+.post-location a {
+    color: var(--color-link);
+    text-decoration: none;
+    margin-right: 5px;
+}
+.post-labels a:hover,
+.post-location a:hover {
+    text-decoration: underline;
+}
+.post-title.entry-title {
+    background: repeating-linear-gradient(135deg, #131314, #2a2a2b 40%, #131314 80%);
+    margin-top: 20px;
+    opacity: 0.9;
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+    color: #ececeb;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+.post-title.entry-title:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+}
+/* Blog Pager Container */
+.blog-pager {
+    display: flex;
+    justify-content: space-between; /* Ensures Previous, Home, and Next Post links are spaced apart */
+    align-items: center; /* Vertically centers the text */
+    padding: 20px 0;
+    max-width: 100%;
+    margin: 0 auto; /* Center container within its parent */
+}
+/* Previous and Next Post Links */
+.blog-pager-older-link, .blog-pager-newer-link {
+    font-size: 1.5rem; /* Increase the font size */
+    font-weight: bold;
+    text-decoration: none;
+    color: #ececeb;
+    padding: 10px 20px;
+    border-radius: 8px;
+    background-color: #131314; /* Background color */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.blog-pager-older-link:hover, .blog-pager-newer-link:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+}
+/* Home Link */
+.home-link {
+    font-size: 1.8rem; /* Larger font for Home link */
+    font-weight: bold;
+    text-decoration: none;
+    color: #ececeb;
+    padding: 10px 30px;
+    border-radius: 8px;
+    background-color: #1c1c1e;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.home-link:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+}
+/* Comment Styles */
+.comments {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #131314;
+    border-radius: 8px;
+    color: #ececeb;
+}
+.comment-form {
+    margin-top: 20px;
+    background-color: #1c1c1e;
+    padding: 20px;
+    border-radius: 8px;
+    color: #ececeb;
+}
+.comment-author {
+    color: #ffffff;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.comment-body {
+    margin-bottom: 15px;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #d1d1d1;
+}
+.comment-timestamp {
+    font-size: 12px;
+    color: #888888;
+}
+#comment-holder .comment-replybox-single,
+#comment-holder .comment-replybox-thread {
+    background-color: #1c1c1e;
+    color: #ececeb;
+    border-radius: 8px;
+    padding: 15px;
+    margin-top: 10px;
+}
+.comments .blogger-button,
+.comments .comment-action {
+    background-color: #ececeb;
+    color: #131314;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+.comments .blogger-button:hover,
+.comments .comment-action:hover {
+    background-color: #ffffff;
+    color: #131314;
+}
+.comments input[type="text"],
+.comments input[type="email"],
+.comments textarea {
+    background-color: #2c2c2e;
+    color: #ececeb;
+    border: 1px solid #444444;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 15px;
+}
+.comments input::placeholder,
+.comments textarea::placeholder {
+    color: #888888;
+}
+.comments a {
+    color: #00bcd4;
+    text-decoration: none;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+.comments a:hover {
+    text-decoration: none;
+    color: #03a9f4;
+    text-shadow: 0 0 5px #03a9f4;
+}
+.comments .comment-content .status-msg-wrap {
+    background-color: #333333;
+    padding: 15px;
+    border-radius: 5px;
+    color: #ff6666;
+}
+.comments .comment-block {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #444444;
+}
+/* Add "Comments" before the comment section */
+.comments::before {
+    content: "Comments";
+    display: block;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ececeb; /* Adjust color to your design */
+    margin-bottom: 10px;
+    text-align: left; /* Adjust text alignment if needed */
+}
+.comments h4 {
+    display: none;
+}
+/* Titles For Pages */
+.page-title {
+  display: none;
+}
+/* Main content adjustments for Categories page */
+.main-content {
+  max-width: 100%; /* Adjust to fit within the main content container */
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #131314; /* Matches the page background */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+}
+/* Footer Styles */
+.footer-container {
+    width: 100%;
+    position: relative; /* Make it relative for the overlay */
+	margin-top: 10px;
+    background: 
+        url('https://i.imgur.com/V2Ogh1g.jpeg') no-repeat center center; /* Background image */
+    background-size: cover; /* Ensure the image covers the entire container */
+    color: #ECECEB;
+    padding: 30px 0;
+    margin-top: 20px;
+    z-index: 1; /* Ensure it's above other content */
+}
+/* Dark overlay for footer */
+.footer-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Black overlay with 80% opacity */
+    z-index: -1; /* Keep the overlay behind the content */
+    pointer-events: none; /* Prevent the overlay from interfering with content interaction */
+}
+#socket {
+    width: 100%;
+    max-width: var(--max-width-wrapper);
+    margin: 0 auto;
+    padding: 0 var(--padding-general);
+}
+.footer-content {
+    display: flex;
+    justify-content: flex-end;
+    gap: 40px;
+}
+.footer-column {
+    flex: 0 1 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.footer-column h3 {
+    margin-bottom: 15px;
+    font-size: 1.2em;
+    color: #080808; /* Change header color to #080808 */
+    text-shadow: 0 0 5px #ececeb, 0 0 10px #ececeb; /* Glow effect */
+}
+
+/* Footer Links */
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.footer-links a {
+    color: #080808; /* Change link color to #080808 */
+    text-decoration: none;
+    font-size: 0.9em;
+    transition: color 0.3s ease;
+    padding: 10px 15px; /* Add padding for button appearance */
+    background-color: #ECECEB; /* Set background to #ECECEB */
+    border-radius: 5px; /* Slightly rounded corners */
+    /* Removed border: border: 1px solid #080808; */
+}
+.footer-links a:hover {
+    color: #ffffff; /* Change text color on hover */
+    background-color: #080808; /* Dark background on hover */
+    text-shadow: 0 0 5px #ececeb;
+}
+.copyright {
+    font-size: 0.9em;
+    text-align: right;
+    margin-bottom: 15px;
+    color: #080808; /* Change copyright text color to #080808 */
+    text-shadow: 0 0 5px #ececeb, 0 0 10px #ececeb; /* Glow effect */
+}
+.copyright a {
+    color: #080808; /* Change copyright link color to #080808 */
+    text-decoration: none;
+    transition: color 0.3s ease;
+    padding: 10px 15px; /* Add padding for button appearance */
+    background-color: #ECECEB; /* Set background to #ECECEB */
+    border-radius: 5px; /* Slightly rounded corners */
+    /* Removed border: border: 1px solid #080808; */
+}
+.copyright a:hover {
+    color: #ffffff; /* Change text color on hover */
+    background-color: #080808; /* Dark background on hover */
+    text-shadow: 0 0 5px #ececeb;
+}
+/* Back to Top Button */
+#back-to-top {
+    background-color: #ECECEB; /* Set background to #ECECEB */
+    color: #131314;
+    text-decoration: none;
+    padding: 10px 20px; /* Normal button size */
+    border-radius: 5px; /* Slightly rounded corners */
+    border: none; /* Remove border */
+    font-family: 'IM Fell English', serif;
+    font-size: 16px; /* Normal font size */
+    transition: background-color 0.3s, color 0.3s, text-shadow 0.3s;
+    cursor: pointer;
+}
+#back-to-top:hover {
+    background-color: var(--color-link-hover);
+    color: #ECECEB;
+    text-shadow: 0 0 16px #ffffff;
+}
+/* Responsive Styling */
+/* Hide navigation menu when viewport width is 1457px or smaller */
+@media (max-width: 1457px) {
+    .nav-menu {
+        display: none; /* Hide the navigation menu */
+    }
+}
+@media (max-width: 1360px) {
+    .bell-container {
+        display: none; /* Hides the entire bell container */
+    }
+}
+@media (max-width: 621px) {
+  .glowing-title {
+    font-size: 2rem; /* Reduce the font size to half */
+  }
+}
+@media (max-width: 639px) {
+  .search-container {
+    width: 75%; /* Reduce the width to 75% of its original size */
+  }
+
+  .search-bar {
+    width: 100%; /* Make the search bar responsive to the container */
+  }
+}
+@media (max-width: 1437px) {
+  .logo-container {
+    display: none; /* Hide the logo container */
+  }
+}
+/* Default layout for screens above 1709px */
+.sidebar {
+  margin-left: initial; /* Your default layout for sidebar */
+}
+
+.main-content {
+  margin-left: initial; /* Your default layout for main content */
+}
+/* For screens 1709px and below */
+@media (max-width: 1709px) {
+  .sidebar {
+    margin-left: 20px; /* Adjust this value to move the sidebar to the right */
+  }
+
+  .main-content {
+    margin-left: 40px; /* Adjust this value to move the main content to the right */
+  }
+}
+/* For screens 1156px and below */
+@media (max-width: 1156px) {
+  /* Hide the sidebar but keep an icon visible */
+  .sidebar {
+    display: none; /* Initially hide the sidebar */
+  }
+
+  /* Show the icon to toggle sidebar */
+  .sidebar-icon {
+    display: block; /* Show the icon */
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1001; /* Ensure it's on top */
+    font-size: 24px;
+    color: #ececeb;
+    cursor: pointer;
+    background-color: #131314;
+    padding: 10px;
+    border-radius: 50%;
+  }
+
+  /* When sidebar is open, display it on top of everything */
+  .sidebar.open {
+    display: block; /* Show the sidebar */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background-color: #1c1c1e;
+    z-index: 1000; /* Above the content */
+    overflow-y: auto; /* Allow scrolling for the sidebar */
+  }
+
+  /* Adjust main content to full width when sidebar is closed */
+  .main-content {
+    width: 100%; /* Make the main content take the full width */
+    margin: 0; /* Remove the margin */
+  }
+}
+/* Media Query for screens 657px and below */
+@media (max-width: 657px) {
+    .blog-pager-older-link, .blog-pager-newer-link, .home-link {
+        font-size: 0.75rem; /* Half the font size */
+        padding: 5px 10px; /* Half the padding */
+    }
+}
