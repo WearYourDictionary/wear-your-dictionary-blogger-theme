@@ -9,10 +9,10 @@
 - **Fully Responsive**: Adjusts smoothly to different screen sizes (desktops, tablets, smartphones) -- not yet, lol.
 - **Customizable**: Easily change colors, fonts, and layouts via Blogger’s Theme Designer.
 - **SEO Friendly**: I'm trying (not well) to build it with best practices for search engine optimization.
-- **Minimal Design**: Clean and distraction-free interface focused on content.
+- **Quirky Design**: A distraction-heavy interface focused on fun.
 - **Integrated Social Sharing**: Social media icons and sharing buttons.
 - **Custom Widgets**: Includes widgets for recent posts, popular posts, and social links.
-- **Fast Loading**: Optimized for performance with minimal loading times.
+- **It Loads**: Optimizing for performance with minimal loading times.
 - **Google Fonts Integration**: Support for Google Fonts (e.g., "IM Fell English").
 
 ## Installation
