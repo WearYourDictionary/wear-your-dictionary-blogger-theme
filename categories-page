@@ -1,0 +1,144 @@
+<script type='text/javascript'>
+<![CDATA[
+(function() {
+    // Function to enhance the category page
+    function enhanceCategoryPage() {
+        // Check if we're on the categories page
+        if (window.location.pathname !== '/p/categories.html') {
+            return;
+        }
+
+        // Adjust layout for the categories page
+        const mainElement = document.querySelector('.main-content');
+        if (mainElement) {
+            mainElement.classList.add('wide-container');
+            const parentCol = mainElement.closest('.content-wrapper');
+            if (parentCol) {
+                parentCol.classList.add('custom-wide-class');
+            }
+        }
+
+        // Hide the sidebar on the categories page
+        const sidebarElement = document.querySelector('.sidebar');
+        if (sidebarElement) {
+            sidebarElement.style.display = 'none';
+        }
+
+        // Fetch categories from Blogger feed
+        fetch('/feeds/posts/summary?max-results=0&alt=json')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (!data || !data.feed || !data.feed.category) {
+                    throw new Error('Categories not found in the fetched data');
+                }
+
+                const categories = [...new Set(data.feed.category
+                    .map(cat => cat.term)
+                    .filter(term => term.length > 1)
+                )].sort();
+
+                const itemsPerPage = 54;
+                let currentPage = 1;
+
+                // List of Dewey categories for the filter buttons
+                const deweyCategories = [
+                    {code: "000", name: "Computer Science, Information And General Works"},
+                    {code: "100", name: "Philosophy And Psychology"},
+                    {code: "200", name: "Religion"},
+                    {code: "300", name: "Social Sciences"},
+                    {code: "400", name: "Language"},
+                    {code: "500", name: "Pure Science"},
+                    {code: "600", name: "Technology"},
+                    {code: "700", name: "Arts And Recreation"},
+                    {code: "800", name: "Literature"},
+                    {code: "900", name: "History And Geography"}
+                ];
+
+                function displayCategories(page, filter = '') {
+                    const start = (page - 1) * itemsPerPage;
+                    const end = start + itemsPerPage;
+                    const filteredCategories = categories.filter(category => 
+                        filter === '' || category.toLowerCase().includes(filter.toLowerCase())
+                    );
+
+                    const categoryList = filteredCategories.slice(start, end).map(category => 
+                        `<div class="category-item">
+                            <a href="/search/label/${encodeURIComponent(category)}?max-results=10">${category}</a>
+                        </div>`
+                    ).join('');
+
+                    const totalPages = Math.ceil(filteredCategories.length / itemsPerPage);
+                    const pagination = Array.from({length: totalPages}, (_, i) => 
+                        `<span class="page-number${i + 1 === page ? ' active' : ''}" data-page="${i + 1}">${i + 1}</span>`
+                    ).join('');
+
+                    return `
+                        <div class="widget-content categories">
+                            <h2 class="category-header">Categories</h2>
+                            <div class="category-grid">${categoryList}</div>
+                            <div class="pagination">${pagination}</div>
+                        </div>
+                    `;
+                }
+
+                function createAlphabetButtons() {
+                    const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+                    const alphabetButtons = alphabet.split('').map(letter => 
+                        `<span class="filter-button alphabet-button" data-letter="${letter}">${letter}</span>`
+                    ).join('');
+
+                    return `<div class="alphabet-container">
+                                <div class="filter-buttons alphabet-buttons">${alphabetButtons}</div>
+                            </div>`;
+                }
+
+                function createDeweyButtons() {
+                    const deweyButtons = deweyCategories.map(category => 
+                        `<span class="filter-button dewey-button" data-filter="${category.name}">${category.code} - ${category.name}</span>`
+                    ).join('');
+
+                    return `<div class="dewey-container">
+                                <div class="filter-buttons dewey-buttons">${deweyButtons}</div>
+                            </div>`;
+                }
+
+                if (mainElement) {
+                    mainElement.innerHTML = displayCategories(currentPage) + createAlphabetButtons() + createDeweyButtons();
+
+                    mainElement.addEventListener('click', function(event) {
+                        const target = event.target;
+
+                        if (target.classList.contains('page-number')) {
+                            const page = parseInt(target.dataset.page);
+                            document.querySelector('.widget-content.categories').innerHTML = displayCategories(page, '');
+                        }
+
+                        if (target.classList.contains('alphabet-button')) {
+                            const letter = target.dataset.letter;
+                            document.querySelector('.widget-content.categories').innerHTML = displayCategories(1, letter);
+                        }
+
+                        if (target.classList.contains('dewey-button')) {
+                            const filter = target.dataset.filter;
+                            document.querySelector('.widget-content.categories').innerHTML = displayCategories(1, filter);
+                        }
+                    });
+                }
+            })
+            .catch(error => console.error('Error fetching categories:', error));
+    }
+
+    // Call the function when the DOM is fully loaded
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', enhanceCategoryPage);
+    } else {
+        enhanceCategoryPage();
+    }
+})();
+]]>
+</script>
