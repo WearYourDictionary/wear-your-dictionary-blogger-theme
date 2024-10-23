@@ -1,6 +1,8 @@
 I like to put the Katakana Transliteration into 500 weighted Noto Serif JP with this code: 
-                                                                                                /* Target all elements with lang="ja" */
-                                                                                                  [lang="ja"] {
-                                                                                                      font-family: 'Noto Serif JP', serif; /* Japanese Font */
-                                                                                                      font-weight: 500; /* Set font weight to 500 */
-                                                                                                  }
+<style>
+    /* Target all elements with lang="ja" */
+    [lang="ja"] {
+        font-family: 'Noto Serif JP', serif; /* Apply Noto Serif JP */
+        font-weight: 500; /* Set font weight to 500 */
+    }
+</style>
