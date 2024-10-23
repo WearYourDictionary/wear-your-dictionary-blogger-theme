@@ -3,6 +3,8 @@
 <html b:css='false' b:defaultwidgetversion='2' b:layoutsVersion='3' b:responsive='true' b:templateUrl='strm.xml' b:templateVersion='1.0.1' expr:dir='data:blog.languageDirection' expr:lang='data:blog.locale' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
 <head>
 <link href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet'/>
+<link href='https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200..900&amp;display=swap' rel='stylesheet'/>
+
 
   <link href='https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200' rel='stylesheet'/>
 <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'/>
@@ -100,6 +102,11 @@ body {
     color: var(--color-text-main);
     line-height: 1.6em;
 }
+     /* Target all elements with lang="ja" and apply Noto Serif JP with weight 500 */
+        [lang="ja"] {
+            font-family: 'Noto Serif JP', serif; /* Japanese Font */
+            font-weight: 500; /* Set font weight to 500 */
+        }
 /* Pseudo-element for the background image */
 body::before {
     content: '';
@@ -640,11 +647,17 @@ a:hover {
     flex: 0 0 50%; /* Takes half of the container */
     height: 100%; /* Full height of the post */
 }
+
 .item-thumbnail img {
     width: 100%;
     height: 100%;
     object-fit: cover; /* Cover the area */
     border-radius: 0;
+    /* Add a filter for improved appearance */
+    filter: brightness(0.95) contrast(1.05); /* Slightly adjust brightness and contrast */
+    image-rendering: -webkit-optimize-contrast; /* Improve rendering in WebKit browsers */
+    image-rendering: crisp-edges; /* Better rendering in other browsers */
+    image-rendering: pixelated; /* Optional: may enhance appearance for pixel art */
 }
 /* Content Area */
 .item-content {
@@ -805,6 +818,33 @@ a:hover {
     transform: scale(1.1);
     box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
 }
+.feed-link {
+  display: inline-block;
+  background-color: #131314; /* Black background */
+  color: #ECECEB; /* White text color */
+  padding: 5px 10px; /* Reduced padding for a smaller button */
+  text-decoration: none;
+  margin-left: 399px; /* Retaining the original margin */
+  border-radius: 5px;
+  font-family: 'IM Fell English', serif; /* Apply the IM Fell English font */
+  font-size: 14px; /* Smaller font size */
+  font-weight: bold;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Transition for color changes */
+}
+
+.feed-link:hover {
+  background-color: white; /* Change background to white on hover */
+  color: black; /* Change text color to black on hover */
+}
+
+.feed-link:active {
+  background-color: #e0e0e0; /* Optional: light gray for active state */
+  color: black; /* Text color when active */
+}
+
+
+
+
 /* Comment Styles */
 .comments {
     margin-top: 30px;
@@ -1100,18 +1140,23 @@ a:hover {
     border-radius: 50%;
   }
 
-  /* When sidebar is open, display it on top of everything */
-  .sidebar.open {
-    display: block; /* Show the sidebar */
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 250px;
-    height: 100%;
-    background-color: #1c1c1e;
-    z-index: 1000; /* Above the content */
-    overflow-y: auto; /* Allow scrolling for the sidebar */
-  }
+/* When sidebar is open, display it on top of everything */
+.sidebar.open {
+  display: block; /* Show the sidebar */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 75vw; /* Set width to 75% of the viewport width */
+  height: 100%;
+  background-color: #1c1c1e;
+  z-index: 1000; /* Above the content */
+  overflow-y: auto; /* Allow scrolling for the sidebar */
+}
+
+/* Increase text size inside the sidebar */
+.sidebar.open * {
+  font-size: 1em; /* Adjust as needed to make text bigger */
+}
 
   /* Adjust main content to full width when sidebar is closed */
   .main-content {
@@ -2047,7 +2092,8 @@ a:hover {
     <b:include name='nextprev'/>
 
     <!-- feed links -->
-    <b:include name='feedLinks'/>
+   
+               <a class='feed-link' href='https://wearyourdictionary.blogspot.com/feeds/posts/default' target='_blank' type='application/atom+xml'>Raw RSS Feed</a>
 
   <b:else/>
     <b:include name='mobile-main'/>
@@ -3829,6 +3875,10 @@ document.addEventListener("DOMContentLoaded", function () {
 })();
 ]]>
 </script>
+
+
+
+
 
 
 
