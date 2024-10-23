@@ -1,0 +1,101 @@
+/* Media Queries for Responsive Adjustments */
+
+/* For screens 1709px and below */
+@media (max-width: 1709px) {
+  .sidebar {
+    margin-left: 20px;
+  }
+  .main-content {
+    margin-left: 40px;
+  }
+}
+
+/* For screens 1457px and below */
+@media (max-width: 1457px) {
+  .nav-menu, .logo-container {
+    display: none; /* Hide navigation menu and logo container */
+  }
+}
+
+/* For screens 1360px and below */
+@media (max-width: 1360px) {
+  .bell-container {
+    display: none; /* Hide the bell container */
+  }
+}
+
+/* For screens 1156px and below */
+@media (max-width: 1156px) {
+  .sidebar {
+    display: none; /* Hide sidebar */
+  }
+  .sidebar-icon {
+    display: block;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1001;
+    font-size: 24px;
+    color: #ececeb;
+    cursor: pointer;
+    background-color: #131314;
+    padding: 10px;
+    border-radius: 50%;
+  }
+
+  .sidebar.open {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 75vw;
+    height: 100%;
+    background-color: #1c1c1e;
+    z-index: 1000;
+    overflow-y: auto;
+  }
+
+  .sidebar.open * {
+    font-size: 1em;
+  }
+
+  .main-content {
+    width: 100%;
+    margin: 0;
+  }
+}
+
+/* For screens 768px and below */
+@media (max-width: 768px) {
+  .logo-container {
+    margin: 50px 0 0 20px;
+  }
+  .header-logo {
+    height: 80%;
+  }
+}
+
+/* For screens 657px and below */
+@media (max-width: 657px) {
+  .blog-pager-older-link, .blog-pager-newer-link, .home-link {
+    font-size: 0.75rem;
+    padding: 5px 10px;
+  }
+}
+
+/* For screens 639px and below */
+@media (max-width: 639px) {
+  .search-container {
+    width: 75%;
+  }
+  .search-bar {
+    width: 100%;
+  }
+}
+
+/* For screens 621px and below */
+@media (max-width: 621px) {
+  .glowing-title {
+    font-size: 2rem; /* Reduce font size */
+  }
+}
