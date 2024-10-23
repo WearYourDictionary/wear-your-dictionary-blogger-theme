@@ -1,0 +1,59 @@
+<script type='text/javascript'>
+  // <![CDATA[
+   document.addEventListener('DOMContentLoaded', function () {
+    // Dropdown toggle functionality
+    function toggleDropdown() {
+        const dropdown = document.querySelector('.dropdown-menu');
+        dropdown.classList.toggle('active');
+    }
+
+    // Function to close dropdown
+    function closeDropdown() {
+        const dropdown = document.querySelector('.dropdown-menu');
+        dropdown.classList.remove('active');
+    }
+
+    // Event listener for the notification bell
+    const bellIcon = document.querySelector('.bell-icon');
+    if (bellIcon) {
+        bellIcon.addEventListener('click', function(event) {
+            event.stopPropagation();
+            toggleDropdown();
+        });
+    }
+
+    // Event listener for clicking outside the dropdown
+    document.addEventListener('click', function(event) {
+        const dropdown = document.querySelector('.dropdown-menu');
+        const bellIcon = document.querySelector('.bell-icon');
+        if (dropdown && !dropdown.contains(event.target) && event.target !== bellIcon) {
+            closeDropdown();
+        }
+    });
+
+    // Make the title clickable
+    const titleElement = document.querySelector('#FeaturedPost1 .title');
+    if (titleElement) {
+        titleElement.addEventListener('click', function () {
+            window.location.href = 'https://link-to-newest-post.com'; // Change the URL to your desired link
+        });
+    }
+
+    // Make the entire post-summary clickable
+    const postSummaryElement = document.querySelector('.post-summary');
+    if (postSummaryElement) {
+        postSummaryElement.addEventListener('click', function () {
+            window.location.href = 'https://link-to-post-summary.com'; // Change the URL to your desired link
+        });
+    }
+
+    // Make the image clickable
+    const postImageElement = document.querySelector('.post-summary img');
+    if (postImageElement) {
+        postImageElement.addEventListener('click', function () {
+            window.location.href = 'https://link-to-image.com'; // Change the URL to your desired link
+        });
+    }
+});
+// ]]>
+</script>
