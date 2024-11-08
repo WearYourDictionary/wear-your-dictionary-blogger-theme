@@ -763,6 +763,28 @@ a:hover {
     transform: scale(1.05);
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
 }
+
+/* Unified styling for date and author info */
+.post-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9em;
+    color: #ECECEB;
+    font-style: italic;
+}
+.post-info .author-name {
+    font-weight: normal;
+    text-decoration: none;
+}
+
+.share-button {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+}
+
 /* Blog Pager Container */
 .blog-pager {
     display: flex;
@@ -3791,7 +3813,20 @@ if (window.location.pathname.includes('/search/label/')) {
       const postUrl = title.querySelector(&quot;a&quot;) ? title.querySelector(&quot;a&quot;).href : window.location.href;
       const postTitleText = title.textContent.trim();
 
-      // Define platforms with their specific properties
+      // Custom display text for Richard Feynman&#39;s birthday
+      const postDate = &quot;Richard Feynman&#39;s Birthday: May 11, 1918&quot;;
+
+      // Create post date display
+      const dateDisplay = document.createElement(&quot;div&quot;);
+      dateDisplay.className = &quot;post-date&quot;;
+      dateDisplay.textContent = postDate;
+
+      // Create author display with the WearYourDictionary link
+      const authorDisplay = document.createElement(&quot;div&quot;);
+      authorDisplay.className = &quot;post-author&quot;;
+      authorDisplay.innerHTML = `<a class='author-name' href='https://www.blogger.com/profile/08960757582939866322' rel='noopener noreferrer' target='_blank'>By: WearYourDictionary</a>`;
+
+      // Define share buttons for each platform
       const platforms = [
         {
           name: &quot;Minds&quot;,
@@ -3803,23 +3838,30 @@ if (window.location.pathname.includes('/search/label/')) {
           name: &quot;X&quot;,
           url: `https://x.com/intent/tweet?text=${encodeURIComponent(postTitleText)}&amp;url=${encodeURIComponent(postUrl)}`,
           className: &quot;x-share-button&quot;,
-          icon: &quot;https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhPx-xgEiG1PGaCMqoHkUlSl8S9lQM1khKxx5nqe7aDcWrI_C6_By5XYmwJ9gisDYeOT2SxiWmykUlPKYvMwV2qAXcbb3sPL3OXhB8NCukSN3hSmXQB_OKaz7LI97s-lnOYc0HjncT7knio3HCnImvYgm1B5zhAogtSy-JPmyTXsI661V7rRp4tpZ0a9qA/s1600/X%2032px.jpg&quot; // Replace with actual X icon URL
+          icon: &quot;https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhPx-xgEiG1PGaCMqoHkUlSl8S9lQM1khKxx5nqe7aDcWrI_C6_By5XYmwJ9gisDYeOT2SxiWmykUlPKYvMwV2qAXcbb3sPL3OXhB8NCukSN3hSmXQB_OKaz7LI97s-lnOYc0HjncT7knio3HCnImvYgm1B5zhAogtSy-JPmyTXsI661V7rRp4tpZ0a9qA/s1600/X%2032px.jpg&quot;
         },
         {
           name: &quot;Bluesky&quot;,
           url: `https://bsky.app/compose?text=${encodeURIComponent(postTitleText)}%20${encodeURIComponent(postUrl)}`,
           className: &quot;bsky-share-button&quot;,
-          icon: &quot;https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhNRBYpaJl6Llz4eGhMceTHHSbquVZ6OvJtgIF7HUyWxHG5f2D8evz9xjLyWCXLsRV4Yfy13zWtTInQGG_d5eHGsyXJGJv2xHRdmloxvifn-ST39j89WX7m7xU4iqMFk1lhkqcrcI9fjMilS1Llbd-ziD2qrMZXLmY2iBXka25CZ8eqXYVNHnX4CnVmj5U/s32/Bluesky%2032px.jpg&quot; // 
+          icon: &quot;https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhNRBYpaJl6Llz4eGhMceTHHSbquVZ6OvJtgIF7HUyWxHG5f2D8evz9xjLyWCXLsRV4Yfy13zWtTInQGG_d5eHGsyXJGJv2xHRdmloxvifn-ST39j89WX7m7xU4iqMFk1lhkqcrcI9fjMilS1Llbd-ziD2qrMZXLmY2iBXka25CZ8eqXYVNHnX4CnVmj5U/s32/Bluesky%2032px.jpg&quot;
         },
         {
           name: &quot;Line&quot;,
           url: `https://line.me/R/msg/text/?${encodeURIComponent(postTitleText)}%20${encodeURIComponent(postUrl)}`,
           className: &quot;line-share-button&quot;,
-          icon: &quot;https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiIypZijC12VHDD-JeQ_aLTXWsTn91Y_sWZB1-Ar5Tkz7W4kfjZf7ugpSgrvIenBdCh6ILaZq0tlkRinCzg-9s5UTy_WgwSysru-y2l6TGOUQ8F1PlOygZDoKYPi57qcQfnmz6w7FwTAN8duQnrauFNmzWgjqeTrOc9_VDI1KZNkGs5MSE4kEF_oWzONeU/s1600/LINE%2032px.jpg&quot; // 
+          icon: &quot;https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiIypZijC12VHDD-JeQ_aLTXWsTn91Y_sWZB1-Ar5Tkz7W4kfjZf7ugpSgrvIenBdCh6ILaZq0tlkRinCzg-9s5UTy_WgwSysru-y2l6TGOUQ8F1PlOygZDoKYPi57qcQfnmz6w7FwTAN8duQnrauFNmzWgjqeTrOc9_VDI1KZNkGs5MSE4kEF_oWzONeU/s1600/LINE%2032px.jpg&quot;
         }
       ];
 
-      // Create and append each share button
+      // Container for date, author, and share buttons
+      const infoContainer = document.createElement(&quot;div&quot;);
+      infoContainer.className = &quot;post-info&quot;;
+
+      // Append the post date first
+      infoContainer.appendChild(dateDisplay);
+
+      // Create and append each share button before the author display
       platforms.forEach(platform =&gt; {
         const button = document.createElement(&quot;a&quot;);
         button.className = `share-button ${platform.className}`;
@@ -3834,13 +3876,20 @@ if (window.location.pathname.includes('/search/label/')) {
         icon.height = 30;
 
         button.appendChild(icon);
-        title.parentNode.insertBefore(button, title.nextSibling);
+        infoContainer.appendChild(button);
       });
+
+      // Append the author display last
+      infoContainer.appendChild(authorDisplay);
+
+      // Locate the post footer and append the info container there
+      const postFooter = title.closest(&quot;.post-outer&quot;).querySelector(&quot;.post-footer&quot;);
+      if (postFooter) {
+        postFooter.appendChild(infoContainer);
+      }
     });
   });
 </script>
-
-
 
 
   </body>
