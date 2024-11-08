@@ -431,22 +431,27 @@ a:hover {
     box-sizing: border-box;
     position: relative;
 }
-.minds-share-button {
+/* General share button styling */
+.share-button {
   display: inline-block;
-  width: 30px;  /* Smaller size */
+  width: 30px;
   height: 30px;
   padding: 3px;
   text-align: center;
-  background-color: #ECECEB;  /* Updated color */
+  background-color: #ECECEB; /* Default background */
   border: 1px solid #414c57;
-  border-radius: 50%;  /* Circle shape */
+  border-radius: 50%;
   box-shadow: 2px 2px 4px -2px rgba(0, 0, 0, 0.4);
   overflow: hidden;
+  transition: transform 0.2s ease;
 }
-.minds-share-button img {
-  height: 100%;  /* Fit within button */
+.share-button img {
+  height: 100%;
   width: auto;
-  border-radius: 50%;  /* Match circular shape */
+  border-radius: 50%;
+}
+.share-button:hover {
+  transform: scale(1.1); /* Slight zoom on hover */
 }
 .main-content {
     flex-grow: 1;
@@ -819,6 +824,7 @@ a:hover {
   background-color: #e0e0e0; /* Optional: light gray for active state */
   color: black; /* Text color when active */
 }
+
 /* Comment Styles */
 .comments {
     margin-top: 30px;
@@ -1918,7 +1924,7 @@ a:hover {
             <b:widget-setting name='showAuthorProfile'>true</b:widget-setting>
             <b:widget-setting name='style.layout'>1x1</b:widget-setting>
             <b:widget-setting name='showLabels'>true</b:widget-setting>
-            <b:widget-setting name='showLocation'>false</b:widget-setting>
+            <b:widget-setting name='showLocation'>true</b:widget-setting>
             <b:widget-setting name='postLabelsLabel'/>
             <b:widget-setting name='showTimestamp'>true</b:widget-setting>
             <b:widget-setting name='postsPerAd'>1</b:widget-setting>
@@ -1950,6 +1956,7 @@ a:hover {
     </b:if>
    
     <div class='post-outer'>
+      
         <b:include data='post' name='post'/>
 
     
@@ -3782,22 +3789,59 @@ if (window.location.pathname.includes('/search/label/')) {
 
     postTitles.forEach(function(title) {
       const postUrl = title.querySelector(&quot;a&quot;) ? title.querySelector(&quot;a&quot;).href : window.location.href;
+      const postTitleText = title.textContent.trim();
 
-      const mindsButton = document.createElement(&quot;a&quot;);
-      mindsButton.className = &quot;minds-share-button&quot;;
-      mindsButton.href = `https://www.minds.com/newsfeed/subscriptions/latest?intentUrl=${encodeURIComponent(postUrl)}`;
-      mindsButton.target = &quot;_blank&quot;;
-      mindsButton.title = &quot;Share to Minds&quot;;
+      // Define platforms with their specific properties
+      const platforms = [
+        {
+          name: &quot;Minds&quot;,
+          url: `https://www.minds.com/newsfeed/subscriptions/latest?intentUrl=${encodeURIComponent(postUrl)}`,
+          className: &quot;minds-share-button&quot;,
+          icon: &quot;https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg45jZ8U8Qp31hYwAKAdhTQ48uMq04HAHHDwm3VD6Nv57XWb53Az3quK3jClqa2sg4xG6kmvCa7HMwJZndh9Qe2kYwdE-lMgzIbD5K8aD064GPaBPCoUpsTFdH29EV2U8NOt5o_AG3Yk0FwR1d2-8Vx9-kDS5ItI7a8JThulFyuyFb5LOlv_Y6JqOVOWLE/s1600/bulb-32x32.png&quot;
+        },
+        {
+          name: &quot;X&quot;,
+          url: `https://x.com/intent/tweet?text=${encodeURIComponent(postTitleText)}&amp;url=${encodeURIComponent(postUrl)}`,
+          className: &quot;x-share-button&quot;,
+          icon: &quot;https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhPx-xgEiG1PGaCMqoHkUlSl8S9lQM1khKxx5nqe7aDcWrI_C6_By5XYmwJ9gisDYeOT2SxiWmykUlPKYvMwV2qAXcbb3sPL3OXhB8NCukSN3hSmXQB_OKaz7LI97s-lnOYc0HjncT7knio3HCnImvYgm1B5zhAogtSy-JPmyTXsI661V7rRp4tpZ0a9qA/s1600/X%2032px.jpg&quot; // Replace with actual X icon URL
+        },
+        {
+          name: &quot;Bluesky&quot;,
+          url: `https://bsky.app/compose?text=${encodeURIComponent(postTitleText)}%20${encodeURIComponent(postUrl)}`,
+          className: &quot;bsky-share-button&quot;,
+          icon: &quot;https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhNRBYpaJl6Llz4eGhMceTHHSbquVZ6OvJtgIF7HUyWxHG5f2D8evz9xjLyWCXLsRV4Yfy13zWtTInQGG_d5eHGsyXJGJv2xHRdmloxvifn-ST39j89WX7m7xU4iqMFk1lhkqcrcI9fjMilS1Llbd-ziD2qrMZXLmY2iBXka25CZ8eqXYVNHnX4CnVmj5U/s32/Bluesky%2032px.jpg&quot; // 
+        },
+        {
+          name: &quot;Line&quot;,
+          url: `https://line.me/R/msg/text/?${encodeURIComponent(postTitleText)}%20${encodeURIComponent(postUrl)}`,
+          className: &quot;line-share-button&quot;,
+          icon: &quot;https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiIypZijC12VHDD-JeQ_aLTXWsTn91Y_sWZB1-Ar5Tkz7W4kfjZf7ugpSgrvIenBdCh6ILaZq0tlkRinCzg-9s5UTy_WgwSysru-y2l6TGOUQ8F1PlOygZDoKYPi57qcQfnmz6w7FwTAN8duQnrauFNmzWgjqeTrOc9_VDI1KZNkGs5MSE4kEF_oWzONeU/s1600/LINE%2032px.jpg&quot; // 
+        }
+      ];
 
-      const mindsImage = document.createElement(&quot;img&quot;);
-      mindsImage.src = &quot;https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg45jZ8U8Qp31hYwAKAdhTQ48uMq04HAHHDwm3VD6Nv57XWb53Az3quK3jClqa2sg4xG6kmvCa7HMwJZndh9Qe2kYwdE-lMgzIbD5K8aD064GPaBPCoUpsTFdH29EV2U8NOt5o_AG3Yk0FwR1d2-8Vx9-kDS5ItI7a8JThulFyuyFb5LOlv_Y6JqOVOWLE/s1600/bulb-32x32.png&quot;; // 
-      mindsImage.alt = &quot;Minds&quot;;
-      mindsImage.height = 40;
-      mindsButton.appendChild(mindsImage);
+      // Create and append each share button
+      platforms.forEach(platform =&gt; {
+        const button = document.createElement(&quot;a&quot;);
+        button.className = `share-button ${platform.className}`;
+        button.href = platform.url;
+        button.target = &quot;_blank&quot;;
+        button.title = `Share to ${platform.name}`;
 
-      title.parentNode.insertBefore(mindsButton, title.nextSibling);
+        const icon = document.createElement(&quot;img&quot;);
+        icon.src = platform.icon;
+        icon.alt = `${platform.name} Icon`;
+        icon.width = 30;
+        icon.height = 30;
+
+        button.appendChild(icon);
+        title.parentNode.insertBefore(button, title.nextSibling);
+      });
     });
   });
 </script>
+
+
+
+
   </body>
 </html>
