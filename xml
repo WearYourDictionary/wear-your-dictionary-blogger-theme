@@ -128,8 +128,11 @@ a:hover {
     text-decoration: none;
 }
 .header {
-    width: 100%;
-    max-width: var(--max-width-wrapper);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    max-width: 1400px;
     padding: var(--padding-general);
     text-align: center;
     margin: 0 auto;
@@ -161,27 +164,10 @@ a:hover {
     border-radius: 8px; /* Match the border-radius */
     z-index: -1; /* Keep the overlay behind the content */
 }
-.logo-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 60px;
-    height: 100px;
-    position: absolute;
-    overflow: visible;
-    margin: 25px 0 0 350px; /* Adjusted margin to move up and right */
-    z-index: 1000;
-    border-radius: 10px;
-    background-color: #1c1c1e;
-}
 .header-logo {
     width: auto;
     height: 100%;
     object-fit: contain;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     will-change: transform;
     transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     border-radius: 5px;
@@ -195,19 +181,9 @@ a:hover {
 /* Container for the bell icon */
 .bell-container {
     position: relative; /* Ensure that the container is relatively positioned */
-    width: 100%; /* Take up the full width of the page */
     height: 100%; /* Adjust the height if necessary */
 }
-/* Bell Icon */
-.bell-icon {
-    font-size: 24px;
-    cursor: pointer;
-    position: absolute; /* Position the bell icon absolutely */
-    left: 510px; /* Position the bell icon 510px from the left */
-    top: -100px; /* Adjust the top position to move the bell icon upwards by 20px */
-    color: #ececeb; /* Default color for the icon */
-    transition: color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for color and glow */
-}
+
 /* Glow effect on hover for the bell icon */
 .bell-icon:hover {
     color: #ffffff; /* Change icon color on hover */
@@ -219,24 +195,25 @@ a:hover {
     display: inline-block;
 }
 /* Dropdown menu */
-.dropdown-menu {
-    display: none; /* Initially hidden */
-    position: absolute;
-    top: -70px; /* Adjust the distance below the bell icon */
-    left: 390px; /* Move the dropdown 150px to the right from its original position */
-    background-color: #1c1c1e; /* Dark background for dropdown */
-    padding: 10px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    min-width: 250px; /* Adjust width to fit the featured post */
-    max-width: 350px; /* Adjust maximum width for larger content */
-    z-index: 9999; /* Ensure dropdown stays above other content */
-    overflow: auto; /* Allows scrolling if content exceeds available space */
-    transition: box-shadow 0.3s ease; /* Add transition for glow effect */
-}
+    .dropdown-menu {
+        display: none;
+        position: absolute;
+        top: 30px;
+        right: -50px;
+        background-color: #1c1c1e;
+        padding: 10px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        min-width: 250px;
+        max-width: 350px;
+        z-index: 9999;
+        overflow: auto;
+        transition: box-shadow 0.3s ease;
+    }
 /* Display dropdown when .active class is applied */
 .notification-container .dropdown-menu.active {
     display: block; /* Shows the dropdown when active */
+    right: -50px;
 }
 /* Add a glow effect on hover for the dropdown container */
 .notification-container:hover .dropdown-menu {
@@ -307,6 +284,7 @@ a:hover {
   justify-content: center; /* Center the title horizontally within the container */
   margin-top: 20px; /* Reduce the top margin to move the title up */
   margin-bottom: 20px; /* Reduce the bottom margin to bring elements closer */
+  flex-direction: column;
 }
 /* Glowing Title */
 .glowing-title {
@@ -495,6 +473,7 @@ a:hover {
 .sidebar {
     position: sticky;
     top: 40px;
+    left: -250px;
     padding: 20px;
     background: #131314; 
     border-radius: 8px;
@@ -511,6 +490,8 @@ a:hover {
     border-image-repeat: stretch;
     transition: font-size 0.3s ease; /* Removed box-shadow transition */
     box-shadow: none; /* Removed shadow */
+    width: 250px;
+    height: 100%;
 }
 .sidebar h2 {
     font-size: 26px;
@@ -518,7 +499,7 @@ a:hover {
     margin-top: 0; 
     margin-bottom: 15px;
     text-align: center;
-    transition: font-size 0.3s ease; 
+    transition: font-size 0.3s ease;
 }
 .sidebar a {
     font-size: 17px; 
@@ -535,6 +516,7 @@ a:hover {
     color: #ececeb; /* Kept the same color */
     text-shadow: none; /* Removed text shadow */
     font-size: 17px; /* Kept the same font size */
+     background-color: #575757;
 }
 /* Blog Archive icon */
 #BlogArchive1 h2:before {
@@ -991,12 +973,12 @@ a:hover {
     width: 100%;
     max-width: var(--max-width-wrapper);
     margin: 0 auto;
-    padding: 0 var(--padding-general);
+    padding: 0;
 }
 .footer-content {
     display: flex;
     justify-content: center; /* Centers content horizontally */
-    align-items: center; /* Centers content vertically */
+    align-items: flex-start; /* Centers content vertically */
     gap: 40px;
     flex-wrap: wrap; /* Allows the content to wrap if there's too much for one row */
 }
@@ -1035,16 +1017,24 @@ a:hover {
     text-shadow: 0 0 5px #ececeb;
 }
 .copyright {
-    font-size: 0.9em;
+    font-size: 1.2em;
+    margin-top: 20px;
     text-align: right;
     margin-bottom: 15px;
-    color: #080808; /* Change copyright text color to #080808 */
-    text-shadow: 0 0 5px #ececeb, 0 0 10px #ececeb; /* Glow effect */
+    color: #080808;
+    text-shadow: 0 0 5px #ececeb, 0 0 10px #ececeb;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-weight: bold;
+    gap: 10px;
 }
 .copyright a {
     color: #080808; /* Change copyright link color to #080808 */
     text-decoration: none;
     transition: color 0.3s ease;
+    font-size: 16px;
+    font-weight: normal;
     padding: 10px 15px; /* Add padding for button appearance */
     background-color: #ECECEB; /* Set background to #ECECEB */
     border-radius: 5px; /* Slightly rounded corners */
@@ -1056,17 +1046,24 @@ a:hover {
     text-shadow: 0 0 5px #ececeb;
 }
 /* Back to Top Button */
-#back-to-top {
-    background-color: #ECECEB; /* Set background to #ECECEB */
-    color: #131314;
-    text-decoration: none;
-    padding: 10px 20px; /* Normal button size */
-    border-radius: 5px; /* Slightly rounded corners */
-    border: none; /* Remove border */
-    font-family: 'IM Fell English', serif;
-    font-size: 16px; /* Normal font size */
-    transition: background-color 0.3s, color 0.3s, text-shadow 0.3s;
-    cursor: pointer;
+#back-to-top-fixed {
+        background-color: #ECECEB;
+        color: #131314;
+        text-decoration: none;
+        padding: 4px;
+        border-radius: 10px;
+        border: none;
+        font-family: 'IM Fell English', serif;
+        font-size: 30px;
+        transition: background-color 0.3s, color 0.3s, text-shadow 0.3s;
+        cursor: pointer;
+        position: fixed;
+        bottom: 10px;
+        z-index: 9999999;
+        right: 10px;
+        transform: rotate(270deg);
+        width: 40px;
+        height: 40px;
 }
 #back-to-top:hover {
     background-color: var(--color-link-hover);
@@ -1080,6 +1077,137 @@ a:hover {
 
 .main-content {
   margin-left: initial;
+}
+.goog-te-gadget{
+    display: contents;
+}
+/* Media Queries for Responsive Adjustments */
+
+/* For screens 1709px and below */
+@media (max-width: 1709px) {
+  .sidebar {
+    margin-left: 20px;
+  }
+}
+@media (min-width: 1157px){
+.sidebar-icon{
+    display: none;
+}
+}
+
+/* For screens 1156px and below */
+@media (max-width: 1156px) {
+  .sidebar {
+    display: none; /* Hide sidebar */
+  }
+  .sidebar-icon {
+    display: flex;
+    position: fixed;
+    top: 22px;
+    left: 20px;
+    z-index: 1001;
+    font-size: 24px;
+    color: #ececeb;
+    cursor: pointer;
+    background-color: #131314;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+  }         
+
+  .sidebar.open {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #1c1c1e;
+    z-index: 1000;
+    overflow-y: auto;
+    max-width: 85%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .sidebar.open * {
+    font-size: 1em;
+  }
+
+  .main-content {
+    width: 100%;
+    margin: 0;
+  }
+  .header-container{
+    height: 280px;
+}
+.header{
+    flex-direction: column;
+}
+.dropdown-menu{
+    left: -140px;
+}
+}
+
+/* For screens 768px and below */
+@media (max-width: 768px) {
+  .logo-container {
+    margin: 50px 0 0 20px;
+  }
+  .header-logo {
+    height: 80%;
+  }
+  .feed-link{
+  margin-left: 0px;
+  }
+  .header{
+    padding: 0;
+  }
+}
+
+/* For screens 657px and below */
+@media (max-width: 657px) {
+  .blog-pager-older-link, .blog-pager-newer-link, .home-link {
+    font-size: 0.75rem;
+    padding: 5px 10px;
+  }
+  .copyright{
+    text-align: center;
+    align-items: center;
+    width: 80%;
+    margin: auto;
+  }
+}
+
+/* For screens 639px and below */
+@media (max-width: 639px) {
+  .search-container {
+    width: 75%;
+  }
+  .search-bar {
+    width: 100%;
+  }
+  .footer-column{
+    align-items: center;
+  }
+}
+
+/* For screens 621px and below */
+@media (max-width: 621px) {
+  .glowing-title {
+    font-size: 2rem; /* Reduce font size */
+  }
+  .main-content{
+    padding: 0;
+  }
+  .content-container{
+    width: 100%;
+  }
+  .post-info{
+    flex-wrap: wrap;
+  }
 }
 ]]></b:skin>
 </head>
@@ -1095,8 +1223,7 @@ a:hover {
 
 <div class='title-container'>
     <a class='glowing-title' href='https://wearyourdictionary.blogspot.com/'>Wear Your Dictionary</a>
-</div>
-  <div class='search-container'>
+    <div class='search-container'>
     <div class='search-bar'>
       <form action='/search' autocomplete='off' method='get' role='search'>
         <input id='search-input' name='q' placeholder='Search' type='search'/>
@@ -1106,6 +1233,8 @@ a:hover {
       </form>
     </div>
   </div>
+</div>
+  
 
    <!-- Notification Bell Section -->
 <nav class='bell-container'>
@@ -3409,13 +3538,11 @@ window.addEventListener('DOMContentLoaded', function() {
         <div class='footer-column'>
   <div class='copyright'>
     &#169; <script>document.write(new Date().getFullYear())</script> WearYourDictionary 
-    Licensed under the <a href='https://opensource.org/licenses/MIT' rel='noopener noreferrer' target='_blank'>MIT License</a>.
-    <br>
+    Licensed under the <a href='https://opensource.org/licenses/MIT' rel='noopener noreferrer' target='_blank'>MIT License</a>
     <a href='https://github.com/WearYourDictionary/wear-your-dictionary-blogger-theme' rel='noopener noreferrer' target='_blank'>GitHub Repository</a>
   <div class='back-to-top'>
     <button id='back-to-top'>Back to Top</button>
   </div>
-    </br>
           </div>
         </div>
       </div>
@@ -3424,7 +3551,7 @@ window.addEventListener('DOMContentLoaded', function() {
 </footer>
 
 
-<button class='btn btn-outline-light' id='back-to-top-fixed'>Back to Top</button>
+<button class='btn btn-outline-light' id='back-to-top-fixed'>&gt;</button>
 
 <b:if cond='data:blog.pageType == &quot;item&quot;'>
 <script type='application/ld+json'>
@@ -3631,18 +3758,41 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 // ]]>
 </script>
-<script>
-  <![CDATA[
-    document.addEventListener("DOMContentLoaded", function() {
-      const sidebar = document.querySelector(".sidebar");
-      const sidebarIcon = document.querySelector(".sidebar-icon");
+  <script>
+  document.addEventListener(&quot;DOMContentLoaded&quot;, function() {
+    const sidebar = document.querySelector(&quot;.sidebar&quot;);
+    const sidebarIcon = document.querySelector(&quot;.sidebar-icon&quot;);
 
-      // Add event listener to toggle sidebar visibility
-      sidebarIcon.addEventListener("click", function() {
-        sidebar.classList.toggle("open");
-      });
+    // Add event listener to toggle sidebar visibility
+    sidebarIcon.addEventListener(&quot;click&quot;, function(event) {
+      sidebar.classList.toggle(&quot;open&quot;);
+
+      // Change the icon based on the sidebar state
+      if (sidebar.classList.contains(&quot;open&quot;)) {
+        sidebarIcon.innerHTML = &#39;&#215;&#39;; // Change to &#39;X&#39; when sidebar is open
+      } else {
+        sidebarIcon.innerHTML = &#39;&#9776;&#39;; // Change back to hamburger when closed
+      }
+
+      // Stop event propagation to prevent triggering document click
+      event.stopPropagation();
     });
-  ]]>
+
+    // Close sidebar when clicking outside of it
+    document.addEventListener(&quot;click&quot;, function(event) {
+      let clickedInsideSidebar = sidebar.contains(event.target);
+      let clickedOnIcon = sidebarIcon.contains(event.target);
+
+      if (!clickedInsideSidebar) {
+        if (!clickedOnIcon) {
+          if (sidebar.classList.contains(&quot;open&quot;)) {
+            sidebar.classList.remove(&quot;open&quot;);
+            sidebarIcon.innerHTML = &#39;&#9776;&#39;; // Reset to hamburger icon
+          }
+        }
+      }
+    });
+  });
 </script>
 <script type='text/javascript'>
 <![CDATA[
